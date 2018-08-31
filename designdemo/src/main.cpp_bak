@@ -1,0 +1,14 @@
+/*************************************************
+Copyright:wangzhicheng
+Author: wangzhicheng
+Date:2018-08-28
+Description:message handler class
+ChangeLog:
+			1. create this file
+**************************************************/
+
+#include "InputMsgHandler.h"
+int main()
+{
+	return 0;
+}
