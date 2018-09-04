@@ -1,7 +1,7 @@
 /*************************************************
 Copyright:wangzhicheng
 Author: wangzhicheng
-Date:2018-08-31
+Date:2018-09-04
 Description:program main entry
 ChangeLog:
 			1. create this file
@@ -10,7 +10,8 @@ ChangeLog:
 #include "MessageDispatch.h"
 #include "ThreadPool.h"
 #include "PrintTask.h"
-int main()
+#include "StringBeads.h"
+int TestThreadPool()
 {
 	InputMsgHandler inputMsgHandler;
 	OutputMsgHandler outputMsgHandler;
@@ -30,5 +31,22 @@ int main()
 		PrintTask *task = new PrintTask;
 		threadpool.AddTask(task);
 	}
+	return 0;
+}
+void TestStringBeads()
+{
+	StringBeads stringBeads(2);
+	vector<pair<int, Beads> >vec = {
+			make_pair(1, (Beads){1}),
+			make_pair(2, (Beads){1, 3, 4}),
+			make_pair(3, (Beads){1, 3, 5})
+	};
+	stringBeads.Init(vec);
+	cout << stringBeads.GetCountOfInValidColors() << endl;
+}
+int main()
+{
+	TestStringBeads();
+
 	return 0;
 }

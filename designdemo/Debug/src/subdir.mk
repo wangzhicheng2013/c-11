@@ -8,6 +8,8 @@ O_SRCS += \
 ../src/MessageDispatch-MessageDispatch.o \
 ../src/MessageDispatch-OutputMsgHandler.o \
 ../src/MessageDispatch-PrintTask.o \
+../src/MessageDispatch-StringBeads.o \
+../src/MessageDispatch-ThreadPool.o \
 ../src/MessageDispatch-main.o 
 
 CPP_SRCS += \
@@ -15,6 +17,7 @@ CPP_SRCS += \
 ../src/MessageDispatch.cpp \
 ../src/OutputMsgHandler.cpp \
 ../src/PrintTask.cpp \
+../src/StringBeads.cpp \
 ../src/ThreadPool.cpp \
 ../src/main.cpp 
 
@@ -23,6 +26,7 @@ OBJS += \
 ./src/MessageDispatch.o \
 ./src/OutputMsgHandler.o \
 ./src/PrintTask.o \
+./src/StringBeads.o \
 ./src/ThreadPool.o \
 ./src/main.o 
 
@@ -31,6 +35,7 @@ CPP_DEPS += \
 ./src/MessageDispatch.d \
 ./src/OutputMsgHandler.d \
 ./src/PrintTask.d \
+./src/StringBeads.d \
 ./src/ThreadPool.d \
 ./src/main.d 
 

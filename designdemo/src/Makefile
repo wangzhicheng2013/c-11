@@ -56,6 +56,7 @@ am_MessageDispatch_OBJECTS =  \
 	MessageDispatch-MessageDispatch.$(OBJEXT) \
 	MessageDispatch-PrintTask.$(OBJEXT) \
 	MessageDispatch-ThreadPool.$(OBJEXT) \
+	MessageDispatch-StringBeads.$(OBJEXT) \
 	MessageDispatch-main.$(OBJEXT)
 MessageDispatch_OBJECTS = $(am_MessageDispatch_OBJECTS)
 MessageDispatch_LDADD = $(LDADD)
@@ -189,6 +190,7 @@ MessageDispatch_SOURCES = MessageHandler.h \
 				MessageDispatch.h MessageDispatch.cpp \
 				Task.h PrintTask.h PrintTask.cpp \
 				ThreadPool.h ThreadPool.cpp \
+				StringBeads.h StringBeads.cpp \
 				main.cpp
 
 MessageDispatch_CPPFLAGS = -std=c++11 
@@ -298,6 +300,7 @@ include ./$(DEPDIR)/MessageDispatch-InputMsgHandler.Po
 include ./$(DEPDIR)/MessageDispatch-MessageDispatch.Po
 include ./$(DEPDIR)/MessageDispatch-OutputMsgHandler.Po
 include ./$(DEPDIR)/MessageDispatch-PrintTask.Po
+include ./$(DEPDIR)/MessageDispatch-StringBeads.Po
 include ./$(DEPDIR)/MessageDispatch-ThreadPool.Po
 include ./$(DEPDIR)/MessageDispatch-main.Po
 
@@ -384,6 +387,20 @@ MessageDispatch-ThreadPool.obj: ThreadPool.cpp
 #	source='ThreadPool.cpp' object='MessageDispatch-ThreadPool.obj' libtool=no \
 #	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
 #	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(MessageDispatch_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o MessageDispatch-ThreadPool.obj `if test -f 'ThreadPool.cpp'; then $(CYGPATH_W) 'ThreadPool.cpp'; else $(CYGPATH_W) '$(srcdir)/ThreadPool.cpp'; fi`
+
+MessageDispatch-StringBeads.o: StringBeads.cpp
+	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(MessageDispatch_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT MessageDispatch-StringBeads.o -MD -MP -MF $(DEPDIR)/MessageDispatch-StringBeads.Tpo -c -o MessageDispatch-StringBeads.o `test -f 'StringBeads.cpp' || echo '$(srcdir)/'`StringBeads.cpp
+	$(am__mv) $(DEPDIR)/MessageDispatch-StringBeads.Tpo $(DEPDIR)/MessageDispatch-StringBeads.Po
+#	source='StringBeads.cpp' object='MessageDispatch-StringBeads.o' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
+#	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(MessageDispatch_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o MessageDispatch-StringBeads.o `test -f 'StringBeads.cpp' || echo '$(srcdir)/'`StringBeads.cpp
+
+MessageDispatch-StringBeads.obj: StringBeads.cpp
+	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(MessageDispatch_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT MessageDispatch-StringBeads.obj -MD -MP -MF $(DEPDIR)/MessageDispatch-StringBeads.Tpo -c -o MessageDispatch-StringBeads.obj `if test -f 'StringBeads.cpp'; then $(CYGPATH_W) 'StringBeads.cpp'; else $(CYGPATH_W) '$(srcdir)/StringBeads.cpp'; fi`
+	$(am__mv) $(DEPDIR)/MessageDispatch-StringBeads.Tpo $(DEPDIR)/MessageDispatch-StringBeads.Po
+#	source='StringBeads.cpp' object='MessageDispatch-StringBeads.obj' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
+#	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(MessageDispatch_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o MessageDispatch-StringBeads.obj `if test -f 'StringBeads.cpp'; then $(CYGPATH_W) 'StringBeads.cpp'; else $(CYGPATH_W) '$(srcdir)/StringBeads.cpp'; fi`
 
 MessageDispatch-main.o: main.cpp
 	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(MessageDispatch_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT MessageDispatch-main.o -MD -MP -MF $(DEPDIR)/MessageDispatch-main.Tpo -c -o MessageDispatch-main.o `test -f 'main.cpp' || echo '$(srcdir)/'`main.cpp
