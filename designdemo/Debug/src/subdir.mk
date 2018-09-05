@@ -13,6 +13,7 @@ O_SRCS += \
 ../src/MessageDispatch-main.o 
 
 CPP_SRCS += \
+../src/IP.cpp \
 ../src/InputMsgHandler.cpp \
 ../src/MessageDispatch.cpp \
 ../src/OutputMsgHandler.cpp \
@@ -22,6 +23,7 @@ CPP_SRCS += \
 ../src/main.cpp 
 
 OBJS += \
+./src/IP.o \
 ./src/InputMsgHandler.o \
 ./src/MessageDispatch.o \
 ./src/OutputMsgHandler.o \
@@ -31,6 +33,7 @@ OBJS += \
 ./src/main.o 
 
 CPP_DEPS += \
+./src/IP.d \
 ./src/InputMsgHandler.d \
 ./src/MessageDispatch.d \
 ./src/OutputMsgHandler.d \

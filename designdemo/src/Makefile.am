@@ -8,6 +8,7 @@ MessageDispatch_SOURCES = MessageHandler.h \
 				Task.h PrintTask.h PrintTask.cpp \
 				ThreadPool.h ThreadPool.cpp \
 				StringBeads.h StringBeads.cpp \
+				IP.h IP.cpp \
 				main.cpp
 MessageDispatch_CPPFLAGS = -std=c++11 
 MessageDispatch_LDFLAGS = -pthread

@@ -57,7 +57,7 @@ am_MessageDispatch_OBJECTS =  \
 	MessageDispatch-PrintTask.$(OBJEXT) \
 	MessageDispatch-ThreadPool.$(OBJEXT) \
 	MessageDispatch-StringBeads.$(OBJEXT) \
-	MessageDispatch-main.$(OBJEXT)
+	MessageDispatch-IP.$(OBJEXT) MessageDispatch-main.$(OBJEXT)
 MessageDispatch_OBJECTS = $(am_MessageDispatch_OBJECTS)
 MessageDispatch_LDADD = $(LDADD)
 MessageDispatch_LINK = $(CXXLD) $(AM_CXXFLAGS) $(CXXFLAGS) \
@@ -102,11 +102,11 @@ AUTOMAKE = ${SHELL} /media/B/c++11/designdemo/src/missing --run automake-1.11
 AWK = mawk
 CC = gcc
 CCDEPMODE = depmode=gcc3
-CFLAGS = -g -O2
+CFLAGS = -g 
 CPPFLAGS = 
 CXX = g++
 CXXDEPMODE = depmode=gcc3
-CXXFLAGS = -g -O2
+CXXFLAGS = -g 
 CYGPATH_W = echo
 DEFS = -DHAVE_CONFIG_H
 DEPDIR = .deps
@@ -191,6 +191,7 @@ MessageDispatch_SOURCES = MessageHandler.h \
 				Task.h PrintTask.h PrintTask.cpp \
 				ThreadPool.h ThreadPool.cpp \
 				StringBeads.h StringBeads.cpp \
+				IP.h IP.cpp \
 				main.cpp
 
 MessageDispatch_CPPFLAGS = -std=c++11 
@@ -296,6 +297,7 @@ mostlyclean-compile:
 distclean-compile:
 	-rm -f *.tab.c
 
+include ./$(DEPDIR)/MessageDispatch-IP.Po
 include ./$(DEPDIR)/MessageDispatch-InputMsgHandler.Po
 include ./$(DEPDIR)/MessageDispatch-MessageDispatch.Po
 include ./$(DEPDIR)/MessageDispatch-OutputMsgHandler.Po
@@ -401,6 +403,20 @@ MessageDispatch-StringBeads.obj: StringBeads.cpp
 #	source='StringBeads.cpp' object='MessageDispatch-StringBeads.obj' libtool=no \
 #	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
 #	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(MessageDispatch_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o MessageDispatch-StringBeads.obj `if test -f 'StringBeads.cpp'; then $(CYGPATH_W) 'StringBeads.cpp'; else $(CYGPATH_W) '$(srcdir)/StringBeads.cpp'; fi`
+
+MessageDispatch-IP.o: IP.cpp
+	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(MessageDispatch_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT MessageDispatch-IP.o -MD -MP -MF $(DEPDIR)/MessageDispatch-IP.Tpo -c -o MessageDispatch-IP.o `test -f 'IP.cpp' || echo '$(srcdir)/'`IP.cpp
+	$(am__mv) $(DEPDIR)/MessageDispatch-IP.Tpo $(DEPDIR)/MessageDispatch-IP.Po
+#	source='IP.cpp' object='MessageDispatch-IP.o' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
+#	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(MessageDispatch_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o MessageDispatch-IP.o `test -f 'IP.cpp' || echo '$(srcdir)/'`IP.cpp
+
+MessageDispatch-IP.obj: IP.cpp
+	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(MessageDispatch_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT MessageDispatch-IP.obj -MD -MP -MF $(DEPDIR)/MessageDispatch-IP.Tpo -c -o MessageDispatch-IP.obj `if test -f 'IP.cpp'; then $(CYGPATH_W) 'IP.cpp'; else $(CYGPATH_W) '$(srcdir)/IP.cpp'; fi`
+	$(am__mv) $(DEPDIR)/MessageDispatch-IP.Tpo $(DEPDIR)/MessageDispatch-IP.Po
+#	source='IP.cpp' object='MessageDispatch-IP.obj' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
+#	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(MessageDispatch_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o MessageDispatch-IP.obj `if test -f 'IP.cpp'; then $(CYGPATH_W) 'IP.cpp'; else $(CYGPATH_W) '$(srcdir)/IP.cpp'; fi`
 
 MessageDispatch-main.o: main.cpp
 	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(MessageDispatch_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT MessageDispatch-main.o -MD -MP -MF $(DEPDIR)/MessageDispatch-main.Tpo -c -o MessageDispatch-main.o `test -f 'main.cpp' || echo '$(srcdir)/'`main.cpp

@@ -11,6 +11,7 @@ ChangeLog:
 #include "ThreadPool.h"
 #include "PrintTask.h"
 #include "StringBeads.h"
+#include "IP.h"
 int TestThreadPool()
 {
 	InputMsgHandler inputMsgHandler;
@@ -44,9 +45,17 @@ void TestStringBeads()
 	stringBeads.Init(vec);
 	cout << stringBeads.GetCountOfInValidColors() << endl;
 }
+void TestIP()
+{
+	unsigned char segs[SEGNUM] = {127, 0, 1, 1};
+	IP ip(segs);
+	ip.Show();
+	cout << ip;
+}
 int main()
 {
 	TestStringBeads();
+	TestIP();
 
 	return 0;
 }
