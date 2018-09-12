@@ -3,18 +3,10 @@
 ################################################################################
 
 # Add inputs and outputs from these tool invocations to the build variables 
-O_SRCS += \
-../src/MessageDispatch-InputMsgHandler.o \
-../src/MessageDispatch-MessageDispatch.o \
-../src/MessageDispatch-OutputMsgHandler.o \
-../src/MessageDispatch-PrintTask.o \
-../src/MessageDispatch-StringBeads.o \
-../src/MessageDispatch-ThreadPool.o \
-../src/MessageDispatch-main.o 
-
 CPP_SRCS += \
 ../src/IP.cpp \
 ../src/InputMsgHandler.cpp \
+../src/KafkaProducerClient.cpp \
 ../src/MessageDispatch.cpp \
 ../src/OutputMsgHandler.cpp \
 ../src/PrintTask.cpp \
@@ -22,9 +14,21 @@ CPP_SRCS += \
 ../src/ThreadPool.cpp \
 ../src/main.cpp 
 
+O_SRCS += \
+../src/MessageDispatch-IP.o \
+../src/MessageDispatch-InputMsgHandler.o \
+../src/MessageDispatch-KafkaProducerClient.o \
+../src/MessageDispatch-MessageDispatch.o \
+../src/MessageDispatch-OutputMsgHandler.o \
+../src/MessageDispatch-PrintTask.o \
+../src/MessageDispatch-StringBeads.o \
+../src/MessageDispatch-ThreadPool.o \
+../src/MessageDispatch-main.o 
+
 OBJS += \
 ./src/IP.o \
 ./src/InputMsgHandler.o \
+./src/KafkaProducerClient.o \
 ./src/MessageDispatch.o \
 ./src/OutputMsgHandler.o \
 ./src/PrintTask.o \
@@ -35,6 +39,7 @@ OBJS += \
 CPP_DEPS += \
 ./src/IP.d \
 ./src/InputMsgHandler.d \
+./src/KafkaProducerClient.d \
 ./src/MessageDispatch.d \
 ./src/OutputMsgHandler.d \
 ./src/PrintTask.d \

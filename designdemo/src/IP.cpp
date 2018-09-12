@@ -1,10 +1,11 @@
 /*************************************************
 Copyright:wangzhicheng
 Author: wangzhicheng
-Date:2018-09-05
+Date:2018-09-07
 Description:ip address and its operation
 ChangeLog:
 			1. create this file
+			2. add new methods
  **************************************************/
 
 #include "IP.h"
@@ -33,6 +34,29 @@ ostream & operator <<(ostream &os, IP &ip)
 	ip.Show();
 	os << ip.address << endl;
 	return os;
+}
+/*
+ * @purpose:identify ip kind
+ * */
+IPKIND IP::WhatKind() const
+{
+	if (segs[3] < 128)
+	{
+		return A;
+	}
+	if (segs[3] < 192)
+	{
+		return B;
+	}
+	if (segs[3] < 224)
+	{
+		return C;
+	}
+	if (segs[3] < 240)
+	{
+		return D;
+	}
+	return E;
 }
 IP::~IP()
 {

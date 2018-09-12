@@ -57,7 +57,9 @@ am_MessageDispatch_OBJECTS =  \
 	MessageDispatch-PrintTask.$(OBJEXT) \
 	MessageDispatch-ThreadPool.$(OBJEXT) \
 	MessageDispatch-StringBeads.$(OBJEXT) \
-	MessageDispatch-IP.$(OBJEXT) MessageDispatch-main.$(OBJEXT)
+	MessageDispatch-IP.$(OBJEXT) \
+	MessageDispatch-KafkaProducerClient.$(OBJEXT) \
+	MessageDispatch-main.$(OBJEXT)
 MessageDispatch_OBJECTS = $(am_MessageDispatch_OBJECTS)
 MessageDispatch_LDADD = $(LDADD)
 MessageDispatch_LINK = $(CXXLD) $(AM_CXXFLAGS) $(CXXFLAGS) \
@@ -192,10 +194,13 @@ MessageDispatch_SOURCES = MessageHandler.h \
 				ThreadPool.h ThreadPool.cpp \
 				StringBeads.h StringBeads.cpp \
 				IP.h IP.cpp \
+				KafkaProducerClient.h KafkaProducerClient.cpp \
 				main.cpp
 
-MessageDispatch_CPPFLAGS = -std=c++11 
-MessageDispatch_LDFLAGS = -pthread
+MessageDispatch_CPPFLAGS = -std=c++11 \
+			 -I ./
+
+MessageDispatch_LDFLAGS = -pthread -lrdkafka++ -lrdkafka
 all: config.h
 	$(MAKE) $(AM_MAKEFLAGS) all-am
 
@@ -299,6 +304,7 @@ distclean-compile:
 
 include ./$(DEPDIR)/MessageDispatch-IP.Po
 include ./$(DEPDIR)/MessageDispatch-InputMsgHandler.Po
+include ./$(DEPDIR)/MessageDispatch-KafkaProducerClient.Po
 include ./$(DEPDIR)/MessageDispatch-MessageDispatch.Po
 include ./$(DEPDIR)/MessageDispatch-OutputMsgHandler.Po
 include ./$(DEPDIR)/MessageDispatch-PrintTask.Po
@@ -417,6 +423,20 @@ MessageDispatch-IP.obj: IP.cpp
 #	source='IP.cpp' object='MessageDispatch-IP.obj' libtool=no \
 #	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
 #	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(MessageDispatch_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o MessageDispatch-IP.obj `if test -f 'IP.cpp'; then $(CYGPATH_W) 'IP.cpp'; else $(CYGPATH_W) '$(srcdir)/IP.cpp'; fi`
+
+MessageDispatch-KafkaProducerClient.o: KafkaProducerClient.cpp
+	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(MessageDispatch_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT MessageDispatch-KafkaProducerClient.o -MD -MP -MF $(DEPDIR)/MessageDispatch-KafkaProducerClient.Tpo -c -o MessageDispatch-KafkaProducerClient.o `test -f 'KafkaProducerClient.cpp' || echo '$(srcdir)/'`KafkaProducerClient.cpp
+	$(am__mv) $(DEPDIR)/MessageDispatch-KafkaProducerClient.Tpo $(DEPDIR)/MessageDispatch-KafkaProducerClient.Po
+#	source='KafkaProducerClient.cpp' object='MessageDispatch-KafkaProducerClient.o' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
+#	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(MessageDispatch_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o MessageDispatch-KafkaProducerClient.o `test -f 'KafkaProducerClient.cpp' || echo '$(srcdir)/'`KafkaProducerClient.cpp
+
+MessageDispatch-KafkaProducerClient.obj: KafkaProducerClient.cpp
+	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(MessageDispatch_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT MessageDispatch-KafkaProducerClient.obj -MD -MP -MF $(DEPDIR)/MessageDispatch-KafkaProducerClient.Tpo -c -o MessageDispatch-KafkaProducerClient.obj `if test -f 'KafkaProducerClient.cpp'; then $(CYGPATH_W) 'KafkaProducerClient.cpp'; else $(CYGPATH_W) '$(srcdir)/KafkaProducerClient.cpp'; fi`
+	$(am__mv) $(DEPDIR)/MessageDispatch-KafkaProducerClient.Tpo $(DEPDIR)/MessageDispatch-KafkaProducerClient.Po
+#	source='KafkaProducerClient.cpp' object='MessageDispatch-KafkaProducerClient.obj' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
+#	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(MessageDispatch_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o MessageDispatch-KafkaProducerClient.obj `if test -f 'KafkaProducerClient.cpp'; then $(CYGPATH_W) 'KafkaProducerClient.cpp'; else $(CYGPATH_W) '$(srcdir)/KafkaProducerClient.cpp'; fi`
 
 MessageDispatch-main.o: main.cpp
 	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(MessageDispatch_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT MessageDispatch-main.o -MD -MP -MF $(DEPDIR)/MessageDispatch-main.Tpo -c -o MessageDispatch-main.o `test -f 'main.cpp' || echo '$(srcdir)/'`main.cpp

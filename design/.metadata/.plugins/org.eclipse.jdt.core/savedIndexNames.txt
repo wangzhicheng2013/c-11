@@ -1,0 +1,2 @@
+INDEX VERSION 1.126+/media/B/c++11/design/.metadata/.plugins/org.eclipse.jdt.core
+3269103357.index

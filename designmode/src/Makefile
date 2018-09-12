@@ -178,7 +178,7 @@ top_srcdir = .
 AUTOMAKE_OPTIONS = foreign
 DesignMode_SOURCES = ./SingleInstance.h ./StringOp.h ./StringOp.cpp ./main.cpp
 DesignMode_CPPFLAGS = -std=c++11 
-DesignMode_LDADD = -lgtest -lgtest_main -lpthread
+DesignMode_LDADD = -lgtest -lgtest_main -lpthread -lrdkafka++ -lrdkafka
 all: config.h
 	$(MAKE) $(AM_MAKEFLAGS) all-am
 
