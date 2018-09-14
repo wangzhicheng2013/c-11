@@ -11,6 +11,7 @@ MessageDispatch_SOURCES = MessageHandler.h \
 				IP.h IP.cpp \
 				KafkaClientConfig.h KafkaClientConfig.cpp \
 				KafkaProducerClient.h KafkaProducerClient.cpp \
+				KafkaConsumerClient.h KafkaConsumerClient.cpp \
 				main.cpp
 MessageDispatch_CPPFLAGS = -std=c++11 \
 			 -I ./

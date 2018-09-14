@@ -14,6 +14,7 @@ ChangeLog:
 #include "StringBeads.h"
 #include "IP.h"
 #include "KafkaProducerClient.h"
+#include "KafkaConsumerClient.h"
 int TestThreadPool()
 {
 	InputMsgHandler inputMsgHandler;
@@ -63,7 +64,24 @@ void TestKafkaProducerClient()
 	char buf[64] = "123";
 	if (kafkaProducerClient.Init(kafkaClientConfig))
 	{
-		cout << kafkaProducerClient.Push(buf, 3) << endl;
+		for (int i = 0;i < 1000;i++)
+		{
+			cout << kafkaProducerClient.Push(buf, 3) << endl;
+		}
+	}
+}
+void TestKafkaConsumerClient()
+{
+	KafkaClientConfig kafkaClientConfig;
+	kafkaClientConfig.confs.emplace_back(make_pair("metadata.broker.list", "localhost:9092"));
+	kafkaClientConfig.topics.emplace_back("TOPIC0");
+	kafkaClientConfig.group = "group0";
+	KafkaConsumerClient kafkaConsumerClient;
+	string msg;
+	if (kafkaConsumerClient.Init(kafkaClientConfig))
+	{
+		cout << kafkaConsumerClient.Pop(msg) << endl;
+		cout << "msg = " << msg << endl;
 	}
 }
 int main()
@@ -71,6 +89,7 @@ int main()
 	TestStringBeads();
 	TestIP();
 	TestKafkaProducerClient();
+	TestKafkaConsumerClient();
 
 	return 0;
 }

@@ -21,10 +21,15 @@ KafkaClientConfig::KafkaClientConfig(const KafkaClientConfig &other)
 	group = other.group;
 	timeout = other.timeout;
 	partition = other.partition;
-	if (!other.confs.size() > 0)
+	if (other.confs.size() > 0)
 	{
 		confs.resize(other.confs.size());
 		copy(begin(other.confs), end(other.confs), begin(confs));
+	}
+	if (other.topics.size() > 0)
+	{
+		topics.resize(other.topics.size());
+		copy(begin(other.topics), end(other.topics), begin(topics));
 	}
 }
 KafkaClientConfig & KafkaClientConfig::operator = (const KafkaClientConfig &other)
@@ -33,10 +38,15 @@ KafkaClientConfig & KafkaClientConfig::operator = (const KafkaClientConfig &othe
 	group = other.group;
 	timeout = other.timeout;
 	partition = other.partition;
-	if (!other.confs.size() > 0)
+	if (other.confs.size() > 0)
 	{
 		confs.resize(other.confs.size());
 		copy(begin(other.confs), end(other.confs), begin(confs));
+	}
+	if (other.topics.size() > 0)
+	{
+		topics.resize(other.topics.size());
+		copy(begin(other.topics), end(other.topics), begin(topics));
 	}
 	return *this;
 }

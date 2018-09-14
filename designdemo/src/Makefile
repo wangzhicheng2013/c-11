@@ -60,6 +60,7 @@ am_MessageDispatch_OBJECTS =  \
 	MessageDispatch-IP.$(OBJEXT) \
 	MessageDispatch-KafkaClientConfig.$(OBJEXT) \
 	MessageDispatch-KafkaProducerClient.$(OBJEXT) \
+	MessageDispatch-KafkaConsumerClient.$(OBJEXT) \
 	MessageDispatch-main.$(OBJEXT)
 MessageDispatch_OBJECTS = $(am_MessageDispatch_OBJECTS)
 MessageDispatch_DEPENDENCIES =
@@ -197,6 +198,7 @@ MessageDispatch_SOURCES = MessageHandler.h \
 				IP.h IP.cpp \
 				KafkaClientConfig.h KafkaClientConfig.cpp \
 				KafkaProducerClient.h KafkaProducerClient.cpp \
+				KafkaConsumerClient.h KafkaConsumerClient.cpp \
 				main.cpp
 
 MessageDispatch_CPPFLAGS = -std=c++11 \
@@ -308,6 +310,7 @@ distclean-compile:
 include ./$(DEPDIR)/MessageDispatch-IP.Po
 include ./$(DEPDIR)/MessageDispatch-InputMsgHandler.Po
 include ./$(DEPDIR)/MessageDispatch-KafkaClientConfig.Po
+include ./$(DEPDIR)/MessageDispatch-KafkaConsumerClient.Po
 include ./$(DEPDIR)/MessageDispatch-KafkaProducerClient.Po
 include ./$(DEPDIR)/MessageDispatch-MessageDispatch.Po
 include ./$(DEPDIR)/MessageDispatch-OutputMsgHandler.Po
@@ -455,6 +458,20 @@ MessageDispatch-KafkaProducerClient.obj: KafkaProducerClient.cpp
 #	source='KafkaProducerClient.cpp' object='MessageDispatch-KafkaProducerClient.obj' libtool=no \
 #	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
 #	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(MessageDispatch_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o MessageDispatch-KafkaProducerClient.obj `if test -f 'KafkaProducerClient.cpp'; then $(CYGPATH_W) 'KafkaProducerClient.cpp'; else $(CYGPATH_W) '$(srcdir)/KafkaProducerClient.cpp'; fi`
+
+MessageDispatch-KafkaConsumerClient.o: KafkaConsumerClient.cpp
+	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(MessageDispatch_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT MessageDispatch-KafkaConsumerClient.o -MD -MP -MF $(DEPDIR)/MessageDispatch-KafkaConsumerClient.Tpo -c -o MessageDispatch-KafkaConsumerClient.o `test -f 'KafkaConsumerClient.cpp' || echo '$(srcdir)/'`KafkaConsumerClient.cpp
+	$(am__mv) $(DEPDIR)/MessageDispatch-KafkaConsumerClient.Tpo $(DEPDIR)/MessageDispatch-KafkaConsumerClient.Po
+#	source='KafkaConsumerClient.cpp' object='MessageDispatch-KafkaConsumerClient.o' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
+#	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(MessageDispatch_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o MessageDispatch-KafkaConsumerClient.o `test -f 'KafkaConsumerClient.cpp' || echo '$(srcdir)/'`KafkaConsumerClient.cpp
+
+MessageDispatch-KafkaConsumerClient.obj: KafkaConsumerClient.cpp
+	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(MessageDispatch_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT MessageDispatch-KafkaConsumerClient.obj -MD -MP -MF $(DEPDIR)/MessageDispatch-KafkaConsumerClient.Tpo -c -o MessageDispatch-KafkaConsumerClient.obj `if test -f 'KafkaConsumerClient.cpp'; then $(CYGPATH_W) 'KafkaConsumerClient.cpp'; else $(CYGPATH_W) '$(srcdir)/KafkaConsumerClient.cpp'; fi`
+	$(am__mv) $(DEPDIR)/MessageDispatch-KafkaConsumerClient.Tpo $(DEPDIR)/MessageDispatch-KafkaConsumerClient.Po
+#	source='KafkaConsumerClient.cpp' object='MessageDispatch-KafkaConsumerClient.obj' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
+#	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(MessageDispatch_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o MessageDispatch-KafkaConsumerClient.obj `if test -f 'KafkaConsumerClient.cpp'; then $(CYGPATH_W) 'KafkaConsumerClient.cpp'; else $(CYGPATH_W) '$(srcdir)/KafkaConsumerClient.cpp'; fi`
 
 MessageDispatch-main.o: main.cpp
 	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(MessageDispatch_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT MessageDispatch-main.o -MD -MP -MF $(DEPDIR)/MessageDispatch-main.Tpo -c -o MessageDispatch-main.o `test -f 'main.cpp' || echo '$(srcdir)/'`main.cpp

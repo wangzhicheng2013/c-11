@@ -25,6 +25,7 @@ public:
 	int timeout;
 	int partition;
 	vector<pair<string, string> >confs;
+	vector<string>topics;
 };
 
 #endif /* KAFKACLIENTCONFIG_H_ */
