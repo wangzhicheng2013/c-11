@@ -1,10 +1,11 @@
 /*************************************************
 Copyright:wangzhicheng
 Author: wangzhicheng
-Date:2018-09-04
+Date:2018-09-14
 Description:program main entry
 ChangeLog:
 			1. create this file
+			2.add kafka client test
 **************************************************/
 
 #include "MessageDispatch.h"
@@ -12,6 +13,7 @@ ChangeLog:
 #include "PrintTask.h"
 #include "StringBeads.h"
 #include "IP.h"
+#include "KafkaProducerClient.h"
 int TestThreadPool()
 {
 	InputMsgHandler inputMsgHandler;
@@ -52,10 +54,23 @@ void TestIP()
 	ip.Show();
 	cout << ip;
 }
+void TestKafkaProducerClient()
+{
+	KafkaClientConfig kafkaClientConfig;
+	kafkaClientConfig.confs.emplace_back(make_pair("metadata.broker.list", "localhost:9092"));
+	kafkaClientConfig.topic = "TOPIC0";
+	KafkaProducerClient kafkaProducerClient;
+	char buf[64] = "123";
+	if (kafkaProducerClient.Init(kafkaClientConfig))
+	{
+		cout << kafkaProducerClient.Push(buf, 3) << endl;
+	}
+}
 int main()
 {
 	TestStringBeads();
 	TestIP();
+	TestKafkaProducerClient();
 
 	return 0;
 }

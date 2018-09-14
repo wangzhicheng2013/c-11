@@ -6,6 +6,7 @@
 CPP_SRCS += \
 ../src/IP.cpp \
 ../src/InputMsgHandler.cpp \
+../src/KafkaClientConfig.cpp \
 ../src/KafkaProducerClient.cpp \
 ../src/MessageDispatch.cpp \
 ../src/OutputMsgHandler.cpp \
@@ -17,6 +18,7 @@ CPP_SRCS += \
 O_SRCS += \
 ../src/MessageDispatch-IP.o \
 ../src/MessageDispatch-InputMsgHandler.o \
+../src/MessageDispatch-KafkaClientConfig.o \
 ../src/MessageDispatch-KafkaProducerClient.o \
 ../src/MessageDispatch-MessageDispatch.o \
 ../src/MessageDispatch-OutputMsgHandler.o \
@@ -28,6 +30,7 @@ O_SRCS += \
 OBJS += \
 ./src/IP.o \
 ./src/InputMsgHandler.o \
+./src/KafkaClientConfig.o \
 ./src/KafkaProducerClient.o \
 ./src/MessageDispatch.o \
 ./src/OutputMsgHandler.o \
@@ -39,6 +42,7 @@ OBJS += \
 CPP_DEPS += \
 ./src/IP.d \
 ./src/InputMsgHandler.d \
+./src/KafkaClientConfig.d \
 ./src/KafkaProducerClient.d \
 ./src/MessageDispatch.d \
 ./src/OutputMsgHandler.d \

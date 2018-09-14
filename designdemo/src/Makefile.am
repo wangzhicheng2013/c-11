@@ -9,8 +9,10 @@ MessageDispatch_SOURCES = MessageHandler.h \
 				ThreadPool.h ThreadPool.cpp \
 				StringBeads.h StringBeads.cpp \
 				IP.h IP.cpp \
+				KafkaClientConfig.h KafkaClientConfig.cpp \
 				KafkaProducerClient.h KafkaProducerClient.cpp \
 				main.cpp
 MessageDispatch_CPPFLAGS = -std=c++11 \
 			 -I ./
-MessageDispatch_LDFLAGS = -pthread -lrdkafka++ -lrdkafka
+MessageDispatch_LDFLAGS = -pthread
+MessageDispatch_LDADD = -lrdkafka++ -lrdkafka

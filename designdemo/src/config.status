@@ -449,7 +449,7 @@ Copyright (C) 2010 Free Software Foundation, Inc.
 This config.status script is free software; the Free Software Foundation
 gives unlimited permission to copy, distribute and modify it."
 
-ac_pwd='/media/B/c++11/designdemo/src'
+ac_pwd='/opt/c++11/c-11/designdemo/src'
 srcdir='.'
 INSTALL='/usr/bin/install -c'
 MKDIR_P='/bin/mkdir -p'
@@ -651,7 +651,7 @@ S["EXEEXT"]=""
 S["ac_ct_CXX"]="g++"
 S["CPPFLAGS"]=""
 S["LDFLAGS"]=""
-S["CXXFLAGS"]="-g "
+S["CXXFLAGS"]="-g"
 S["CXX"]="g++"
 S["am__untar"]="$${TAR-tar} xf -"
 S["am__tar"]="$${TAR-tar} chof - \"$$tardir\""
@@ -663,12 +663,12 @@ S["mkdir_p"]="/bin/mkdir -p"
 S["MKDIR_P"]="/bin/mkdir -p"
 S["INSTALL_STRIP_PROGRAM"]="$(install_sh) -c -s"
 S["STRIP"]=""
-S["install_sh"]="${SHELL} /media/B/c++11/designdemo/src/install-sh"
-S["MAKEINFO"]="${SHELL} /media/B/c++11/designdemo/src/missing --run makeinfo"
-S["AUTOHEADER"]="${SHELL} /media/B/c++11/designdemo/src/missing --run autoheader"
-S["AUTOMAKE"]="${SHELL} /media/B/c++11/designdemo/src/missing --run automake-1.11"
-S["AUTOCONF"]="${SHELL} /media/B/c++11/designdemo/src/missing --run autoconf"
-S["ACLOCAL"]="${SHELL} /media/B/c++11/designdemo/src/missing --run aclocal-1.11"
+S["install_sh"]="${SHELL} /opt/c++11/c-11/designdemo/src/install-sh"
+S["MAKEINFO"]="${SHELL} /opt/c++11/c-11/designdemo/src/missing --run makeinfo"
+S["AUTOHEADER"]="${SHELL} /opt/c++11/c-11/designdemo/src/missing --run autoheader"
+S["AUTOMAKE"]="${SHELL} /opt/c++11/c-11/designdemo/src/missing --run automake-1.11"
+S["AUTOCONF"]="${SHELL} /opt/c++11/c-11/designdemo/src/missing --run autoconf"
+S["ACLOCAL"]="${SHELL} /opt/c++11/c-11/designdemo/src/missing --run aclocal-1.11"
 S["VERSION"]="0.0.1"
 S["PACKAGE"]="messagedispatch"
 S["CYGPATH_W"]="echo"

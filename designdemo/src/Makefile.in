@@ -58,10 +58,11 @@ am_MessageDispatch_OBJECTS =  \
 	MessageDispatch-ThreadPool.$(OBJEXT) \
 	MessageDispatch-StringBeads.$(OBJEXT) \
 	MessageDispatch-IP.$(OBJEXT) \
+	MessageDispatch-KafkaClientConfig.$(OBJEXT) \
 	MessageDispatch-KafkaProducerClient.$(OBJEXT) \
 	MessageDispatch-main.$(OBJEXT)
 MessageDispatch_OBJECTS = $(am_MessageDispatch_OBJECTS)
-MessageDispatch_LDADD = $(LDADD)
+MessageDispatch_DEPENDENCIES =
 MessageDispatch_LINK = $(CXXLD) $(AM_CXXFLAGS) $(CXXFLAGS) \
 	$(MessageDispatch_LDFLAGS) $(LDFLAGS) -o $@
 DEFAULT_INCLUDES = -I.@am__isrc@
@@ -194,13 +195,15 @@ MessageDispatch_SOURCES = MessageHandler.h \
 				ThreadPool.h ThreadPool.cpp \
 				StringBeads.h StringBeads.cpp \
 				IP.h IP.cpp \
+				KafkaClientConfig.h KafkaClientConfig.cpp \
 				KafkaProducerClient.h KafkaProducerClient.cpp \
 				main.cpp
 
 MessageDispatch_CPPFLAGS = -std=c++11 \
 			 -I ./
 
-MessageDispatch_LDFLAGS = -pthread -lrdkafka++ -lrdkafka
+MessageDispatch_LDFLAGS = -pthread
+MessageDispatch_LDADD = -lrdkafka++ -lrdkafka
 all: config.h
 	$(MAKE) $(AM_MAKEFLAGS) all-am
 
@@ -304,6 +307,7 @@ distclean-compile:
 
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/MessageDispatch-IP.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/MessageDispatch-InputMsgHandler.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/MessageDispatch-KafkaClientConfig.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/MessageDispatch-KafkaProducerClient.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/MessageDispatch-MessageDispatch.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/MessageDispatch-OutputMsgHandler.Po@am__quote@
@@ -423,6 +427,20 @@ MessageDispatch-IP.obj: IP.cpp
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='IP.cpp' object='MessageDispatch-IP.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(MessageDispatch_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o MessageDispatch-IP.obj `if test -f 'IP.cpp'; then $(CYGPATH_W) 'IP.cpp'; else $(CYGPATH_W) '$(srcdir)/IP.cpp'; fi`
+
+MessageDispatch-KafkaClientConfig.o: KafkaClientConfig.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(MessageDispatch_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT MessageDispatch-KafkaClientConfig.o -MD -MP -MF $(DEPDIR)/MessageDispatch-KafkaClientConfig.Tpo -c -o MessageDispatch-KafkaClientConfig.o `test -f 'KafkaClientConfig.cpp' || echo '$(srcdir)/'`KafkaClientConfig.cpp
+@am__fastdepCXX_TRUE@	$(am__mv) $(DEPDIR)/MessageDispatch-KafkaClientConfig.Tpo $(DEPDIR)/MessageDispatch-KafkaClientConfig.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='KafkaClientConfig.cpp' object='MessageDispatch-KafkaClientConfig.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(MessageDispatch_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o MessageDispatch-KafkaClientConfig.o `test -f 'KafkaClientConfig.cpp' || echo '$(srcdir)/'`KafkaClientConfig.cpp
+
+MessageDispatch-KafkaClientConfig.obj: KafkaClientConfig.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(MessageDispatch_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT MessageDispatch-KafkaClientConfig.obj -MD -MP -MF $(DEPDIR)/MessageDispatch-KafkaClientConfig.Tpo -c -o MessageDispatch-KafkaClientConfig.obj `if test -f 'KafkaClientConfig.cpp'; then $(CYGPATH_W) 'KafkaClientConfig.cpp'; else $(CYGPATH_W) '$(srcdir)/KafkaClientConfig.cpp'; fi`
+@am__fastdepCXX_TRUE@	$(am__mv) $(DEPDIR)/MessageDispatch-KafkaClientConfig.Tpo $(DEPDIR)/MessageDispatch-KafkaClientConfig.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='KafkaClientConfig.cpp' object='MessageDispatch-KafkaClientConfig.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(MessageDispatch_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o MessageDispatch-KafkaClientConfig.obj `if test -f 'KafkaClientConfig.cpp'; then $(CYGPATH_W) 'KafkaClientConfig.cpp'; else $(CYGPATH_W) '$(srcdir)/KafkaClientConfig.cpp'; fi`
 
 MessageDispatch-KafkaProducerClient.o: KafkaProducerClient.cpp
 @am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(MessageDispatch_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT MessageDispatch-KafkaProducerClient.o -MD -MP -MF $(DEPDIR)/MessageDispatch-KafkaProducerClient.Tpo -c -o MessageDispatch-KafkaProducerClient.o `test -f 'KafkaProducerClient.cpp' || echo '$(srcdir)/'`KafkaProducerClient.cpp

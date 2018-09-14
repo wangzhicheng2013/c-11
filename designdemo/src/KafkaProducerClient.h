@@ -9,8 +9,8 @@ ChangeLog:
 #ifndef KAFKAPRODUCERCLIENT_H_
 #define KAFKAPRODUCERCLIENT_H_
 #include "rdkafkacpp.h"
-#include <string>
-#include <vector>
+#include "KafkaClientConfig.h"
+#include <iostream>
 #include <memory>
 using namespace std;
 using namespace RdKafka;
@@ -24,14 +24,23 @@ class KafkaProducerClient
 public:
 	friend class ProducerDeliveryReportCallBack;
 	KafkaProducerClient();
+	/*
+	 * @purpose:init client
+	 * @return true if init ok
+	 * */
+	bool Init(KafkaClientConfig &);
+	/*
+	 * @purpose:push message to kafka
+	 * @return true if push ok
+	 * */
+	bool Push(char *start, int size);
 	virtual ~KafkaProducerClient();
+public:
+	KafkaClientConfig config;
 private:
 	unique_ptr<Conf>ConfPtr;
 	unique_ptr<Producer>ProducerPtr;
 	ProducerDeliveryReportCallBack producerDeliveryReportCallBack;
-	string topic;
-	int partition;
-	int timeout;
 
 };
 

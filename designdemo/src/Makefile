@@ -58,10 +58,11 @@ am_MessageDispatch_OBJECTS =  \
 	MessageDispatch-ThreadPool.$(OBJEXT) \
 	MessageDispatch-StringBeads.$(OBJEXT) \
 	MessageDispatch-IP.$(OBJEXT) \
+	MessageDispatch-KafkaClientConfig.$(OBJEXT) \
 	MessageDispatch-KafkaProducerClient.$(OBJEXT) \
 	MessageDispatch-main.$(OBJEXT)
 MessageDispatch_OBJECTS = $(am_MessageDispatch_OBJECTS)
-MessageDispatch_LDADD = $(LDADD)
+MessageDispatch_DEPENDENCIES =
 MessageDispatch_LINK = $(CXXLD) $(AM_CXXFLAGS) $(CXXFLAGS) \
 	$(MessageDispatch_LDFLAGS) $(LDFLAGS) -o $@
 DEFAULT_INCLUDES = -I.
@@ -96,11 +97,11 @@ distuninstallcheck_listfiles = find . -type f -print
 am__distuninstallcheck_listfiles = $(distuninstallcheck_listfiles) \
   | sed 's|^\./|$(prefix)/|' | grep -v '$(infodir)/dir$$'
 distcleancheck_listfiles = find . -type f -print
-ACLOCAL = ${SHELL} /media/B/c++11/designdemo/src/missing --run aclocal-1.11
+ACLOCAL = ${SHELL} /opt/c++11/c-11/designdemo/src/missing --run aclocal-1.11
 AMTAR = $${TAR-tar}
-AUTOCONF = ${SHELL} /media/B/c++11/designdemo/src/missing --run autoconf
-AUTOHEADER = ${SHELL} /media/B/c++11/designdemo/src/missing --run autoheader
-AUTOMAKE = ${SHELL} /media/B/c++11/designdemo/src/missing --run automake-1.11
+AUTOCONF = ${SHELL} /opt/c++11/c-11/designdemo/src/missing --run autoconf
+AUTOHEADER = ${SHELL} /opt/c++11/c-11/designdemo/src/missing --run autoheader
+AUTOMAKE = ${SHELL} /opt/c++11/c-11/designdemo/src/missing --run automake-1.11
 AWK = mawk
 CC = gcc
 CCDEPMODE = depmode=gcc3
@@ -108,7 +109,7 @@ CFLAGS = -g
 CPPFLAGS = 
 CXX = g++
 CXXDEPMODE = depmode=gcc3
-CXXFLAGS = -g 
+CXXFLAGS = -g
 CYGPATH_W = echo
 DEFS = -DHAVE_CONFIG_H
 DEPDIR = .deps
@@ -125,7 +126,7 @@ LDFLAGS =
 LIBOBJS = 
 LIBS = 
 LTLIBOBJS = 
-MAKEINFO = ${SHELL} /media/B/c++11/designdemo/src/missing --run makeinfo
+MAKEINFO = ${SHELL} /opt/c++11/c-11/designdemo/src/missing --run makeinfo
 MKDIR_P = /bin/mkdir -p
 OBJEXT = o
 PACKAGE = messagedispatch
@@ -140,10 +141,10 @@ SET_MAKE =
 SHELL = /bin/bash
 STRIP = 
 VERSION = 0.0.1
-abs_builddir = /media/B/c++11/designdemo/src
-abs_srcdir = /media/B/c++11/designdemo/src
-abs_top_builddir = /media/B/c++11/designdemo/src
-abs_top_srcdir = /media/B/c++11/designdemo/src
+abs_builddir = /opt/c++11/c-11/designdemo/src
+abs_srcdir = /opt/c++11/c-11/designdemo/src
+abs_top_builddir = /opt/c++11/c-11/designdemo/src
+abs_top_srcdir = /opt/c++11/c-11/designdemo/src
 ac_ct_CC = gcc
 ac_ct_CXX = g++
 am__include = include
@@ -163,7 +164,7 @@ host_alias =
 htmldir = ${docdir}
 includedir = ${prefix}/include
 infodir = ${datarootdir}/info
-install_sh = ${SHELL} /media/B/c++11/designdemo/src/install-sh
+install_sh = ${SHELL} /opt/c++11/c-11/designdemo/src/install-sh
 libdir = ${exec_prefix}/lib
 libexecdir = ${exec_prefix}/libexec
 localedir = ${datarootdir}/locale
@@ -194,13 +195,15 @@ MessageDispatch_SOURCES = MessageHandler.h \
 				ThreadPool.h ThreadPool.cpp \
 				StringBeads.h StringBeads.cpp \
 				IP.h IP.cpp \
+				KafkaClientConfig.h KafkaClientConfig.cpp \
 				KafkaProducerClient.h KafkaProducerClient.cpp \
 				main.cpp
 
 MessageDispatch_CPPFLAGS = -std=c++11 \
 			 -I ./
 
-MessageDispatch_LDFLAGS = -pthread -lrdkafka++ -lrdkafka
+MessageDispatch_LDFLAGS = -pthread
+MessageDispatch_LDADD = -lrdkafka++ -lrdkafka
 all: config.h
 	$(MAKE) $(AM_MAKEFLAGS) all-am
 
@@ -304,6 +307,7 @@ distclean-compile:
 
 include ./$(DEPDIR)/MessageDispatch-IP.Po
 include ./$(DEPDIR)/MessageDispatch-InputMsgHandler.Po
+include ./$(DEPDIR)/MessageDispatch-KafkaClientConfig.Po
 include ./$(DEPDIR)/MessageDispatch-KafkaProducerClient.Po
 include ./$(DEPDIR)/MessageDispatch-MessageDispatch.Po
 include ./$(DEPDIR)/MessageDispatch-OutputMsgHandler.Po
@@ -423,6 +427,20 @@ MessageDispatch-IP.obj: IP.cpp
 #	source='IP.cpp' object='MessageDispatch-IP.obj' libtool=no \
 #	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
 #	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(MessageDispatch_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o MessageDispatch-IP.obj `if test -f 'IP.cpp'; then $(CYGPATH_W) 'IP.cpp'; else $(CYGPATH_W) '$(srcdir)/IP.cpp'; fi`
+
+MessageDispatch-KafkaClientConfig.o: KafkaClientConfig.cpp
+	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(MessageDispatch_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT MessageDispatch-KafkaClientConfig.o -MD -MP -MF $(DEPDIR)/MessageDispatch-KafkaClientConfig.Tpo -c -o MessageDispatch-KafkaClientConfig.o `test -f 'KafkaClientConfig.cpp' || echo '$(srcdir)/'`KafkaClientConfig.cpp
+	$(am__mv) $(DEPDIR)/MessageDispatch-KafkaClientConfig.Tpo $(DEPDIR)/MessageDispatch-KafkaClientConfig.Po
+#	source='KafkaClientConfig.cpp' object='MessageDispatch-KafkaClientConfig.o' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
+#	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(MessageDispatch_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o MessageDispatch-KafkaClientConfig.o `test -f 'KafkaClientConfig.cpp' || echo '$(srcdir)/'`KafkaClientConfig.cpp
+
+MessageDispatch-KafkaClientConfig.obj: KafkaClientConfig.cpp
+	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(MessageDispatch_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT MessageDispatch-KafkaClientConfig.obj -MD -MP -MF $(DEPDIR)/MessageDispatch-KafkaClientConfig.Tpo -c -o MessageDispatch-KafkaClientConfig.obj `if test -f 'KafkaClientConfig.cpp'; then $(CYGPATH_W) 'KafkaClientConfig.cpp'; else $(CYGPATH_W) '$(srcdir)/KafkaClientConfig.cpp'; fi`
+	$(am__mv) $(DEPDIR)/MessageDispatch-KafkaClientConfig.Tpo $(DEPDIR)/MessageDispatch-KafkaClientConfig.Po
+#	source='KafkaClientConfig.cpp' object='MessageDispatch-KafkaClientConfig.obj' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
+#	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(MessageDispatch_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o MessageDispatch-KafkaClientConfig.obj `if test -f 'KafkaClientConfig.cpp'; then $(CYGPATH_W) 'KafkaClientConfig.cpp'; else $(CYGPATH_W) '$(srcdir)/KafkaClientConfig.cpp'; fi`
 
 MessageDispatch-KafkaProducerClient.o: KafkaProducerClient.cpp
 	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(MessageDispatch_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT MessageDispatch-KafkaProducerClient.o -MD -MP -MF $(DEPDIR)/MessageDispatch-KafkaProducerClient.Tpo -c -o MessageDispatch-KafkaProducerClient.o `test -f 'KafkaProducerClient.cpp' || echo '$(srcdir)/'`KafkaProducerClient.cpp

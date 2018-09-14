@@ -1,5 +1,5 @@
-MessageDispatch-main.o: main.cpp MessageDispatch.h \
- /usr/include/c++/4.8/unordered_map /usr/include/c++/4.8/utility \
+MessageDispatch-KafkaClientConfig.o: KafkaClientConfig.cpp \
+ KafkaClientConfig.h /usr/include/c++/4.8/string \
  /usr/include/i386-linux-gnu/c++/4.8/bits/c++config.h \
  /usr/include/i386-linux-gnu/c++/4.8/bits/os_defines.h \
  /usr/include/features.h /usr/include/i386-linux-gnu/bits/predefs.h \
@@ -8,24 +8,18 @@ MessageDispatch-main.o: main.cpp MessageDispatch.h \
  /usr/include/i386-linux-gnu/gnu/stubs.h \
  /usr/include/i386-linux-gnu/gnu/stubs-32.h \
  /usr/include/i386-linux-gnu/c++/4.8/bits/cpu_defines.h \
- /usr/include/c++/4.8/bits/stl_relops.h \
- /usr/include/c++/4.8/bits/stl_pair.h /usr/include/c++/4.8/bits/move.h \
- /usr/include/c++/4.8/bits/concept_check.h \
- /usr/include/c++/4.8/type_traits /usr/include/c++/4.8/initializer_list \
- /usr/include/c++/4.8/tuple /usr/include/c++/4.8/array \
- /usr/include/c++/4.8/stdexcept /usr/include/c++/4.8/exception \
- /usr/include/c++/4.8/bits/atomic_lockfree_defines.h \
- /usr/include/c++/4.8/bits/exception_ptr.h \
- /usr/include/c++/4.8/bits/exception_defines.h \
- /usr/include/c++/4.8/bits/nested_exception.h /usr/include/c++/4.8/string \
  /usr/include/c++/4.8/bits/stringfwd.h \
  /usr/include/c++/4.8/bits/memoryfwd.h \
  /usr/include/c++/4.8/bits/char_traits.h \
  /usr/include/c++/4.8/bits/stl_algobase.h \
  /usr/include/c++/4.8/bits/functexcept.h \
+ /usr/include/c++/4.8/bits/exception_defines.h \
  /usr/include/c++/4.8/bits/cpp_type_traits.h \
  /usr/include/c++/4.8/ext/type_traits.h \
  /usr/include/c++/4.8/ext/numeric_traits.h \
+ /usr/include/c++/4.8/bits/stl_pair.h /usr/include/c++/4.8/bits/move.h \
+ /usr/include/c++/4.8/bits/concept_check.h \
+ /usr/include/c++/4.8/type_traits \
  /usr/include/c++/4.8/bits/stl_iterator_base_types.h \
  /usr/include/c++/4.8/bits/stl_iterator_base_funcs.h \
  /usr/include/c++/4.8/debug/debug.h \
@@ -40,6 +34,10 @@ MessageDispatch-main.o: main.cpp MessageDispatch.h \
  /usr/include/c++/4.8/bits/allocator.h \
  /usr/include/i386-linux-gnu/c++/4.8/bits/c++allocator.h \
  /usr/include/c++/4.8/ext/new_allocator.h /usr/include/c++/4.8/new \
+ /usr/include/c++/4.8/exception \
+ /usr/include/c++/4.8/bits/atomic_lockfree_defines.h \
+ /usr/include/c++/4.8/bits/exception_ptr.h \
+ /usr/include/c++/4.8/bits/nested_exception.h \
  /usr/include/c++/4.8/bits/localefwd.h \
  /usr/include/i386-linux-gnu/c++/4.8/bits/c++locale.h \
  /usr/include/c++/4.8/clocale /usr/include/locale.h \
@@ -65,6 +63,7 @@ MessageDispatch-main.o: main.cpp MessageDispatch.h \
  /usr/include/i386-linux-gnu/bits/pthreadtypes.h \
  /usr/include/i386-linux-gnu/bits/setjmp.h \
  /usr/include/i386-linux-gnu/c++/4.8/bits/atomic_word.h \
+ /usr/include/c++/4.8/initializer_list \
  /usr/include/c++/4.8/ext/string_conversions.h \
  /usr/include/c++/4.8/cstdlib /usr/include/stdlib.h \
  /usr/include/i386-linux-gnu/bits/waitflags.h \
@@ -83,55 +82,20 @@ MessageDispatch-main.o: main.cpp MessageDispatch.h \
  /usr/include/asm-generic/errno-base.h \
  /usr/include/c++/4.8/bits/functional_hash.h \
  /usr/include/c++/4.8/bits/hash_bytes.h \
- /usr/include/c++/4.8/bits/basic_string.tcc \
- /usr/include/c++/4.8/bits/uses_allocator.h \
- /usr/include/c++/4.8/bits/alloc_traits.h \
- /usr/include/c++/4.8/bits/ptr_traits.h \
- /usr/include/c++/4.8/bits/hashtable.h \
- /usr/include/c++/4.8/bits/hashtable_policy.h \
- /usr/include/c++/4.8/bits/unordered_map.h InputMsgHandler.h \
- MessageHandler.h /usr/include/c++/4.8/iostream \
- /usr/include/c++/4.8/ostream /usr/include/c++/4.8/ios \
- /usr/include/c++/4.8/bits/ios_base.h \
- /usr/include/c++/4.8/bits/locale_classes.h \
- /usr/include/c++/4.8/bits/locale_classes.tcc \
- /usr/include/c++/4.8/streambuf /usr/include/c++/4.8/bits/streambuf.tcc \
- /usr/include/c++/4.8/bits/basic_ios.h \
- /usr/include/c++/4.8/bits/locale_facets.h /usr/include/c++/4.8/cwctype \
- /usr/include/wctype.h \
- /usr/include/i386-linux-gnu/c++/4.8/bits/ctype_base.h \
- /usr/include/c++/4.8/bits/streambuf_iterator.h \
- /usr/include/i386-linux-gnu/c++/4.8/bits/ctype_inline.h \
- /usr/include/c++/4.8/bits/locale_facets.tcc \
- /usr/include/c++/4.8/bits/basic_ios.tcc \
- /usr/include/c++/4.8/bits/ostream.tcc /usr/include/c++/4.8/istream \
- /usr/include/c++/4.8/bits/istream.tcc OutputMsgHandler.h ThreadPool.h \
- Task.h /usr/include/c++/4.8/vector \
+ /usr/include/c++/4.8/bits/basic_string.tcc /usr/include/c++/4.8/vector \
  /usr/include/c++/4.8/bits/stl_construct.h \
  /usr/include/c++/4.8/ext/alloc_traits.h \
+ /usr/include/c++/4.8/bits/alloc_traits.h \
+ /usr/include/c++/4.8/bits/ptr_traits.h \
  /usr/include/c++/4.8/bits/stl_uninitialized.h \
  /usr/include/c++/4.8/bits/stl_vector.h \
  /usr/include/c++/4.8/bits/stl_bvector.h \
- /usr/include/c++/4.8/bits/vector.tcc /usr/include/c++/4.8/list \
- /usr/include/c++/4.8/bits/stl_list.h /usr/include/c++/4.8/bits/list.tcc \
- /usr/include/c++/4.8/thread /usr/include/c++/4.8/chrono \
- /usr/include/c++/4.8/ratio /usr/include/c++/4.8/limits \
- /usr/include/c++/4.8/ctime /usr/include/c++/4.8/functional \
- /usr/include/c++/4.8/typeinfo /usr/include/c++/4.8/memory \
- /usr/include/c++/4.8/bits/stl_tempbuf.h \
- /usr/include/c++/4.8/bits/stl_raw_storage_iter.h \
- /usr/include/c++/4.8/ext/concurrence.h \
- /usr/include/c++/4.8/bits/unique_ptr.h \
- /usr/include/c++/4.8/bits/shared_ptr.h \
- /usr/include/c++/4.8/bits/shared_ptr_base.h \
- /usr/include/c++/4.8/backward/auto_ptr.h /usr/include/c++/4.8/mutex \
- /usr/include/c++/4.8/system_error \
- /usr/include/i386-linux-gnu/c++/4.8/bits/error_constants.h \
- /usr/include/c++/4.8/condition_variable PrintTask.h StringBeads.h \
- /usr/include/c++/4.8/bitset /usr/include/c++/4.8/algorithm \
+ /usr/include/c++/4.8/bits/vector.tcc /usr/include/c++/4.8/algorithm \
+ /usr/include/c++/4.8/utility /usr/include/c++/4.8/bits/stl_relops.h \
  /usr/include/c++/4.8/bits/stl_algo.h \
  /usr/include/c++/4.8/bits/algorithmfwd.h \
- /usr/include/c++/4.8/bits/stl_heap.h /usr/include/c++/4.8/random \
+ /usr/include/c++/4.8/bits/stl_heap.h \
+ /usr/include/c++/4.8/bits/stl_tempbuf.h /usr/include/c++/4.8/random \
  /usr/include/c++/4.8/cmath /usr/include/math.h \
  /usr/include/i386-linux-gnu/bits/huge_val.h \
  /usr/include/i386-linux-gnu/bits/huge_valf.h \
@@ -139,7 +103,7 @@ MessageDispatch-main.o: main.cpp MessageDispatch.h \
  /usr/include/i386-linux-gnu/bits/inf.h \
  /usr/include/i386-linux-gnu/bits/nan.h \
  /usr/include/i386-linux-gnu/bits/mathdef.h \
- /usr/include/i386-linux-gnu/bits/mathcalls.h \
+ /usr/include/i386-linux-gnu/bits/mathcalls.h /usr/include/c++/4.8/limits \
  /usr/include/c++/4.8/bits/random.h \
  /usr/include/i386-linux-gnu/c++/4.8/bits/opt_random.h \
  /usr/lib/gcc/i686-linux-gnu/4.8/include/x86intrin.h \
@@ -147,14 +111,14 @@ MessageDispatch-main.o: main.cpp MessageDispatch.h \
  /usr/lib/gcc/i686-linux-gnu/4.8/include/immintrin.h \
  /usr/lib/gcc/i686-linux-gnu/4.8/include/adxintrin.h \
  /usr/include/c++/4.8/bits/random.tcc /usr/include/c++/4.8/numeric \
- /usr/include/c++/4.8/bits/stl_numeric.h IP.h /usr/include/string.h \
- KafkaProducerClient.h rdkafkacpp.h KafkaClientConfig.h
+ /usr/include/c++/4.8/bits/stl_numeric.h /usr/include/c++/4.8/functional \
+ /usr/include/c++/4.8/typeinfo /usr/include/c++/4.8/tuple \
+ /usr/include/c++/4.8/array /usr/include/c++/4.8/stdexcept \
+ /usr/include/c++/4.8/bits/uses_allocator.h
 
-MessageDispatch.h:
+KafkaClientConfig.h:
 
-/usr/include/c++/4.8/unordered_map:
-
-/usr/include/c++/4.8/utility:
+/usr/include/c++/4.8/string:
 
 /usr/include/i386-linux-gnu/c++/4.8/bits/c++config.h:
 
@@ -174,36 +138,6 @@ MessageDispatch.h:
 
 /usr/include/i386-linux-gnu/c++/4.8/bits/cpu_defines.h:
 
-/usr/include/c++/4.8/bits/stl_relops.h:
-
-/usr/include/c++/4.8/bits/stl_pair.h:
-
-/usr/include/c++/4.8/bits/move.h:
-
-/usr/include/c++/4.8/bits/concept_check.h:
-
-/usr/include/c++/4.8/type_traits:
-
-/usr/include/c++/4.8/initializer_list:
-
-/usr/include/c++/4.8/tuple:
-
-/usr/include/c++/4.8/array:
-
-/usr/include/c++/4.8/stdexcept:
-
-/usr/include/c++/4.8/exception:
-
-/usr/include/c++/4.8/bits/atomic_lockfree_defines.h:
-
-/usr/include/c++/4.8/bits/exception_ptr.h:
-
-/usr/include/c++/4.8/bits/exception_defines.h:
-
-/usr/include/c++/4.8/bits/nested_exception.h:
-
-/usr/include/c++/4.8/string:
-
 /usr/include/c++/4.8/bits/stringfwd.h:
 
 /usr/include/c++/4.8/bits/memoryfwd.h:
@@ -214,11 +148,21 @@ MessageDispatch.h:
 
 /usr/include/c++/4.8/bits/functexcept.h:
 
+/usr/include/c++/4.8/bits/exception_defines.h:
+
 /usr/include/c++/4.8/bits/cpp_type_traits.h:
 
 /usr/include/c++/4.8/ext/type_traits.h:
 
 /usr/include/c++/4.8/ext/numeric_traits.h:
+
+/usr/include/c++/4.8/bits/stl_pair.h:
+
+/usr/include/c++/4.8/bits/move.h:
+
+/usr/include/c++/4.8/bits/concept_check.h:
+
+/usr/include/c++/4.8/type_traits:
 
 /usr/include/c++/4.8/bits/stl_iterator_base_types.h:
 
@@ -257,6 +201,14 @@ MessageDispatch.h:
 /usr/include/c++/4.8/ext/new_allocator.h:
 
 /usr/include/c++/4.8/new:
+
+/usr/include/c++/4.8/exception:
+
+/usr/include/c++/4.8/bits/atomic_lockfree_defines.h:
+
+/usr/include/c++/4.8/bits/exception_ptr.h:
+
+/usr/include/c++/4.8/bits/nested_exception.h:
 
 /usr/include/c++/4.8/bits/localefwd.h:
 
@@ -320,6 +272,8 @@ MessageDispatch.h:
 
 /usr/include/i386-linux-gnu/c++/4.8/bits/atomic_word.h:
 
+/usr/include/c++/4.8/initializer_list:
+
 /usr/include/c++/4.8/ext/string_conversions.h:
 
 /usr/include/c++/4.8/cstdlib:
@@ -372,73 +326,15 @@ MessageDispatch.h:
 
 /usr/include/c++/4.8/bits/basic_string.tcc:
 
-/usr/include/c++/4.8/bits/uses_allocator.h:
-
-/usr/include/c++/4.8/bits/alloc_traits.h:
-
-/usr/include/c++/4.8/bits/ptr_traits.h:
-
-/usr/include/c++/4.8/bits/hashtable.h:
-
-/usr/include/c++/4.8/bits/hashtable_policy.h:
-
-/usr/include/c++/4.8/bits/unordered_map.h:
-
-InputMsgHandler.h:
-
-MessageHandler.h:
-
-/usr/include/c++/4.8/iostream:
-
-/usr/include/c++/4.8/ostream:
-
-/usr/include/c++/4.8/ios:
-
-/usr/include/c++/4.8/bits/ios_base.h:
-
-/usr/include/c++/4.8/bits/locale_classes.h:
-
-/usr/include/c++/4.8/bits/locale_classes.tcc:
-
-/usr/include/c++/4.8/streambuf:
-
-/usr/include/c++/4.8/bits/streambuf.tcc:
-
-/usr/include/c++/4.8/bits/basic_ios.h:
-
-/usr/include/c++/4.8/bits/locale_facets.h:
-
-/usr/include/c++/4.8/cwctype:
-
-/usr/include/wctype.h:
-
-/usr/include/i386-linux-gnu/c++/4.8/bits/ctype_base.h:
-
-/usr/include/c++/4.8/bits/streambuf_iterator.h:
-
-/usr/include/i386-linux-gnu/c++/4.8/bits/ctype_inline.h:
-
-/usr/include/c++/4.8/bits/locale_facets.tcc:
-
-/usr/include/c++/4.8/bits/basic_ios.tcc:
-
-/usr/include/c++/4.8/bits/ostream.tcc:
-
-/usr/include/c++/4.8/istream:
-
-/usr/include/c++/4.8/bits/istream.tcc:
-
-OutputMsgHandler.h:
-
-ThreadPool.h:
-
-Task.h:
-
 /usr/include/c++/4.8/vector:
 
 /usr/include/c++/4.8/bits/stl_construct.h:
 
 /usr/include/c++/4.8/ext/alloc_traits.h:
+
+/usr/include/c++/4.8/bits/alloc_traits.h:
+
+/usr/include/c++/4.8/bits/ptr_traits.h:
 
 /usr/include/c++/4.8/bits/stl_uninitialized.h:
 
@@ -448,63 +344,19 @@ Task.h:
 
 /usr/include/c++/4.8/bits/vector.tcc:
 
-/usr/include/c++/4.8/list:
-
-/usr/include/c++/4.8/bits/stl_list.h:
-
-/usr/include/c++/4.8/bits/list.tcc:
-
-/usr/include/c++/4.8/thread:
-
-/usr/include/c++/4.8/chrono:
-
-/usr/include/c++/4.8/ratio:
-
-/usr/include/c++/4.8/limits:
-
-/usr/include/c++/4.8/ctime:
-
-/usr/include/c++/4.8/functional:
-
-/usr/include/c++/4.8/typeinfo:
-
-/usr/include/c++/4.8/memory:
-
-/usr/include/c++/4.8/bits/stl_tempbuf.h:
-
-/usr/include/c++/4.8/bits/stl_raw_storage_iter.h:
-
-/usr/include/c++/4.8/ext/concurrence.h:
-
-/usr/include/c++/4.8/bits/unique_ptr.h:
-
-/usr/include/c++/4.8/bits/shared_ptr.h:
-
-/usr/include/c++/4.8/bits/shared_ptr_base.h:
-
-/usr/include/c++/4.8/backward/auto_ptr.h:
-
-/usr/include/c++/4.8/mutex:
-
-/usr/include/c++/4.8/system_error:
-
-/usr/include/i386-linux-gnu/c++/4.8/bits/error_constants.h:
-
-/usr/include/c++/4.8/condition_variable:
-
-PrintTask.h:
-
-StringBeads.h:
-
-/usr/include/c++/4.8/bitset:
-
 /usr/include/c++/4.8/algorithm:
+
+/usr/include/c++/4.8/utility:
+
+/usr/include/c++/4.8/bits/stl_relops.h:
 
 /usr/include/c++/4.8/bits/stl_algo.h:
 
 /usr/include/c++/4.8/bits/algorithmfwd.h:
 
 /usr/include/c++/4.8/bits/stl_heap.h:
+
+/usr/include/c++/4.8/bits/stl_tempbuf.h:
 
 /usr/include/c++/4.8/random:
 
@@ -526,6 +378,8 @@ StringBeads.h:
 
 /usr/include/i386-linux-gnu/bits/mathcalls.h:
 
+/usr/include/c++/4.8/limits:
+
 /usr/include/c++/4.8/bits/random.h:
 
 /usr/include/i386-linux-gnu/c++/4.8/bits/opt_random.h:
@@ -544,12 +398,14 @@ StringBeads.h:
 
 /usr/include/c++/4.8/bits/stl_numeric.h:
 
-IP.h:
+/usr/include/c++/4.8/functional:
 
-/usr/include/string.h:
+/usr/include/c++/4.8/typeinfo:
 
-KafkaProducerClient.h:
+/usr/include/c++/4.8/tuple:
 
-rdkafkacpp.h:
+/usr/include/c++/4.8/array:
 
-KafkaClientConfig.h:
+/usr/include/c++/4.8/stdexcept:
+
+/usr/include/c++/4.8/bits/uses_allocator.h:
