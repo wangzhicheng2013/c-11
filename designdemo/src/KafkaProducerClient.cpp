@@ -19,7 +19,7 @@ KafkaProducerClient::KafkaProducerClient()
  * @purpose:init client
  * @return true if init ok
  * */
-bool KafkaProducerClient::Init(KafkaClientConfig &_config)
+bool KafkaProducerClient::Init(const KafkaClientConfig &_config)
 {
 	string errstr;
 	config = _config;
@@ -59,7 +59,7 @@ bool KafkaProducerClient::Init(KafkaClientConfig &_config)
  * */
 bool KafkaProducerClient::Push(char *start, int size)
 {
-	if (!start || size <= 0)
+	if (nullptr == start || size <= 0)
 	{
 		return false;
 	}

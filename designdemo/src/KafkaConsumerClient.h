@@ -1,7 +1,7 @@
 /*************************************************
 Copyright:wangzhicheng
 Author: wangzhicheng
-Date:2018-09-12
+Date:2018-09-14
 Description:kafka consumer client
 ChangeLog:
 			1. create this file
@@ -31,7 +31,7 @@ public:
 	 * @purpose:init client
 	 * @return true if init ok
 	 * */
-	bool Init(KafkaClientConfig &);
+	bool Init(const KafkaClientConfig &);
 	/*
 	 * @purpose:Pop message from kafka
 	 * @return true if pop ok

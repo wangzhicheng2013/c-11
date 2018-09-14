@@ -1,7 +1,7 @@
 /*************************************************
 Copyright:wangzhicheng
 Author: wangzhicheng
-Date:2018-09-12
+Date:2018-09-14
 Description:kafka consumer client
 ChangeLog:
 			1. create this file
@@ -27,7 +27,7 @@ KafkaConsumerClient::KafkaConsumerClient()
  * @purpose:init client
  * @return true if init ok
  * */
-bool KafkaConsumerClient::Init(KafkaClientConfig &_config)
+bool KafkaConsumerClient::Init(const KafkaClientConfig &_config)
 {
 	string errstr;
 	config = _config;
@@ -48,6 +48,8 @@ bool KafkaConsumerClient::Init(KafkaClientConfig &_config)
 	}
 	for (auto &it : config.confs)
 	{
+		cout << it.first << endl;
+		cout << it.second << endl;
 		if (Conf::CONF_OK != ConfPtr->set(it.first, it.second, errstr))
 		{
 			cout << errstr << endl;
@@ -61,8 +63,6 @@ bool KafkaConsumerClient::Init(KafkaClientConfig &_config)
 		return false;
 	}
 	ErrorCode ret = ConsumerPtr->subscribe(config.topics);
-	cout << "ret = " << ret << endl;
-	cout << "config.topics = " << config.topics[0] << endl;
 	return ERR_NO_ERROR == ret;
 }
 /*
@@ -90,6 +90,9 @@ bool KafkaConsumerClient::Pop(string &msg)
 			succ = true;
 		}
 		break;
+	case ERR__TIMED_OUT:
+		cout << "Time out" << endl;
+		break;
 	default:
 		break;
 	}
@@ -101,7 +104,6 @@ KafkaConsumerClient::~KafkaConsumerClient()
 	if (nullptr != ConsumerPtr)
 	{
 		ConsumerPtr->close();
-		ConsumerPtr = nullptr;
 	}
 	wait_destroyed(5000);
 }

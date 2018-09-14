@@ -75,21 +75,29 @@ void TestKafkaConsumerClient()
 	KafkaClientConfig kafkaClientConfig;
 	kafkaClientConfig.confs.emplace_back(make_pair("metadata.broker.list", "localhost:9092"));
 	kafkaClientConfig.topics.emplace_back("TOPIC0");
-	kafkaClientConfig.group = "group0";
+	kafkaClientConfig.group = "group01";
+	kafkaClientConfig.timeout = 1000;
 	KafkaConsumerClient kafkaConsumerClient;
 	string msg;
 	if (kafkaConsumerClient.Init(kafkaClientConfig))
 	{
-		cout << kafkaConsumerClient.Pop(msg) << endl;
-		cout << "msg = " << msg << endl;
+		while (1)
+		{
+			if (kafkaConsumerClient.Pop(msg))
+			{
+				cout << "msg = " << msg << endl;
+			}
+		}
 	}
 }
 int main()
 {
 	TestStringBeads();
 	TestIP();
-	TestKafkaProducerClient();
-	TestKafkaConsumerClient();
+	thread th0(TestKafkaProducerClient);
+	thread th1(TestKafkaConsumerClient);
+	th0.join();
+	th1.join();
 
 	return 0;
 }

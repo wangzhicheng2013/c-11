@@ -28,7 +28,7 @@ public:
 	 * @purpose:init client
 	 * @return true if init ok
 	 * */
-	bool Init(KafkaClientConfig &);
+	bool Init(const KafkaClientConfig &);
 	/*
 	 * @purpose:push message to kafka
 	 * @return true if push ok
