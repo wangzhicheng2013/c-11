@@ -1,11 +1,12 @@
 /*************************************************
 Copyright:wangzhicheng
 Author: wangzhicheng
-Date:2018-09-14
+Date:2018-09-15
 Description:program main entry
 ChangeLog:
 			1. create this file
 			2.add kafka client test
+			3.add KafkaClientPool test
 **************************************************/
 
 #include "MessageDispatch.h"
@@ -15,6 +16,7 @@ ChangeLog:
 #include "IP.h"
 #include "KafkaProducerClient.h"
 #include "KafkaConsumerClient.h"
+#include "KafkaClientPool.h"
 int TestThreadPool()
 {
 	InputMsgHandler inputMsgHandler;
@@ -57,18 +59,27 @@ void TestIP()
 }
 void TestKafkaProducerClient()
 {
+	KafkaClientPool<KafkaProducerClient>kafkaClientPool;
 	KafkaClientConfig kafkaClientConfig;
 	kafkaClientConfig.confs.emplace_back(make_pair("metadata.broker.list", "localhost:9092"));
 	kafkaClientConfig.topic = "TOPIC0";
-	KafkaProducerClient kafkaProducerClient;
-	char buf[64] = "123";
-	if (kafkaProducerClient.Init(kafkaClientConfig))
+	if (!kafkaClientPool.Init(1, kafkaClientConfig))
 	{
-		for (int i = 0;i < 1000;i++)
-		{
-			cout << kafkaProducerClient.Push(buf, 3) << endl;
-		}
+		cerr << "kafka client pool init failed...!" << endl;
+		return;
 	}
+	KafkaProducerClient *kafkaProducerClient = kafkaClientPool.GetClient();
+	if (nullptr == kafkaProducerClient)
+	{
+		cerr << "get kafka producer client failed...!" << endl;
+		return;
+	}
+	char buf[64] = "123";
+	for (int i = 0;i < 1000;i++)
+	{
+		cout << kafkaProducerClient->Push(buf, 3) << endl;
+	}
+	kafkaClientPool.FreeClient(kafkaProducerClient);
 }
 void TestKafkaConsumerClient()
 {

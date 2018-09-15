@@ -1,10 +1,11 @@
 /*************************************************
 Copyright:wangzhicheng
 Author: wangzhicheng
-Date:2018-09-12
+Date:2018-09-15
 Description:kafka producer client
 ChangeLog:
 			1. create this file
+			2. add used
  **************************************************/
 
 #include "KafkaProducerClient.h"
@@ -14,6 +15,7 @@ void ProducerDeliveryReportCallBack::dr_cb(Message &message)
 KafkaProducerClient::KafkaProducerClient()
 {
 	// TODO Auto-generated constructor stub
+	used = false;
 }
 /*
  * @purpose:init client

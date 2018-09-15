@@ -1,10 +1,11 @@
 /*************************************************
 Copyright:wangzhicheng
 Author: wangzhicheng
-Date:2018-09-14
+Date:2018-09-15
 Description:kafka consumer client
 ChangeLog:
 			1. create this file
+			2. add used
  **************************************************/
 
 #ifndef KAFKACONSUMERCLIENT_H_
@@ -40,6 +41,7 @@ public:
 	virtual ~KafkaConsumerClient();
 public:
 	KafkaClientConfig config;
+	bool used;
 private:
 	unique_ptr<Conf>ConfPtr;
 	unique_ptr<KafkaConsumer>ConsumerPtr;

@@ -1,10 +1,11 @@
 /*************************************************
 Copyright:wangzhicheng
 Author: wangzhicheng
-Date:2018-09-14
+Date:2018-09-15
 Description:kafka consumer client
 ChangeLog:
 			1. create this file
+			2. add used
  **************************************************/
 
 #include "KafkaConsumerClient.h"
@@ -22,6 +23,7 @@ void ConsumerRebalanceCallBack::rebalance_cb(KafkaConsumer *consumer,
 KafkaConsumerClient::KafkaConsumerClient()
 {
 	// TODO Auto-generated constructor stub
+	used = false;
 }
 /*
  * @purpose:init client

@@ -1,10 +1,11 @@
 /*************************************************
 Copyright:wangzhicheng
 Author: wangzhicheng
-Date:2018-09-12
+Date:2018-09-15
 Description:kafka producer client
 ChangeLog:
 			1. create this file
+			2. add used
  **************************************************/
 #ifndef KAFKAPRODUCERCLIENT_H_
 #define KAFKAPRODUCERCLIENT_H_
@@ -37,6 +38,7 @@ public:
 	virtual ~KafkaProducerClient();
 public:
 	KafkaClientConfig config;
+	bool used;
 private:
 	unique_ptr<Conf>ConfPtr;
 	unique_ptr<Producer>ProducerPtr;
