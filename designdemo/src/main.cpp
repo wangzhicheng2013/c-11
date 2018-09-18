@@ -17,6 +17,7 @@ ChangeLog:
 #include "KafkaProducerClient.h"
 #include "KafkaConsumerClient.h"
 #include "KafkaClientPool.h"
+#include "MemoryBlock.h"
 int TestThreadPool()
 {
 	InputMsgHandler inputMsgHandler;
@@ -101,14 +102,27 @@ void TestKafkaConsumerClient()
 		}
 	}
 }
+void TestMemoryBlock()
+{
+	vector<MemoryBlock>vec;
+	try
+	{
+		vec.push_back(MemoryBlock(25));
+		vec.push_back(MemoryBlock(75));
+	}
+	catch (std::logic_error &err)
+	{
+		cerr << err.what() << endl;
+	}
+}
 int main()
 {
 	TestStringBeads();
 	TestIP();
-	thread th0(TestKafkaProducerClient);
+/*	thread th0(TestKafkaProducerClient);
 	thread th1(TestKafkaConsumerClient);
 	th0.join();
-	th1.join();
-
+	th1.join();*/
+	TestMemoryBlock();
 	return 0;
 }

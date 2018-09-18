@@ -61,6 +61,7 @@ am_MessageDispatch_OBJECTS =  \
 	MessageDispatch-KafkaClientConfig.$(OBJEXT) \
 	MessageDispatch-KafkaProducerClient.$(OBJEXT) \
 	MessageDispatch-KafkaConsumerClient.$(OBJEXT) \
+	MessageDispatch-MemoryBlock.$(OBJEXT) \
 	MessageDispatch-main.$(OBJEXT)
 MessageDispatch_OBJECTS = $(am_MessageDispatch_OBJECTS)
 MessageDispatch_DEPENDENCIES =
@@ -199,6 +200,7 @@ MessageDispatch_SOURCES = MessageHandler.h \
 				KafkaClientConfig.h KafkaClientConfig.cpp \
 				KafkaProducerClient.h KafkaProducerClient.cpp \
 				KafkaConsumerClient.h KafkaConsumerClient.cpp \
+				MemoryBlock.h MemoryBlock.cpp \
 				main.cpp
 
 MessageDispatch_CPPFLAGS = -std=c++11 \
@@ -312,6 +314,7 @@ include ./$(DEPDIR)/MessageDispatch-InputMsgHandler.Po
 include ./$(DEPDIR)/MessageDispatch-KafkaClientConfig.Po
 include ./$(DEPDIR)/MessageDispatch-KafkaConsumerClient.Po
 include ./$(DEPDIR)/MessageDispatch-KafkaProducerClient.Po
+include ./$(DEPDIR)/MessageDispatch-MemoryBlock.Po
 include ./$(DEPDIR)/MessageDispatch-MessageDispatch.Po
 include ./$(DEPDIR)/MessageDispatch-OutputMsgHandler.Po
 include ./$(DEPDIR)/MessageDispatch-PrintTask.Po
@@ -472,6 +475,20 @@ MessageDispatch-KafkaConsumerClient.obj: KafkaConsumerClient.cpp
 #	source='KafkaConsumerClient.cpp' object='MessageDispatch-KafkaConsumerClient.obj' libtool=no \
 #	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
 #	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(MessageDispatch_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o MessageDispatch-KafkaConsumerClient.obj `if test -f 'KafkaConsumerClient.cpp'; then $(CYGPATH_W) 'KafkaConsumerClient.cpp'; else $(CYGPATH_W) '$(srcdir)/KafkaConsumerClient.cpp'; fi`
+
+MessageDispatch-MemoryBlock.o: MemoryBlock.cpp
+	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(MessageDispatch_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT MessageDispatch-MemoryBlock.o -MD -MP -MF $(DEPDIR)/MessageDispatch-MemoryBlock.Tpo -c -o MessageDispatch-MemoryBlock.o `test -f 'MemoryBlock.cpp' || echo '$(srcdir)/'`MemoryBlock.cpp
+	$(am__mv) $(DEPDIR)/MessageDispatch-MemoryBlock.Tpo $(DEPDIR)/MessageDispatch-MemoryBlock.Po
+#	source='MemoryBlock.cpp' object='MessageDispatch-MemoryBlock.o' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
+#	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(MessageDispatch_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o MessageDispatch-MemoryBlock.o `test -f 'MemoryBlock.cpp' || echo '$(srcdir)/'`MemoryBlock.cpp
+
+MessageDispatch-MemoryBlock.obj: MemoryBlock.cpp
+	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(MessageDispatch_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT MessageDispatch-MemoryBlock.obj -MD -MP -MF $(DEPDIR)/MessageDispatch-MemoryBlock.Tpo -c -o MessageDispatch-MemoryBlock.obj `if test -f 'MemoryBlock.cpp'; then $(CYGPATH_W) 'MemoryBlock.cpp'; else $(CYGPATH_W) '$(srcdir)/MemoryBlock.cpp'; fi`
+	$(am__mv) $(DEPDIR)/MessageDispatch-MemoryBlock.Tpo $(DEPDIR)/MessageDispatch-MemoryBlock.Po
+#	source='MemoryBlock.cpp' object='MessageDispatch-MemoryBlock.obj' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
+#	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(MessageDispatch_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o MessageDispatch-MemoryBlock.obj `if test -f 'MemoryBlock.cpp'; then $(CYGPATH_W) 'MemoryBlock.cpp'; else $(CYGPATH_W) '$(srcdir)/MemoryBlock.cpp'; fi`
 
 MessageDispatch-main.o: main.cpp
 	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(MessageDispatch_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT MessageDispatch-main.o -MD -MP -MF $(DEPDIR)/MessageDispatch-main.Tpo -c -o MessageDispatch-main.o `test -f 'main.cpp' || echo '$(srcdir)/'`main.cpp
