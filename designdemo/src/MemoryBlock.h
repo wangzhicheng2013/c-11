@@ -1,10 +1,11 @@
 /*************************************************
 Copyright:wangzhicheng
 Author: wangzhicheng
-Date:2018-09-18
+Date:2018-09-19
 Description:memory block with moving constructor
 ChangeLog:
 			1. create this file
+			2.add move copy constructor
 **************************************************/
 
 #ifndef MEMORYBLOCK_H_
@@ -24,8 +25,9 @@ public:
 	MemoryBlock(const MemoryBlock &);
 	MemoryBlock(MemoryBlock &&);
 	MemoryBlock & operator = (const MemoryBlock &);
+	MemoryBlock & operator = (MemoryBlock &&);
 	virtual ~MemoryBlock();
-private:
+public:
 	char *data;
 	size_t size;
 };

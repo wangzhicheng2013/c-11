@@ -107,8 +107,13 @@ void TestMemoryBlock()
 	vector<MemoryBlock>vec;
 	try
 	{
-		vec.push_back(MemoryBlock(25));
+		/*vec.push_back(MemoryBlock(25));
 		vec.push_back(MemoryBlock(75));
+		strcpy(vec[0].data, "123");
+		strcpy(vec[1].data, "4566");*/
+		MemoryBlock mb(10);
+		mb = MemoryBlock(25);
+		strcpy(mb.data, "123");
 	}
 	catch (std::logic_error &err)
 	{

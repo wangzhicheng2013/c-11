@@ -1,10 +1,11 @@
 /*************************************************
 Copyright:wangzhicheng
 Author: wangzhicheng
-Date:2018-09-18
+Date:2018-09-19
 Description:memory block with moving constructor
 ChangeLog:
 			1. create this file
+			2.add move copy constructor
 **************************************************/
 
 #include "MemoryBlock.h"
@@ -22,9 +23,8 @@ MemoryBlock::MemoryBlock(size_t size)
 		throw std::logic_error("block size is over the limit...");
 	}
 	this->size = size;
-	data = new char[size + 1];
+	data = new char[size];
 	assert(data != nullptr);
-	data[size] = 0;
 	cout << "MemoryBlock(size_t size) called..." << endl;
 }
 MemoryBlock::MemoryBlock(const MemoryBlock &block)
@@ -34,17 +34,19 @@ MemoryBlock::MemoryBlock(const MemoryBlock &block)
 		throw std::logic_error("block is null...");
 	}
 	size = block.size;
-	data = new char[size + 1];
+	data = new char[size];
 	assert(data != nullptr);
-	copy(block.data, block.data + size + 1, data);
+	copy(block.data, block.data + size, data);
 	cout << "MemoryBlock(const MemoryBlock &block) called..." << endl;
 }
 MemoryBlock::MemoryBlock(MemoryBlock &&block)
 {
-	data = block.data;
-	size = block.size;
-	block.data = nullptr;
-	block.size = 0;
+	if (nullptr == block.data)
+	{
+		throw std::logic_error("block is null...");
+	}
+	*this = move(block);
+	cout << "MemoryBlock(MemoryBlock &&block) called..." << endl;
 }
 MemoryBlock & MemoryBlock::operator = (const MemoryBlock &block)
 {
@@ -56,11 +58,36 @@ MemoryBlock & MemoryBlock::operator = (const MemoryBlock &block)
 	{
 		return *this;
 	}
+	if (nullptr != data)
+	{
+		delete []data;
+	}
 	size = block.size;
 	data = new char[size];
 	assert(data != nullptr);
 	copy(block.data, block.data + size, data);
 	cout << "MemoryBlock::operator = (const MemoryBlock &block) called..." << endl;
+	return *this;
+}
+MemoryBlock & MemoryBlock::operator = (MemoryBlock &&block)
+{
+	if (nullptr == block.data)
+	{
+		throw std::logic_error("block is null...");
+	}
+	if (this == &block)
+	{
+		return *this;
+	}
+	if (nullptr != data)
+	{
+		delete []data;
+	}
+	data = block.data;
+	size = block.size;
+	block.data = nullptr;
+	block.size = 0;
+	cout << "MemoryBlock::operator = (const MemoryBlock &&block) called..." << endl;
 	return *this;
 }
 MemoryBlock::~MemoryBlock()
