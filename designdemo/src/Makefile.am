@@ -13,8 +13,9 @@ MessageDispatch_SOURCES = MessageHandler.h \
 				KafkaProducerClient.h KafkaProducerClient.cpp \
 				KafkaConsumerClient.h KafkaConsumerClient.cpp \
 				MemoryBlock.h MemoryBlock.cpp \
+				RedisClient.h RedisClient.cpp \
 				main.cpp
 MessageDispatch_CPPFLAGS = -std=c++11 \
 			 -I ./
-MessageDispatch_LDFLAGS = -pthread
-MessageDispatch_LDADD = -lrdkafka++ -lrdkafka
+MessageDispatch_LDFLAGS = -pthread 
+MessageDispatch_LDADD = -lrdkafka++ -lrdkafka -lhiredis

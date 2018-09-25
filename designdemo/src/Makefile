@@ -62,6 +62,7 @@ am_MessageDispatch_OBJECTS =  \
 	MessageDispatch-KafkaProducerClient.$(OBJEXT) \
 	MessageDispatch-KafkaConsumerClient.$(OBJEXT) \
 	MessageDispatch-MemoryBlock.$(OBJEXT) \
+	MessageDispatch-RedisClient.$(OBJEXT) \
 	MessageDispatch-main.$(OBJEXT)
 MessageDispatch_OBJECTS = $(am_MessageDispatch_OBJECTS)
 MessageDispatch_DEPENDENCIES =
@@ -201,13 +202,14 @@ MessageDispatch_SOURCES = MessageHandler.h \
 				KafkaProducerClient.h KafkaProducerClient.cpp \
 				KafkaConsumerClient.h KafkaConsumerClient.cpp \
 				MemoryBlock.h MemoryBlock.cpp \
+				RedisClient.h RedisClient.cpp \
 				main.cpp
 
 MessageDispatch_CPPFLAGS = -std=c++11 \
 			 -I ./
 
-MessageDispatch_LDFLAGS = -pthread
-MessageDispatch_LDADD = -lrdkafka++ -lrdkafka
+MessageDispatch_LDFLAGS = -pthread 
+MessageDispatch_LDADD = -lrdkafka++ -lrdkafka -lhiredis
 all: config.h
 	$(MAKE) $(AM_MAKEFLAGS) all-am
 
@@ -318,6 +320,7 @@ include ./$(DEPDIR)/MessageDispatch-MemoryBlock.Po
 include ./$(DEPDIR)/MessageDispatch-MessageDispatch.Po
 include ./$(DEPDIR)/MessageDispatch-OutputMsgHandler.Po
 include ./$(DEPDIR)/MessageDispatch-PrintTask.Po
+include ./$(DEPDIR)/MessageDispatch-RedisClient.Po
 include ./$(DEPDIR)/MessageDispatch-StringBeads.Po
 include ./$(DEPDIR)/MessageDispatch-ThreadPool.Po
 include ./$(DEPDIR)/MessageDispatch-main.Po
@@ -489,6 +492,20 @@ MessageDispatch-MemoryBlock.obj: MemoryBlock.cpp
 #	source='MemoryBlock.cpp' object='MessageDispatch-MemoryBlock.obj' libtool=no \
 #	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
 #	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(MessageDispatch_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o MessageDispatch-MemoryBlock.obj `if test -f 'MemoryBlock.cpp'; then $(CYGPATH_W) 'MemoryBlock.cpp'; else $(CYGPATH_W) '$(srcdir)/MemoryBlock.cpp'; fi`
+
+MessageDispatch-RedisClient.o: RedisClient.cpp
+	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(MessageDispatch_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT MessageDispatch-RedisClient.o -MD -MP -MF $(DEPDIR)/MessageDispatch-RedisClient.Tpo -c -o MessageDispatch-RedisClient.o `test -f 'RedisClient.cpp' || echo '$(srcdir)/'`RedisClient.cpp
+	$(am__mv) $(DEPDIR)/MessageDispatch-RedisClient.Tpo $(DEPDIR)/MessageDispatch-RedisClient.Po
+#	source='RedisClient.cpp' object='MessageDispatch-RedisClient.o' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
+#	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(MessageDispatch_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o MessageDispatch-RedisClient.o `test -f 'RedisClient.cpp' || echo '$(srcdir)/'`RedisClient.cpp
+
+MessageDispatch-RedisClient.obj: RedisClient.cpp
+	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(MessageDispatch_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT MessageDispatch-RedisClient.obj -MD -MP -MF $(DEPDIR)/MessageDispatch-RedisClient.Tpo -c -o MessageDispatch-RedisClient.obj `if test -f 'RedisClient.cpp'; then $(CYGPATH_W) 'RedisClient.cpp'; else $(CYGPATH_W) '$(srcdir)/RedisClient.cpp'; fi`
+	$(am__mv) $(DEPDIR)/MessageDispatch-RedisClient.Tpo $(DEPDIR)/MessageDispatch-RedisClient.Po
+#	source='RedisClient.cpp' object='MessageDispatch-RedisClient.obj' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
+#	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(MessageDispatch_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o MessageDispatch-RedisClient.obj `if test -f 'RedisClient.cpp'; then $(CYGPATH_W) 'RedisClient.cpp'; else $(CYGPATH_W) '$(srcdir)/RedisClient.cpp'; fi`
 
 MessageDispatch-main.o: main.cpp
 	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(MessageDispatch_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT MessageDispatch-main.o -MD -MP -MF $(DEPDIR)/MessageDispatch-main.Tpo -c -o MessageDispatch-main.o `test -f 'main.cpp' || echo '$(srcdir)/'`main.cpp
