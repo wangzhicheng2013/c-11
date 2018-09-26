@@ -24,8 +24,8 @@ MessageDispatch-RedisClient.o: RedisClient.cpp RedisClient.h \
  /usr/include/endian.h /usr/include/i386-linux-gnu/bits/endian.h \
  /usr/include/i386-linux-gnu/bits/byteswap.h \
  /usr/include/i386-linux-gnu/sys/sysmacros.h \
- /usr/include/i386-linux-gnu/bits/pthreadtypes.h \
- /usr/include/c++/4.8/iostream \
+ /usr/include/i386-linux-gnu/bits/pthreadtypes.h /usr/include/string.h \
+ /usr/include/xlocale.h /usr/include/c++/4.8/iostream \
  /usr/include/i386-linux-gnu/c++/4.8/bits/c++config.h \
  /usr/include/i386-linux-gnu/c++/4.8/bits/os_defines.h \
  /usr/include/i386-linux-gnu/c++/4.8/bits/cpu_defines.h \
@@ -33,7 +33,7 @@ MessageDispatch-RedisClient.o: RedisClient.cpp RedisClient.h \
  /usr/include/c++/4.8/iosfwd /usr/include/c++/4.8/bits/stringfwd.h \
  /usr/include/c++/4.8/bits/memoryfwd.h \
  /usr/include/c++/4.8/bits/postypes.h /usr/include/c++/4.8/cwchar \
- /usr/include/xlocale.h /usr/include/c++/4.8/exception \
+ /usr/include/c++/4.8/exception \
  /usr/include/c++/4.8/bits/atomic_lockfree_defines.h \
  /usr/include/c++/4.8/bits/exception_ptr.h \
  /usr/include/c++/4.8/bits/exception_defines.h \
@@ -169,6 +169,10 @@ RedisClient.h:
 
 /usr/include/i386-linux-gnu/bits/pthreadtypes.h:
 
+/usr/include/string.h:
+
+/usr/include/xlocale.h:
+
 /usr/include/c++/4.8/iostream:
 
 /usr/include/i386-linux-gnu/c++/4.8/bits/c++config.h:
@@ -190,8 +194,6 @@ RedisClient.h:
 /usr/include/c++/4.8/bits/postypes.h:
 
 /usr/include/c++/4.8/cwchar:
-
-/usr/include/xlocale.h:
 
 /usr/include/c++/4.8/exception:
 

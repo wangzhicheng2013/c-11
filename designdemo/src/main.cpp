@@ -1,12 +1,13 @@
 /*************************************************
 Copyright:wangzhicheng
 Author: wangzhicheng
-Date:2018-09-15
+Date:2018-09-26
 Description:program main entry
 ChangeLog:
 			1. create this file
 			2.add kafka client test
 			3.add KafkaClientPool test
+			4.add redis client test
 **************************************************/
 
 #include "MessageDispatch.h"
@@ -18,6 +19,7 @@ ChangeLog:
 #include "KafkaConsumerClient.h"
 #include "KafkaClientPool.h"
 #include "MemoryBlock.h"
+#include "RedisClient.h"
 int TestThreadPool()
 {
 	InputMsgHandler inputMsgHandler;
@@ -120,14 +122,36 @@ void TestMemoryBlock()
 		cerr << err.what() << endl;
 	}
 }
+void TestRedisClient()
+{
+	RedisClient redisclient;
+	if (!redisclient.Connect("localhost", 6379))
+	{
+		cerr << "redis server connect failed...!" << endl;
+		return;
+	}
+	const char *key = "key00";
+	string value = "value00";
+	if (redisclient.SetValue(key, value))
+	{
+		cout << "set value to redis server ok." << endl;
+	}
+	value.clear();
+	if (redisclient.GetValue(key, value))
+	{
+		cout << "get value from redis server ok." << endl;
+		cout << value << endl;
+	}
+}
 int main()
 {
-	TestStringBeads();
-	TestIP();
+//	TestStringBeads();
+	//TestIP();
 /*	thread th0(TestKafkaProducerClient);
 	thread th1(TestKafkaConsumerClient);
 	th0.join();
 	th1.join();*/
-	TestMemoryBlock();
+//	TestMemoryBlock();
+	TestRedisClient();
 	return 0;
 }

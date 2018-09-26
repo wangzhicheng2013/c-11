@@ -1,6 +1,6 @@
 #echo "# c-11" >> README.md
 #git init
 git add *
-git commit -m "11 commit"
+git commit -m "12 commit"
 #git remote add origin https://github.com/wangzhicheng2013/c-11.git
 git push -u origin master
