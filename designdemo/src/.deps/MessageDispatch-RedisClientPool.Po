@@ -116,7 +116,11 @@ MessageDispatch-RedisClientPool.o: RedisClientPool.cpp RedisClientPool.h \
  /usr/include/c++/4.8/bits/unique_ptr.h \
  /usr/include/c++/4.8/bits/shared_ptr.h \
  /usr/include/c++/4.8/bits/shared_ptr_base.h \
- /usr/include/c++/4.8/backward/auto_ptr.h
+ /usr/include/c++/4.8/backward/auto_ptr.h /usr/include/c++/4.8/mutex \
+ /usr/include/c++/4.8/chrono /usr/include/c++/4.8/ratio \
+ /usr/include/c++/4.8/limits /usr/include/c++/4.8/ctime \
+ /usr/include/c++/4.8/system_error \
+ /usr/include/i386-linux-gnu/c++/4.8/bits/error_constants.h
 
 RedisClientPool.h:
 
@@ -429,3 +433,17 @@ RedisClient.h:
 /usr/include/c++/4.8/bits/shared_ptr_base.h:
 
 /usr/include/c++/4.8/backward/auto_ptr.h:
+
+/usr/include/c++/4.8/mutex:
+
+/usr/include/c++/4.8/chrono:
+
+/usr/include/c++/4.8/ratio:
+
+/usr/include/c++/4.8/limits:
+
+/usr/include/c++/4.8/ctime:
+
+/usr/include/c++/4.8/system_error:
+
+/usr/include/i386-linux-gnu/c++/4.8/bits/error_constants.h:

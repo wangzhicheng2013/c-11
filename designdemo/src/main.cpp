@@ -1,13 +1,14 @@
 /*************************************************
 Copyright:wangzhicheng
 Author: wangzhicheng
-Date:2018-09-26
+Date:2018-09-27
 Description:program main entry
 ChangeLog:
 			1. create this file
 			2.add kafka client test
 			3.add KafkaClientPool test
 			4.add redis client test
+			5.add redis client pool test
 **************************************************/
 
 #include "MessageDispatch.h"
@@ -20,6 +21,7 @@ ChangeLog:
 #include "KafkaClientPool.h"
 #include "MemoryBlock.h"
 #include "RedisClient.h"
+#include "RedisClientPool.h"
 int TestThreadPool()
 {
 	InputMsgHandler inputMsgHandler;
@@ -143,6 +145,65 @@ void TestRedisClient()
 		cout << value << endl;
 	}
 }
+RedisClientPool redisclientpool;
+void RedisClientThread(const char *key, const string &value)
+{
+	auto ptr = redisclientpool.GetClient();
+	if (nullptr == ptr)
+	{
+		cerr << "get redis client failed...!" << endl;
+		return;
+	}
+	cout << "key = " << key << endl;
+	string newvalue;
+	if (ptr->SetValue(key, value))
+	{
+		cout << "set value to redis server ok." << endl;
+	}
+	if (ptr->GetValue(key, newvalue))
+	{
+		cout << "get value from redis server ok." << endl;
+		cout << newvalue << endl;
+	}
+}
+void TestRedisClientPool()
+{
+	RedisClientPoolConfig config;
+	config.poolsize = 10;
+	config.ip = "localhost";
+	config.port = 6379;
+	if (redisclientpool.InitPool(config))
+	{
+		cerr << "redis client pool init ok." << endl;
+	}
+	else
+	{
+		return;
+	}
+	char key[64] = "";
+	string value;
+	vector<string>keyVec;
+	vector<string>valueVec;
+	vector<thread>threadVec;
+	for (size_t i = 0;i < config.poolsize;i++)
+	{
+		snprintf(key, sizeof(key), "key00%d", i);
+		value = key;
+		keyVec.emplace_back(key);
+		valueVec.emplace_back(value);
+	}
+	for (size_t i = 0;i < config.poolsize;i++)
+	{
+		threadVec.emplace_back(thread(RedisClientThread, keyVec[i].c_str(), valueVec[i]));
+	}
+	for (auto &it : threadVec)
+	{
+		if (it.joinable())
+		{
+			it.join();
+		}
+	}
+}
 int main()
 {
 //	TestStringBeads();
@@ -152,6 +213,7 @@ int main()
 	th0.join();
 	th1.join();*/
 //	TestMemoryBlock();
-	TestRedisClient();
+//	TestRedisClient();
+	TestRedisClientPool();
 	return 0;
 }

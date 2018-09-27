@@ -1,7 +1,7 @@
 /*************************************************
 Copyright:wangzhicheng
 Author: wangzhicheng
-Date:2018-09-26
+Date:2018-09-27
 Description:redis client pool not cluster
 ChangeLog:
 			1. create this file
@@ -21,10 +21,10 @@ public:
 	string ip;
 	int port;
 };
+using DeleteType = function<void(RedisClient *)>;
 class RedisClientPool
 {
 public:
-	using DeleteType = function<void(RedisClient *)>;
 	RedisClientPool();
 	/*
 	 * @purpose:init pool

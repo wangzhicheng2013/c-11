@@ -1,7 +1,7 @@
 /*************************************************
 Copyright:wangzhicheng
 Author: wangzhicheng
-Date:2018-09-26
+Date:2018-09-27
 Description:redis client pool not cluster
 ChangeLog:
 			1. create this file
@@ -12,7 +12,6 @@ ChangeLog:
 RedisClientPool::RedisClientPool()
 {
 	// TODO Auto-generated constructor stub
-
 }
 /*
  * @purpose:init pool
@@ -44,10 +43,16 @@ unique_ptr<RedisClient, DeleteType>RedisClientPool::GetClient()
 	lock_guard<mutex>lock(pool_lock);
 	if (clientVec.empty())
 	{
-		cerr << "pool is empty...!" << endl;
 		return nullptr;
 	}
-	return nullptr;
+	unique_ptr<RedisClient, DeleteType>ptr(clientVec.back().release(), [this](RedisClient *client)
+		{
+			pool_lock.lock();
+			clientVec.push_back(unique_ptr<RedisClient>(client));
+			pool_lock.unlock();
+	        });
+        clientVec.pop_back();
+        return move(ptr);
 }
 
 RedisClientPool::~RedisClientPool()
