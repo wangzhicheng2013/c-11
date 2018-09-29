@@ -15,6 +15,7 @@ MessageDispatch_SOURCES = MessageHandler.h \
 				MemoryBlock.h MemoryBlock.cpp \
 				RedisClient.h RedisClient.cpp \
 				RedisClientPool.h RedisClientPool.cpp \
+				Pointer.h Pointer.cpp \
 				main.cpp
 MessageDispatch_CPPFLAGS = -std=c++11 \
 			 -I ./

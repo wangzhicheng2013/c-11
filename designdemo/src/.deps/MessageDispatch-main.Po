@@ -152,7 +152,7 @@ MessageDispatch-main.o: main.cpp MessageDispatch.h \
  KafkaConsumerClient.h KafkaClientPool.h MemoryBlock.h \
  /usr/include/assert.h RedisClient.h /usr/local/include/hiredis/hiredis.h \
  /usr/local/include/hiredis/read.h /usr/include/i386-linux-gnu/sys/time.h \
- /usr/local/include/hiredis/sds.h RedisClientPool.h
+ /usr/local/include/hiredis/sds.h RedisClientPool.h Pointer.h
 
 MessageDispatch.h:
 
@@ -577,3 +577,5 @@ RedisClient.h:
 /usr/local/include/hiredis/sds.h:
 
 RedisClientPool.h:
+
+Pointer.h:

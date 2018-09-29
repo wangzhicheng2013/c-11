@@ -64,6 +64,7 @@ am_MessageDispatch_OBJECTS =  \
 	MessageDispatch-MemoryBlock.$(OBJEXT) \
 	MessageDispatch-RedisClient.$(OBJEXT) \
 	MessageDispatch-RedisClientPool.$(OBJEXT) \
+	MessageDispatch-Pointer.$(OBJEXT) \
 	MessageDispatch-main.$(OBJEXT)
 MessageDispatch_OBJECTS = $(am_MessageDispatch_OBJECTS)
 MessageDispatch_DEPENDENCIES =
@@ -205,6 +206,7 @@ MessageDispatch_SOURCES = MessageHandler.h \
 				MemoryBlock.h MemoryBlock.cpp \
 				RedisClient.h RedisClient.cpp \
 				RedisClientPool.h RedisClientPool.cpp \
+				Pointer.h Pointer.cpp \
 				main.cpp
 
 MessageDispatch_CPPFLAGS = -std=c++11 \
@@ -321,6 +323,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/MessageDispatch-MemoryBlock.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/MessageDispatch-MessageDispatch.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/MessageDispatch-OutputMsgHandler.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/MessageDispatch-Pointer.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/MessageDispatch-PrintTask.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/MessageDispatch-RedisClient.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/MessageDispatch-RedisClientPool.Po@am__quote@
@@ -523,6 +526,20 @@ MessageDispatch-RedisClientPool.obj: RedisClientPool.cpp
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='RedisClientPool.cpp' object='MessageDispatch-RedisClientPool.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(MessageDispatch_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o MessageDispatch-RedisClientPool.obj `if test -f 'RedisClientPool.cpp'; then $(CYGPATH_W) 'RedisClientPool.cpp'; else $(CYGPATH_W) '$(srcdir)/RedisClientPool.cpp'; fi`
+
+MessageDispatch-Pointer.o: Pointer.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(MessageDispatch_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT MessageDispatch-Pointer.o -MD -MP -MF $(DEPDIR)/MessageDispatch-Pointer.Tpo -c -o MessageDispatch-Pointer.o `test -f 'Pointer.cpp' || echo '$(srcdir)/'`Pointer.cpp
+@am__fastdepCXX_TRUE@	$(am__mv) $(DEPDIR)/MessageDispatch-Pointer.Tpo $(DEPDIR)/MessageDispatch-Pointer.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='Pointer.cpp' object='MessageDispatch-Pointer.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(MessageDispatch_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o MessageDispatch-Pointer.o `test -f 'Pointer.cpp' || echo '$(srcdir)/'`Pointer.cpp
+
+MessageDispatch-Pointer.obj: Pointer.cpp
+@am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(MessageDispatch_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT MessageDispatch-Pointer.obj -MD -MP -MF $(DEPDIR)/MessageDispatch-Pointer.Tpo -c -o MessageDispatch-Pointer.obj `if test -f 'Pointer.cpp'; then $(CYGPATH_W) 'Pointer.cpp'; else $(CYGPATH_W) '$(srcdir)/Pointer.cpp'; fi`
+@am__fastdepCXX_TRUE@	$(am__mv) $(DEPDIR)/MessageDispatch-Pointer.Tpo $(DEPDIR)/MessageDispatch-Pointer.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='Pointer.cpp' object='MessageDispatch-Pointer.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(MessageDispatch_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o MessageDispatch-Pointer.obj `if test -f 'Pointer.cpp'; then $(CYGPATH_W) 'Pointer.cpp'; else $(CYGPATH_W) '$(srcdir)/Pointer.cpp'; fi`
 
 MessageDispatch-main.o: main.cpp
 @am__fastdepCXX_TRUE@	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(MessageDispatch_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT MessageDispatch-main.o -MD -MP -MF $(DEPDIR)/MessageDispatch-main.Tpo -c -o MessageDispatch-main.o `test -f 'main.cpp' || echo '$(srcdir)/'`main.cpp

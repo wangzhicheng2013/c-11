@@ -64,6 +64,7 @@ am_MessageDispatch_OBJECTS =  \
 	MessageDispatch-MemoryBlock.$(OBJEXT) \
 	MessageDispatch-RedisClient.$(OBJEXT) \
 	MessageDispatch-RedisClientPool.$(OBJEXT) \
+	MessageDispatch-Pointer.$(OBJEXT) \
 	MessageDispatch-main.$(OBJEXT)
 MessageDispatch_OBJECTS = $(am_MessageDispatch_OBJECTS)
 MessageDispatch_DEPENDENCIES =
@@ -205,6 +206,7 @@ MessageDispatch_SOURCES = MessageHandler.h \
 				MemoryBlock.h MemoryBlock.cpp \
 				RedisClient.h RedisClient.cpp \
 				RedisClientPool.h RedisClientPool.cpp \
+				Pointer.h Pointer.cpp \
 				main.cpp
 
 MessageDispatch_CPPFLAGS = -std=c++11 \
@@ -321,6 +323,7 @@ include ./$(DEPDIR)/MessageDispatch-KafkaProducerClient.Po
 include ./$(DEPDIR)/MessageDispatch-MemoryBlock.Po
 include ./$(DEPDIR)/MessageDispatch-MessageDispatch.Po
 include ./$(DEPDIR)/MessageDispatch-OutputMsgHandler.Po
+include ./$(DEPDIR)/MessageDispatch-Pointer.Po
 include ./$(DEPDIR)/MessageDispatch-PrintTask.Po
 include ./$(DEPDIR)/MessageDispatch-RedisClient.Po
 include ./$(DEPDIR)/MessageDispatch-RedisClientPool.Po
@@ -523,6 +526,20 @@ MessageDispatch-RedisClientPool.obj: RedisClientPool.cpp
 #	source='RedisClientPool.cpp' object='MessageDispatch-RedisClientPool.obj' libtool=no \
 #	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
 #	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(MessageDispatch_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o MessageDispatch-RedisClientPool.obj `if test -f 'RedisClientPool.cpp'; then $(CYGPATH_W) 'RedisClientPool.cpp'; else $(CYGPATH_W) '$(srcdir)/RedisClientPool.cpp'; fi`
+
+MessageDispatch-Pointer.o: Pointer.cpp
+	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(MessageDispatch_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT MessageDispatch-Pointer.o -MD -MP -MF $(DEPDIR)/MessageDispatch-Pointer.Tpo -c -o MessageDispatch-Pointer.o `test -f 'Pointer.cpp' || echo '$(srcdir)/'`Pointer.cpp
+	$(am__mv) $(DEPDIR)/MessageDispatch-Pointer.Tpo $(DEPDIR)/MessageDispatch-Pointer.Po
+#	source='Pointer.cpp' object='MessageDispatch-Pointer.o' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
+#	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(MessageDispatch_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o MessageDispatch-Pointer.o `test -f 'Pointer.cpp' || echo '$(srcdir)/'`Pointer.cpp
+
+MessageDispatch-Pointer.obj: Pointer.cpp
+	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(MessageDispatch_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT MessageDispatch-Pointer.obj -MD -MP -MF $(DEPDIR)/MessageDispatch-Pointer.Tpo -c -o MessageDispatch-Pointer.obj `if test -f 'Pointer.cpp'; then $(CYGPATH_W) 'Pointer.cpp'; else $(CYGPATH_W) '$(srcdir)/Pointer.cpp'; fi`
+	$(am__mv) $(DEPDIR)/MessageDispatch-Pointer.Tpo $(DEPDIR)/MessageDispatch-Pointer.Po
+#	source='Pointer.cpp' object='MessageDispatch-Pointer.obj' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
+#	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(MessageDispatch_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o MessageDispatch-Pointer.obj `if test -f 'Pointer.cpp'; then $(CYGPATH_W) 'Pointer.cpp'; else $(CYGPATH_W) '$(srcdir)/Pointer.cpp'; fi`
 
 MessageDispatch-main.o: main.cpp
 	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(MessageDispatch_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT MessageDispatch-main.o -MD -MP -MF $(DEPDIR)/MessageDispatch-main.Tpo -c -o MessageDispatch-main.o `test -f 'main.cpp' || echo '$(srcdir)/'`main.cpp

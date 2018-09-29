@@ -7,10 +7,15 @@ CPP_SRCS += \
 ../src/IP.cpp \
 ../src/InputMsgHandler.cpp \
 ../src/KafkaClientConfig.cpp \
+../src/KafkaConsumerClient.cpp \
 ../src/KafkaProducerClient.cpp \
+../src/MemoryBlock.cpp \
 ../src/MessageDispatch.cpp \
 ../src/OutputMsgHandler.cpp \
+../src/Pointer.cpp \
 ../src/PrintTask.cpp \
+../src/RedisClient.cpp \
+../src/RedisClientPool.cpp \
 ../src/StringBeads.cpp \
 ../src/ThreadPool.cpp \
 ../src/main.cpp 
@@ -31,10 +36,15 @@ OBJS += \
 ./src/IP.o \
 ./src/InputMsgHandler.o \
 ./src/KafkaClientConfig.o \
+./src/KafkaConsumerClient.o \
 ./src/KafkaProducerClient.o \
+./src/MemoryBlock.o \
 ./src/MessageDispatch.o \
 ./src/OutputMsgHandler.o \
+./src/Pointer.o \
 ./src/PrintTask.o \
+./src/RedisClient.o \
+./src/RedisClientPool.o \
 ./src/StringBeads.o \
 ./src/ThreadPool.o \
 ./src/main.o 
@@ -43,10 +53,15 @@ CPP_DEPS += \
 ./src/IP.d \
 ./src/InputMsgHandler.d \
 ./src/KafkaClientConfig.d \
+./src/KafkaConsumerClient.d \
 ./src/KafkaProducerClient.d \
+./src/MemoryBlock.d \
 ./src/MessageDispatch.d \
 ./src/OutputMsgHandler.d \
+./src/Pointer.d \
 ./src/PrintTask.d \
+./src/RedisClient.d \
+./src/RedisClientPool.d \
 ./src/StringBeads.d \
 ./src/ThreadPool.d \
 ./src/main.d 

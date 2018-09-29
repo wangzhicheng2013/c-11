@@ -1,7 +1,7 @@
 /*************************************************
 Copyright:wangzhicheng
 Author: wangzhicheng
-Date:2018-09-27
+Date:2018-09-29
 Description:program main entry
 ChangeLog:
 			1. create this file
@@ -9,6 +9,7 @@ ChangeLog:
 			3.add KafkaClientPool test
 			4.add redis client test
 			5.add redis client pool test
+			5.add Pointer test
 **************************************************/
 
 #include "MessageDispatch.h"
@@ -22,6 +23,7 @@ ChangeLog:
 #include "MemoryBlock.h"
 #include "RedisClient.h"
 #include "RedisClientPool.h"
+#include "Pointer.h"
 int TestThreadPool()
 {
 	InputMsgHandler inputMsgHandler;
@@ -204,6 +206,12 @@ void TestRedisClientPool()
 		}
 	}
 }
+void TestPointer()
+{
+	Pointer p0(1, 2);
+	Pointer p1(12, 21);
+	cout << "distance = " << p0.GetDistance(p1) << endl;
+}
 int main()
 {
 //	TestStringBeads();
@@ -214,6 +222,7 @@ int main()
 	th1.join();*/
 //	TestMemoryBlock();
 //	TestRedisClient();
-	TestRedisClientPool();
+//	TestRedisClientPool();
+	TestPointer();
 	return 0;
 }
