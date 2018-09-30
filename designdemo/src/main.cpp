@@ -23,7 +23,7 @@ ChangeLog:
 #include "MemoryBlock.h"
 #include "RedisClient.h"
 #include "RedisClientPool.h"
-#include "Pointer.h"
+#include "Square.h"
 int TestThreadPool()
 {
 	InputMsgHandler inputMsgHandler;
@@ -212,6 +212,19 @@ void TestPointer()
 	Pointer p1(12, 21);
 	cout << "distance = " << p0.GetDistance(p1) << endl;
 }
+void TestSquare()
+{
+	Pointer p0(0, 0);
+	Pointer p1(0, 2);
+	Pointer p2(2, 2);
+	Pointer p3(2, 0);
+	Square square;
+	square.A = p0;
+	square.B = p1;
+	square.C = p2;
+	square.D = p3;
+	cout << "shape type = " << square.GetShapeType() << endl;
+}
 int main()
 {
 //	TestStringBeads();
@@ -223,6 +236,7 @@ int main()
 //	TestMemoryBlock();
 //	TestRedisClient();
 //	TestRedisClientPool();
-	TestPointer();
+//	TestPointer();
+	TestSquare();
 	return 0;
 }

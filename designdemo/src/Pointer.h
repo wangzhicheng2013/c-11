@@ -13,7 +13,8 @@ ChangeLog:
 class Pointer
 {
 public:
-	explicit Pointer(int, int);
+	Pointer();
+	Pointer(int, int);
 	Pointer(const Pointer &);
 	Pointer & operator = (const Pointer &);
 	/*

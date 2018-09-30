@@ -8,7 +8,11 @@ ChangeLog:
 **************************************************/
 
 #include "Pointer.h"
-
+Pointer::Pointer()
+{
+	x_coordinate = 0;
+	y_coordinate = 0;
+}
 Pointer::Pointer(int x, int y) : x_coordinate(x), y_coordinate(y)
 {
 	// TODO Auto-generated constructor stub

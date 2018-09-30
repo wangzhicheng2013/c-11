@@ -65,6 +65,8 @@ am_MessageDispatch_OBJECTS =  \
 	MessageDispatch-RedisClient.$(OBJEXT) \
 	MessageDispatch-RedisClientPool.$(OBJEXT) \
 	MessageDispatch-Pointer.$(OBJEXT) \
+	MessageDispatch-Shape.$(OBJEXT) \
+	MessageDispatch-Square.$(OBJEXT) \
 	MessageDispatch-main.$(OBJEXT)
 MessageDispatch_OBJECTS = $(am_MessageDispatch_OBJECTS)
 MessageDispatch_DEPENDENCIES =
@@ -207,6 +209,8 @@ MessageDispatch_SOURCES = MessageHandler.h \
 				RedisClient.h RedisClient.cpp \
 				RedisClientPool.h RedisClientPool.cpp \
 				Pointer.h Pointer.cpp \
+				Shape.h Shape.cpp \
+				Square.h Square.cpp \
 				main.cpp
 
 MessageDispatch_CPPFLAGS = -std=c++11 \
@@ -327,6 +331,8 @@ include ./$(DEPDIR)/MessageDispatch-Pointer.Po
 include ./$(DEPDIR)/MessageDispatch-PrintTask.Po
 include ./$(DEPDIR)/MessageDispatch-RedisClient.Po
 include ./$(DEPDIR)/MessageDispatch-RedisClientPool.Po
+include ./$(DEPDIR)/MessageDispatch-Shape.Po
+include ./$(DEPDIR)/MessageDispatch-Square.Po
 include ./$(DEPDIR)/MessageDispatch-StringBeads.Po
 include ./$(DEPDIR)/MessageDispatch-ThreadPool.Po
 include ./$(DEPDIR)/MessageDispatch-main.Po
@@ -540,6 +546,34 @@ MessageDispatch-Pointer.obj: Pointer.cpp
 #	source='Pointer.cpp' object='MessageDispatch-Pointer.obj' libtool=no \
 #	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
 #	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(MessageDispatch_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o MessageDispatch-Pointer.obj `if test -f 'Pointer.cpp'; then $(CYGPATH_W) 'Pointer.cpp'; else $(CYGPATH_W) '$(srcdir)/Pointer.cpp'; fi`
+
+MessageDispatch-Shape.o: Shape.cpp
+	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(MessageDispatch_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT MessageDispatch-Shape.o -MD -MP -MF $(DEPDIR)/MessageDispatch-Shape.Tpo -c -o MessageDispatch-Shape.o `test -f 'Shape.cpp' || echo '$(srcdir)/'`Shape.cpp
+	$(am__mv) $(DEPDIR)/MessageDispatch-Shape.Tpo $(DEPDIR)/MessageDispatch-Shape.Po
+#	source='Shape.cpp' object='MessageDispatch-Shape.o' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
+#	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(MessageDispatch_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o MessageDispatch-Shape.o `test -f 'Shape.cpp' || echo '$(srcdir)/'`Shape.cpp
+
+MessageDispatch-Shape.obj: Shape.cpp
+	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(MessageDispatch_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT MessageDispatch-Shape.obj -MD -MP -MF $(DEPDIR)/MessageDispatch-Shape.Tpo -c -o MessageDispatch-Shape.obj `if test -f 'Shape.cpp'; then $(CYGPATH_W) 'Shape.cpp'; else $(CYGPATH_W) '$(srcdir)/Shape.cpp'; fi`
+	$(am__mv) $(DEPDIR)/MessageDispatch-Shape.Tpo $(DEPDIR)/MessageDispatch-Shape.Po
+#	source='Shape.cpp' object='MessageDispatch-Shape.obj' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
+#	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(MessageDispatch_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o MessageDispatch-Shape.obj `if test -f 'Shape.cpp'; then $(CYGPATH_W) 'Shape.cpp'; else $(CYGPATH_W) '$(srcdir)/Shape.cpp'; fi`
+
+MessageDispatch-Square.o: Square.cpp
+	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(MessageDispatch_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT MessageDispatch-Square.o -MD -MP -MF $(DEPDIR)/MessageDispatch-Square.Tpo -c -o MessageDispatch-Square.o `test -f 'Square.cpp' || echo '$(srcdir)/'`Square.cpp
+	$(am__mv) $(DEPDIR)/MessageDispatch-Square.Tpo $(DEPDIR)/MessageDispatch-Square.Po
+#	source='Square.cpp' object='MessageDispatch-Square.o' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
+#	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(MessageDispatch_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o MessageDispatch-Square.o `test -f 'Square.cpp' || echo '$(srcdir)/'`Square.cpp
+
+MessageDispatch-Square.obj: Square.cpp
+	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(MessageDispatch_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT MessageDispatch-Square.obj -MD -MP -MF $(DEPDIR)/MessageDispatch-Square.Tpo -c -o MessageDispatch-Square.obj `if test -f 'Square.cpp'; then $(CYGPATH_W) 'Square.cpp'; else $(CYGPATH_W) '$(srcdir)/Square.cpp'; fi`
+	$(am__mv) $(DEPDIR)/MessageDispatch-Square.Tpo $(DEPDIR)/MessageDispatch-Square.Po
+#	source='Square.cpp' object='MessageDispatch-Square.obj' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
+#	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(MessageDispatch_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o MessageDispatch-Square.obj `if test -f 'Square.cpp'; then $(CYGPATH_W) 'Square.cpp'; else $(CYGPATH_W) '$(srcdir)/Square.cpp'; fi`
 
 MessageDispatch-main.o: main.cpp
 	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(MessageDispatch_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT MessageDispatch-main.o -MD -MP -MF $(DEPDIR)/MessageDispatch-main.Tpo -c -o MessageDispatch-main.o `test -f 'main.cpp' || echo '$(srcdir)/'`main.cpp
