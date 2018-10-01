@@ -153,7 +153,23 @@ MessageDispatch-main.o: main.cpp MessageDispatch.h \
  /usr/include/assert.h RedisClient.h /usr/local/include/hiredis/hiredis.h \
  /usr/local/include/hiredis/read.h /usr/include/i386-linux-gnu/sys/time.h \
  /usr/local/include/hiredis/sds.h RedisClientPool.h Square.h Shape.h \
- Pointer.h
+ Pointer.h SockectUtility.h /usr/include/unistd.h \
+ /usr/include/i386-linux-gnu/bits/posix_opt.h \
+ /usr/include/i386-linux-gnu/bits/environments.h \
+ /usr/include/i386-linux-gnu/bits/confname.h /usr/include/getopt.h \
+ /usr/include/fcntl.h /usr/include/i386-linux-gnu/bits/fcntl.h \
+ /usr/include/i386-linux-gnu/bits/uio.h \
+ /usr/include/i386-linux-gnu/bits/stat.h \
+ /usr/include/i386-linux-gnu/sys/socket.h \
+ /usr/include/i386-linux-gnu/sys/uio.h \
+ /usr/include/i386-linux-gnu/bits/socket.h \
+ /usr/include/i386-linux-gnu/bits/sockaddr.h \
+ /usr/include/i386-linux-gnu/asm/socket.h \
+ /usr/include/asm-generic/socket.h \
+ /usr/include/i386-linux-gnu/asm/sockios.h \
+ /usr/include/asm-generic/sockios.h /usr/include/netinet/in.h \
+ /usr/include/i386-linux-gnu/bits/in.h /usr/include/arpa/inet.h \
+ UrlMapper.h
 
 MessageDispatch.h:
 
@@ -584,3 +600,47 @@ Square.h:
 Shape.h:
 
 Pointer.h:
+
+SockectUtility.h:
+
+/usr/include/unistd.h:
+
+/usr/include/i386-linux-gnu/bits/posix_opt.h:
+
+/usr/include/i386-linux-gnu/bits/environments.h:
+
+/usr/include/i386-linux-gnu/bits/confname.h:
+
+/usr/include/getopt.h:
+
+/usr/include/fcntl.h:
+
+/usr/include/i386-linux-gnu/bits/fcntl.h:
+
+/usr/include/i386-linux-gnu/bits/uio.h:
+
+/usr/include/i386-linux-gnu/bits/stat.h:
+
+/usr/include/i386-linux-gnu/sys/socket.h:
+
+/usr/include/i386-linux-gnu/sys/uio.h:
+
+/usr/include/i386-linux-gnu/bits/socket.h:
+
+/usr/include/i386-linux-gnu/bits/sockaddr.h:
+
+/usr/include/i386-linux-gnu/asm/socket.h:
+
+/usr/include/asm-generic/socket.h:
+
+/usr/include/i386-linux-gnu/asm/sockios.h:
+
+/usr/include/asm-generic/sockios.h:
+
+/usr/include/netinet/in.h:
+
+/usr/include/i386-linux-gnu/bits/in.h:
+
+/usr/include/arpa/inet.h:
+
+UrlMapper.h:

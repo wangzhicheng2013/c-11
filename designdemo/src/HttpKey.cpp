@@ -2,20 +2,20 @@
 Copyright:wangzhicheng
 Author: wangzhicheng
 Date:2018-10-01
-Description:shape class
+Description:http key class
 ChangeLog:
-			1.create this file
-			2.add ACCURACY_DEVIATION
+			1. create this file
 **************************************************/
 
-#include "Shape.h"
+#include "HttpKey.h"
 
-Shape::Shape()
+HttpKey::HttpKey(RestType a, UrlType b) : rest_type(a), url_type(b)
 {
 	// TODO Auto-generated constructor stub
+
 }
 
-Shape::~Shape()
+HttpKey::~HttpKey()
 {
 	// TODO Auto-generated destructor stub
 }

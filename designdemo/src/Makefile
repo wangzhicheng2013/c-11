@@ -67,6 +67,15 @@ am_MessageDispatch_OBJECTS =  \
 	MessageDispatch-Pointer.$(OBJEXT) \
 	MessageDispatch-Shape.$(OBJEXT) \
 	MessageDispatch-Square.$(OBJEXT) \
+	MessageDispatch-SockectUtility.$(OBJEXT) \
+	MessageDispatch-HttpConfig.$(OBJEXT) \
+	MessageDispatch-UrlMapper.$(OBJEXT) \
+	MessageDispatch-HttpKey.$(OBJEXT) \
+	MessageDispatch-ResponseHandler.$(OBJEXT) \
+	MessageDispatch-EchoResponseHandler.$(OBJEXT) \
+	MessageDispatch-HttpUtility.$(OBJEXT) \
+	MessageDispatch-HttpThread.$(OBJEXT) \
+	MessageDispatch-HttpServer.$(OBJEXT) \
 	MessageDispatch-main.$(OBJEXT)
 MessageDispatch_OBJECTS = $(am_MessageDispatch_OBJECTS)
 MessageDispatch_DEPENDENCIES =
@@ -211,13 +220,22 @@ MessageDispatch_SOURCES = MessageHandler.h \
 				Pointer.h Pointer.cpp \
 				Shape.h Shape.cpp \
 				Square.h Square.cpp \
+				SockectUtility.h SockectUtility.cpp \
+				HttpConig.h HttpConfig.cpp \
+				UrlMapper.h UrlMapper.cpp \
+				HttpKey.h HttpKey.cpp \
+				ResponseHandler.h ResponseHandler.cpp \
+				EchoResponseHandler.h EchoResponseHandler.cpp \
+				HttpUtility.h HttpUtility.cpp \
+				HttpThread.h HttpThread.cpp \
+				HttpServer.h HttpServer.cpp \
 				main.cpp
 
 MessageDispatch_CPPFLAGS = -std=c++11 \
 			 -I ./
 
 MessageDispatch_LDFLAGS = -pthread 
-MessageDispatch_LDADD = -lrdkafka++ -lrdkafka -lhiredis
+MessageDispatch_LDADD = -lrdkafka++ -lrdkafka -lhiredis -levent
 all: config.h
 	$(MAKE) $(AM_MAKEFLAGS) all-am
 
@@ -319,6 +337,12 @@ mostlyclean-compile:
 distclean-compile:
 	-rm -f *.tab.c
 
+include ./$(DEPDIR)/MessageDispatch-EchoResponseHandler.Po
+include ./$(DEPDIR)/MessageDispatch-HttpConfig.Po
+include ./$(DEPDIR)/MessageDispatch-HttpKey.Po
+include ./$(DEPDIR)/MessageDispatch-HttpServer.Po
+include ./$(DEPDIR)/MessageDispatch-HttpThread.Po
+include ./$(DEPDIR)/MessageDispatch-HttpUtility.Po
 include ./$(DEPDIR)/MessageDispatch-IP.Po
 include ./$(DEPDIR)/MessageDispatch-InputMsgHandler.Po
 include ./$(DEPDIR)/MessageDispatch-KafkaClientConfig.Po
@@ -331,10 +355,13 @@ include ./$(DEPDIR)/MessageDispatch-Pointer.Po
 include ./$(DEPDIR)/MessageDispatch-PrintTask.Po
 include ./$(DEPDIR)/MessageDispatch-RedisClient.Po
 include ./$(DEPDIR)/MessageDispatch-RedisClientPool.Po
+include ./$(DEPDIR)/MessageDispatch-ResponseHandler.Po
 include ./$(DEPDIR)/MessageDispatch-Shape.Po
+include ./$(DEPDIR)/MessageDispatch-SockectUtility.Po
 include ./$(DEPDIR)/MessageDispatch-Square.Po
 include ./$(DEPDIR)/MessageDispatch-StringBeads.Po
 include ./$(DEPDIR)/MessageDispatch-ThreadPool.Po
+include ./$(DEPDIR)/MessageDispatch-UrlMapper.Po
 include ./$(DEPDIR)/MessageDispatch-main.Po
 
 .cpp.o:
@@ -574,6 +601,132 @@ MessageDispatch-Square.obj: Square.cpp
 #	source='Square.cpp' object='MessageDispatch-Square.obj' libtool=no \
 #	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
 #	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(MessageDispatch_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o MessageDispatch-Square.obj `if test -f 'Square.cpp'; then $(CYGPATH_W) 'Square.cpp'; else $(CYGPATH_W) '$(srcdir)/Square.cpp'; fi`
+
+MessageDispatch-SockectUtility.o: SockectUtility.cpp
+	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(MessageDispatch_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT MessageDispatch-SockectUtility.o -MD -MP -MF $(DEPDIR)/MessageDispatch-SockectUtility.Tpo -c -o MessageDispatch-SockectUtility.o `test -f 'SockectUtility.cpp' || echo '$(srcdir)/'`SockectUtility.cpp
+	$(am__mv) $(DEPDIR)/MessageDispatch-SockectUtility.Tpo $(DEPDIR)/MessageDispatch-SockectUtility.Po
+#	source='SockectUtility.cpp' object='MessageDispatch-SockectUtility.o' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
+#	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(MessageDispatch_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o MessageDispatch-SockectUtility.o `test -f 'SockectUtility.cpp' || echo '$(srcdir)/'`SockectUtility.cpp
+
+MessageDispatch-SockectUtility.obj: SockectUtility.cpp
+	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(MessageDispatch_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT MessageDispatch-SockectUtility.obj -MD -MP -MF $(DEPDIR)/MessageDispatch-SockectUtility.Tpo -c -o MessageDispatch-SockectUtility.obj `if test -f 'SockectUtility.cpp'; then $(CYGPATH_W) 'SockectUtility.cpp'; else $(CYGPATH_W) '$(srcdir)/SockectUtility.cpp'; fi`
+	$(am__mv) $(DEPDIR)/MessageDispatch-SockectUtility.Tpo $(DEPDIR)/MessageDispatch-SockectUtility.Po
+#	source='SockectUtility.cpp' object='MessageDispatch-SockectUtility.obj' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
+#	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(MessageDispatch_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o MessageDispatch-SockectUtility.obj `if test -f 'SockectUtility.cpp'; then $(CYGPATH_W) 'SockectUtility.cpp'; else $(CYGPATH_W) '$(srcdir)/SockectUtility.cpp'; fi`
+
+MessageDispatch-HttpConfig.o: HttpConfig.cpp
+	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(MessageDispatch_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT MessageDispatch-HttpConfig.o -MD -MP -MF $(DEPDIR)/MessageDispatch-HttpConfig.Tpo -c -o MessageDispatch-HttpConfig.o `test -f 'HttpConfig.cpp' || echo '$(srcdir)/'`HttpConfig.cpp
+	$(am__mv) $(DEPDIR)/MessageDispatch-HttpConfig.Tpo $(DEPDIR)/MessageDispatch-HttpConfig.Po
+#	source='HttpConfig.cpp' object='MessageDispatch-HttpConfig.o' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
+#	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(MessageDispatch_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o MessageDispatch-HttpConfig.o `test -f 'HttpConfig.cpp' || echo '$(srcdir)/'`HttpConfig.cpp
+
+MessageDispatch-HttpConfig.obj: HttpConfig.cpp
+	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(MessageDispatch_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT MessageDispatch-HttpConfig.obj -MD -MP -MF $(DEPDIR)/MessageDispatch-HttpConfig.Tpo -c -o MessageDispatch-HttpConfig.obj `if test -f 'HttpConfig.cpp'; then $(CYGPATH_W) 'HttpConfig.cpp'; else $(CYGPATH_W) '$(srcdir)/HttpConfig.cpp'; fi`
+	$(am__mv) $(DEPDIR)/MessageDispatch-HttpConfig.Tpo $(DEPDIR)/MessageDispatch-HttpConfig.Po
+#	source='HttpConfig.cpp' object='MessageDispatch-HttpConfig.obj' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
+#	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(MessageDispatch_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o MessageDispatch-HttpConfig.obj `if test -f 'HttpConfig.cpp'; then $(CYGPATH_W) 'HttpConfig.cpp'; else $(CYGPATH_W) '$(srcdir)/HttpConfig.cpp'; fi`
+
+MessageDispatch-UrlMapper.o: UrlMapper.cpp
+	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(MessageDispatch_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT MessageDispatch-UrlMapper.o -MD -MP -MF $(DEPDIR)/MessageDispatch-UrlMapper.Tpo -c -o MessageDispatch-UrlMapper.o `test -f 'UrlMapper.cpp' || echo '$(srcdir)/'`UrlMapper.cpp
+	$(am__mv) $(DEPDIR)/MessageDispatch-UrlMapper.Tpo $(DEPDIR)/MessageDispatch-UrlMapper.Po
+#	source='UrlMapper.cpp' object='MessageDispatch-UrlMapper.o' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
+#	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(MessageDispatch_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o MessageDispatch-UrlMapper.o `test -f 'UrlMapper.cpp' || echo '$(srcdir)/'`UrlMapper.cpp
+
+MessageDispatch-UrlMapper.obj: UrlMapper.cpp
+	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(MessageDispatch_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT MessageDispatch-UrlMapper.obj -MD -MP -MF $(DEPDIR)/MessageDispatch-UrlMapper.Tpo -c -o MessageDispatch-UrlMapper.obj `if test -f 'UrlMapper.cpp'; then $(CYGPATH_W) 'UrlMapper.cpp'; else $(CYGPATH_W) '$(srcdir)/UrlMapper.cpp'; fi`
+	$(am__mv) $(DEPDIR)/MessageDispatch-UrlMapper.Tpo $(DEPDIR)/MessageDispatch-UrlMapper.Po
+#	source='UrlMapper.cpp' object='MessageDispatch-UrlMapper.obj' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
+#	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(MessageDispatch_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o MessageDispatch-UrlMapper.obj `if test -f 'UrlMapper.cpp'; then $(CYGPATH_W) 'UrlMapper.cpp'; else $(CYGPATH_W) '$(srcdir)/UrlMapper.cpp'; fi`
+
+MessageDispatch-HttpKey.o: HttpKey.cpp
+	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(MessageDispatch_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT MessageDispatch-HttpKey.o -MD -MP -MF $(DEPDIR)/MessageDispatch-HttpKey.Tpo -c -o MessageDispatch-HttpKey.o `test -f 'HttpKey.cpp' || echo '$(srcdir)/'`HttpKey.cpp
+	$(am__mv) $(DEPDIR)/MessageDispatch-HttpKey.Tpo $(DEPDIR)/MessageDispatch-HttpKey.Po
+#	source='HttpKey.cpp' object='MessageDispatch-HttpKey.o' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
+#	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(MessageDispatch_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o MessageDispatch-HttpKey.o `test -f 'HttpKey.cpp' || echo '$(srcdir)/'`HttpKey.cpp
+
+MessageDispatch-HttpKey.obj: HttpKey.cpp
+	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(MessageDispatch_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT MessageDispatch-HttpKey.obj -MD -MP -MF $(DEPDIR)/MessageDispatch-HttpKey.Tpo -c -o MessageDispatch-HttpKey.obj `if test -f 'HttpKey.cpp'; then $(CYGPATH_W) 'HttpKey.cpp'; else $(CYGPATH_W) '$(srcdir)/HttpKey.cpp'; fi`
+	$(am__mv) $(DEPDIR)/MessageDispatch-HttpKey.Tpo $(DEPDIR)/MessageDispatch-HttpKey.Po
+#	source='HttpKey.cpp' object='MessageDispatch-HttpKey.obj' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
+#	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(MessageDispatch_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o MessageDispatch-HttpKey.obj `if test -f 'HttpKey.cpp'; then $(CYGPATH_W) 'HttpKey.cpp'; else $(CYGPATH_W) '$(srcdir)/HttpKey.cpp'; fi`
+
+MessageDispatch-ResponseHandler.o: ResponseHandler.cpp
+	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(MessageDispatch_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT MessageDispatch-ResponseHandler.o -MD -MP -MF $(DEPDIR)/MessageDispatch-ResponseHandler.Tpo -c -o MessageDispatch-ResponseHandler.o `test -f 'ResponseHandler.cpp' || echo '$(srcdir)/'`ResponseHandler.cpp
+	$(am__mv) $(DEPDIR)/MessageDispatch-ResponseHandler.Tpo $(DEPDIR)/MessageDispatch-ResponseHandler.Po
+#	source='ResponseHandler.cpp' object='MessageDispatch-ResponseHandler.o' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
+#	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(MessageDispatch_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o MessageDispatch-ResponseHandler.o `test -f 'ResponseHandler.cpp' || echo '$(srcdir)/'`ResponseHandler.cpp
+
+MessageDispatch-ResponseHandler.obj: ResponseHandler.cpp
+	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(MessageDispatch_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT MessageDispatch-ResponseHandler.obj -MD -MP -MF $(DEPDIR)/MessageDispatch-ResponseHandler.Tpo -c -o MessageDispatch-ResponseHandler.obj `if test -f 'ResponseHandler.cpp'; then $(CYGPATH_W) 'ResponseHandler.cpp'; else $(CYGPATH_W) '$(srcdir)/ResponseHandler.cpp'; fi`
+	$(am__mv) $(DEPDIR)/MessageDispatch-ResponseHandler.Tpo $(DEPDIR)/MessageDispatch-ResponseHandler.Po
+#	source='ResponseHandler.cpp' object='MessageDispatch-ResponseHandler.obj' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
+#	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(MessageDispatch_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o MessageDispatch-ResponseHandler.obj `if test -f 'ResponseHandler.cpp'; then $(CYGPATH_W) 'ResponseHandler.cpp'; else $(CYGPATH_W) '$(srcdir)/ResponseHandler.cpp'; fi`
+
+MessageDispatch-EchoResponseHandler.o: EchoResponseHandler.cpp
+	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(MessageDispatch_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT MessageDispatch-EchoResponseHandler.o -MD -MP -MF $(DEPDIR)/MessageDispatch-EchoResponseHandler.Tpo -c -o MessageDispatch-EchoResponseHandler.o `test -f 'EchoResponseHandler.cpp' || echo '$(srcdir)/'`EchoResponseHandler.cpp
+	$(am__mv) $(DEPDIR)/MessageDispatch-EchoResponseHandler.Tpo $(DEPDIR)/MessageDispatch-EchoResponseHandler.Po
+#	source='EchoResponseHandler.cpp' object='MessageDispatch-EchoResponseHandler.o' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
+#	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(MessageDispatch_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o MessageDispatch-EchoResponseHandler.o `test -f 'EchoResponseHandler.cpp' || echo '$(srcdir)/'`EchoResponseHandler.cpp
+
+MessageDispatch-EchoResponseHandler.obj: EchoResponseHandler.cpp
+	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(MessageDispatch_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT MessageDispatch-EchoResponseHandler.obj -MD -MP -MF $(DEPDIR)/MessageDispatch-EchoResponseHandler.Tpo -c -o MessageDispatch-EchoResponseHandler.obj `if test -f 'EchoResponseHandler.cpp'; then $(CYGPATH_W) 'EchoResponseHandler.cpp'; else $(CYGPATH_W) '$(srcdir)/EchoResponseHandler.cpp'; fi`
+	$(am__mv) $(DEPDIR)/MessageDispatch-EchoResponseHandler.Tpo $(DEPDIR)/MessageDispatch-EchoResponseHandler.Po
+#	source='EchoResponseHandler.cpp' object='MessageDispatch-EchoResponseHandler.obj' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
+#	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(MessageDispatch_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o MessageDispatch-EchoResponseHandler.obj `if test -f 'EchoResponseHandler.cpp'; then $(CYGPATH_W) 'EchoResponseHandler.cpp'; else $(CYGPATH_W) '$(srcdir)/EchoResponseHandler.cpp'; fi`
+
+MessageDispatch-HttpUtility.o: HttpUtility.cpp
+	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(MessageDispatch_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT MessageDispatch-HttpUtility.o -MD -MP -MF $(DEPDIR)/MessageDispatch-HttpUtility.Tpo -c -o MessageDispatch-HttpUtility.o `test -f 'HttpUtility.cpp' || echo '$(srcdir)/'`HttpUtility.cpp
+	$(am__mv) $(DEPDIR)/MessageDispatch-HttpUtility.Tpo $(DEPDIR)/MessageDispatch-HttpUtility.Po
+#	source='HttpUtility.cpp' object='MessageDispatch-HttpUtility.o' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
+#	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(MessageDispatch_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o MessageDispatch-HttpUtility.o `test -f 'HttpUtility.cpp' || echo '$(srcdir)/'`HttpUtility.cpp
+
+MessageDispatch-HttpUtility.obj: HttpUtility.cpp
+	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(MessageDispatch_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT MessageDispatch-HttpUtility.obj -MD -MP -MF $(DEPDIR)/MessageDispatch-HttpUtility.Tpo -c -o MessageDispatch-HttpUtility.obj `if test -f 'HttpUtility.cpp'; then $(CYGPATH_W) 'HttpUtility.cpp'; else $(CYGPATH_W) '$(srcdir)/HttpUtility.cpp'; fi`
+	$(am__mv) $(DEPDIR)/MessageDispatch-HttpUtility.Tpo $(DEPDIR)/MessageDispatch-HttpUtility.Po
+#	source='HttpUtility.cpp' object='MessageDispatch-HttpUtility.obj' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
+#	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(MessageDispatch_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o MessageDispatch-HttpUtility.obj `if test -f 'HttpUtility.cpp'; then $(CYGPATH_W) 'HttpUtility.cpp'; else $(CYGPATH_W) '$(srcdir)/HttpUtility.cpp'; fi`
+
+MessageDispatch-HttpThread.o: HttpThread.cpp
+	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(MessageDispatch_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT MessageDispatch-HttpThread.o -MD -MP -MF $(DEPDIR)/MessageDispatch-HttpThread.Tpo -c -o MessageDispatch-HttpThread.o `test -f 'HttpThread.cpp' || echo '$(srcdir)/'`HttpThread.cpp
+	$(am__mv) $(DEPDIR)/MessageDispatch-HttpThread.Tpo $(DEPDIR)/MessageDispatch-HttpThread.Po
+#	source='HttpThread.cpp' object='MessageDispatch-HttpThread.o' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
+#	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(MessageDispatch_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o MessageDispatch-HttpThread.o `test -f 'HttpThread.cpp' || echo '$(srcdir)/'`HttpThread.cpp
+
+MessageDispatch-HttpThread.obj: HttpThread.cpp
+	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(MessageDispatch_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT MessageDispatch-HttpThread.obj -MD -MP -MF $(DEPDIR)/MessageDispatch-HttpThread.Tpo -c -o MessageDispatch-HttpThread.obj `if test -f 'HttpThread.cpp'; then $(CYGPATH_W) 'HttpThread.cpp'; else $(CYGPATH_W) '$(srcdir)/HttpThread.cpp'; fi`
+	$(am__mv) $(DEPDIR)/MessageDispatch-HttpThread.Tpo $(DEPDIR)/MessageDispatch-HttpThread.Po
+#	source='HttpThread.cpp' object='MessageDispatch-HttpThread.obj' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
+#	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(MessageDispatch_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o MessageDispatch-HttpThread.obj `if test -f 'HttpThread.cpp'; then $(CYGPATH_W) 'HttpThread.cpp'; else $(CYGPATH_W) '$(srcdir)/HttpThread.cpp'; fi`
+
+MessageDispatch-HttpServer.o: HttpServer.cpp
+	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(MessageDispatch_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT MessageDispatch-HttpServer.o -MD -MP -MF $(DEPDIR)/MessageDispatch-HttpServer.Tpo -c -o MessageDispatch-HttpServer.o `test -f 'HttpServer.cpp' || echo '$(srcdir)/'`HttpServer.cpp
+	$(am__mv) $(DEPDIR)/MessageDispatch-HttpServer.Tpo $(DEPDIR)/MessageDispatch-HttpServer.Po
+#	source='HttpServer.cpp' object='MessageDispatch-HttpServer.o' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
+#	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(MessageDispatch_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o MessageDispatch-HttpServer.o `test -f 'HttpServer.cpp' || echo '$(srcdir)/'`HttpServer.cpp
+
+MessageDispatch-HttpServer.obj: HttpServer.cpp
+	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(MessageDispatch_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT MessageDispatch-HttpServer.obj -MD -MP -MF $(DEPDIR)/MessageDispatch-HttpServer.Tpo -c -o MessageDispatch-HttpServer.obj `if test -f 'HttpServer.cpp'; then $(CYGPATH_W) 'HttpServer.cpp'; else $(CYGPATH_W) '$(srcdir)/HttpServer.cpp'; fi`
+	$(am__mv) $(DEPDIR)/MessageDispatch-HttpServer.Tpo $(DEPDIR)/MessageDispatch-HttpServer.Po
+#	source='HttpServer.cpp' object='MessageDispatch-HttpServer.obj' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
+#	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(MessageDispatch_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o MessageDispatch-HttpServer.obj `if test -f 'HttpServer.cpp'; then $(CYGPATH_W) 'HttpServer.cpp'; else $(CYGPATH_W) '$(srcdir)/HttpServer.cpp'; fi`
 
 MessageDispatch-main.o: main.cpp
 	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(MessageDispatch_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT MessageDispatch-main.o -MD -MP -MF $(DEPDIR)/MessageDispatch-main.Tpo -c -o MessageDispatch-main.o `test -f 'main.cpp' || echo '$(srcdir)/'`main.cpp

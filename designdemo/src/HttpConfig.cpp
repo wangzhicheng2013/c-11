@@ -2,20 +2,20 @@
 Copyright:wangzhicheng
 Author: wangzhicheng
 Date:2018-10-01
-Description:shape class
+Description:http config class
 ChangeLog:
-			1.create this file
-			2.add ACCURACY_DEVIATION
+			1. create this file
 **************************************************/
 
-#include "Shape.h"
+#include "HttpConfig.h"
 
-Shape::Shape()
+HttpConfig::HttpConfig()
 {
 	// TODO Auto-generated constructor stub
+
 }
 
-Shape::~Shape()
+HttpConfig::~HttpConfig()
 {
 	// TODO Auto-generated destructor stub
 }

@@ -18,8 +18,17 @@ MessageDispatch_SOURCES = MessageHandler.h \
 				Pointer.h Pointer.cpp \
 				Shape.h Shape.cpp \
 				Square.h Square.cpp \
+				SockectUtility.h SockectUtility.cpp \
+				HttpConig.h HttpConfig.cpp \
+				UrlMapper.h UrlMapper.cpp \
+				HttpKey.h HttpKey.cpp \
+				ResponseHandler.h ResponseHandler.cpp \
+				EchoResponseHandler.h EchoResponseHandler.cpp \
+				HttpUtility.h HttpUtility.cpp \
+				HttpThread.h HttpThread.cpp \
+				HttpServer.h HttpServer.cpp \
 				main.cpp
 MessageDispatch_CPPFLAGS = -std=c++11 \
 			 -I ./
 MessageDispatch_LDFLAGS = -pthread 
-MessageDispatch_LDADD = -lrdkafka++ -lrdkafka -lhiredis
+MessageDispatch_LDADD = -lrdkafka++ -lrdkafka -lhiredis -levent

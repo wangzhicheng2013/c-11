@@ -2,20 +2,20 @@
 Copyright:wangzhicheng
 Author: wangzhicheng
 Date:2018-10-01
-Description:shape class
+Description:http response handler class
 ChangeLog:
-			1.create this file
-			2.add ACCURACY_DEVIATION
+			1. create this file
 **************************************************/
 
-#include "Shape.h"
+#include "ResponseHandler.h"
 
-Shape::Shape()
+ResponseHandler::ResponseHandler()
 {
 	// TODO Auto-generated constructor stub
+
 }
 
-Shape::~Shape()
+ResponseHandler::~ResponseHandler()
 {
 	// TODO Auto-generated destructor stub
 }

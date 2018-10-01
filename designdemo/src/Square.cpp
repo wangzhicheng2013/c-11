@@ -1,10 +1,11 @@
 /*************************************************
 Copyright:wangzhicheng
 Author: wangzhicheng
-Date:2018-09-30
+Date:2018-10-01
 Description:square class
 ChangeLog:
-			1. create this file
+			1.create this file
+			2.add ACCURACY_DEVIATION judgment
 **************************************************/
 
 #include "Square.h"
@@ -19,7 +20,9 @@ Square::Square()
  * */
 ShapeType Square::GetShapeType()
 {
-	if ((A.GetDistance(B) == B.GetDistance(C)) && (A.GetDistance(C) == B.GetDistance(D)))
+	double diff0 = fabs(A.GetDistance(B) - B.GetDistance(C));
+	double diff1 = fabs(A.GetDistance(C) - B.GetDistance(D));
+	if (diff0 <= ACCURACY_DEVIATION && diff1 <= ACCURACY_DEVIATION)
 	{
 		return SQUARE;
 	}

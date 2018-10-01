@@ -1,7 +1,7 @@
 /*************************************************
 Copyright:wangzhicheng
 Author: wangzhicheng
-Date:2018-09-29
+Date:2018-10-01
 Description:program main entry
 ChangeLog:
 			1. create this file
@@ -10,6 +10,7 @@ ChangeLog:
 			4.add redis client test
 			5.add redis client pool test
 			5.add Pointer test
+			6.add Socket Utility test
 **************************************************/
 
 #include "MessageDispatch.h"
@@ -24,6 +25,7 @@ ChangeLog:
 #include "RedisClient.h"
 #include "RedisClientPool.h"
 #include "Square.h"
+#include "HttpServer.h"
 int TestThreadPool()
 {
 	InputMsgHandler inputMsgHandler;
@@ -223,7 +225,42 @@ void TestSquare()
 	square.B = p1;
 	square.C = p2;
 	square.D = p3;
-	cout << "shape type = " << square.GetShapeType() << endl;
+	if (SQUARE == square.GetShapeType())
+	{
+		cout << "it is square." << endl;
+	}
+}
+void TestSocketUtility()
+{
+	SocketConfig config;
+	SockectUtility sockectUtility(config);
+	if (sockectUtility.InitSocket())
+	{
+		cout << "socket init ok." << endl;
+	}
+	else
+	{
+		return;
+	}
+	if (sockectUtility.BindSocket())
+	{
+		cout << "socket bind ok." << endl;
+	}
+}
+void TestHttpServer()
+{
+	SocketConfig config;
+	HttpServer httpserver;
+
+}
+void TestUrlMapper()
+{
+	UrlMapper urlMapper;
+	string url = "/device?XXX";
+	if (DEVICE == urlMapper.GetType(url))
+	{
+		cout << "it is device url" << endl;
+	}
 }
 int main()
 {
@@ -237,6 +274,8 @@ int main()
 //	TestRedisClient();
 //	TestRedisClientPool();
 //	TestPointer();
-	TestSquare();
+//	TestSquare();
+//	TestSocketUtility();
+	TestUrlMapper();
 	return 0;
 }

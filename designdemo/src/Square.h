@@ -1,17 +1,16 @@
 /*************************************************
 Copyright:wangzhicheng
 Author: wangzhicheng
-Date:2018-09-30
+Date:2018-10-01
 Description:square class
 ChangeLog:
-			1. create this file
+			1.create this file
+			2.add ACCURACY_DEVIATION judgment
 **************************************************/
 
 #ifndef SQUARE_H_
 #define SQUARE_H_
-
 #include "Shape.h"
-
 class Square: public Shape
 {
 public:

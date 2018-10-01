@@ -1,10 +1,11 @@
 /*************************************************
 Copyright:wangzhicheng
 Author: wangzhicheng
-Date:2018-09-30
+Date:2018-10-01
 Description:shape class
 ChangeLog:
-			1. create this file
+			1.create this file
+			2.add ACCURACY_DEVIATION
 **************************************************/
 
 #ifndef SHAPE_H_
@@ -16,6 +17,7 @@ enum ShapeType
 	RECTANGLE,
 	UNKNOWN
 };
+static const double ACCURACY_DEVIATION = 1.0e-15;
 class Shape
 {
 public:
