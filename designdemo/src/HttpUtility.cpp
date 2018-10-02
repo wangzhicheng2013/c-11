@@ -1,14 +1,15 @@
 /*************************************************
 Copyright:wangzhicheng
 Author: wangzhicheng
-Date:2018-10-01
+Date:2018-10-02
 Description:http utility class
 ChangeLog:
-			1. create this file
+			1.create this file
+			2.update ~HttpUtility() to add default value
 **************************************************/
 
 #include "HttpUtility.h"
-
+map<HttpKey, ResponseHandler *, HttpKeyCmp>HttpUtility::mapper;
 HttpUtility::HttpUtility()
 {
 	// TODO Auto-generated constructor stub
@@ -97,7 +98,6 @@ void HttpUtility::HandleRequest()
 		return;
 	}
 	it->second->Handler(config);
-
 }
 /*
  * @purpose:reply to http client
@@ -121,4 +121,5 @@ void HttpUtility::HandleHttp()
 HttpUtility::~HttpUtility()
 {
 	// TODO Auto-generated destructor stub
+	http_req = nullptr;
 }

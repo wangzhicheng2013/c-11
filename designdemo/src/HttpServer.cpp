@@ -1,15 +1,16 @@
 /*************************************************
 Copyright:wangzhicheng
 Author: wangzhicheng
-Date:2018-10-01
+Date:2018-10-02
 Description:http server class
 ChangeLog:
-			1. create this file
+			1.create this file
+			2.update constructor to add class member
 **************************************************/
 
 #include "HttpServer.h"
 
-HttpServer::HttpServer()
+HttpServer::HttpServer(const SocketConfig &config) : sockectUtility(config)
 {
 	// TODO Auto-generated constructor stub
 }
@@ -17,22 +18,26 @@ HttpServer::HttpServer()
  * @purpose:init server
  * @return true if init ok
  * */
-bool HttpServer::Init(int network_size, const SocketConfig &config)
+bool HttpServer::Init(int network_size)
 {
 	if (network_size <= 0 || network_size > NETWORKCAPACITY)
 	{
 		cerr << "network size exception...!" << endl;
 		return false;
 	}
-	SockectUtility sockectUtility(config);
+	if (!sockectUtility.InitSocket())
+	{
+		return false;
+	}
 	if (!sockectUtility.BindSocket())
 	{
 		return false;
 	}
 	httpthreadVec.resize(network_size);
+	int sock_fd = sockectUtility.GetSockFd();
 	for (auto &it : httpthreadVec)
 	{
-		if (!it.Init(sockectUtility.GetSockFd()))
+		if (!it.Init(sock_fd))
 		{
 			return false;
 		}

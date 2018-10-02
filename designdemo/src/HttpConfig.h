@@ -1,10 +1,11 @@
 /*************************************************
 Copyright:wangzhicheng
 Author: wangzhicheng
-Date:2018-10-01
+Date:2018-10-02
 Description:http config class
 ChangeLog:
-			1. create this file
+			1.create this file
+			2.update constructor to add default value
 **************************************************/
 
 #ifndef HTTPCONFIG_H_

@@ -27,6 +27,7 @@ MessageDispatch_SOURCES = MessageHandler.h \
 				HttpUtility.h HttpUtility.cpp \
 				HttpThread.h HttpThread.cpp \
 				HttpServer.h HttpServer.cpp \
+				ResponseHandlerInfo.h ResponseHandlerInfo.cpp \
 				main.cpp
 MessageDispatch_CPPFLAGS = -std=c++11 \
 			 -I ./

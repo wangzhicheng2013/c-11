@@ -30,7 +30,7 @@ public:
 	UrlType GetType(const string &url);
 	virtual ~UrlMapper();
 private:
-	unordered_map<string, UrlType>mapper;
+	unordered_map<string, UrlType>mapper;	// key - url
 };
 
 #endif /* URLMAPPER_H_ */

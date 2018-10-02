@@ -1,10 +1,11 @@
 /*************************************************
 Copyright:wangzhicheng
 Author: wangzhicheng
-Date:2018-10-01
+Date:2018-10-02
 Description:http thread class
 ChangeLog:
-			1. create this file
+			1.create this file
+			2.update Init method to add error output
 **************************************************/
 
 #include "HttpThread.h"
@@ -15,6 +16,19 @@ HttpThread::HttpThread()
 	pEventBase = nullptr;
 	pEventHttp = nullptr;
 	sock_fd = -1;
+}
+HttpThread::HttpThread(const HttpThread &httpThread)
+{
+	pEventBase = httpThread.pEventBase;
+	pEventHttp = httpThread.pEventHttp;
+	sock_fd = httpThread.sock_fd;
+}
+HttpThread & HttpThread::operator = (const HttpThread &httpThread)
+{
+	pEventBase = httpThread.pEventBase;
+	pEventHttp = httpThread.pEventHttp;
+	sock_fd = httpThread.sock_fd;
+	return *this;
 }
 /*
  * @purpose:init http thread
@@ -31,11 +45,13 @@ bool HttpThread::Init(int fd)
 	pEventBase = event_base_new();
 	if (nullptr == pEventBase)
 	{
+		cerr << "event base is null...!" << endl;
 		return false;
 	}
 	pEventHttp = evhttp_new(pEventBase);
 	if (nullptr == pEventHttp)
 	{
+		cerr << "event http is null...!" << endl;
 		return false;
 	}
 	if (evhttp_accept_socket(pEventHttp, sock_fd))
@@ -55,7 +71,6 @@ void HttpThread::HttpDispathEvent()
 	{
 		event_base_dispatch(pEventBase);
 	}
-
 }
 /*
  * @purpose:http call back function

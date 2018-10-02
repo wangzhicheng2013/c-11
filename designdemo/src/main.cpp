@@ -1,7 +1,7 @@
 /*************************************************
 Copyright:wangzhicheng
 Author: wangzhicheng
-Date:2018-10-01
+Date:2018-10-02
 Description:program main entry
 ChangeLog:
 			1. create this file
@@ -11,6 +11,7 @@ ChangeLog:
 			5.add redis client pool test
 			5.add Pointer test
 			6.add Socket Utility test
+			7.add ResponseHandlerInfo test
 **************************************************/
 
 #include "MessageDispatch.h"
@@ -26,6 +27,7 @@ ChangeLog:
 #include "RedisClientPool.h"
 #include "Square.h"
 #include "HttpServer.h"
+#include "ResponseHandlerInfo.h"
 int TestThreadPool()
 {
 	InputMsgHandler inputMsgHandler;
@@ -247,12 +249,6 @@ void TestSocketUtility()
 		cout << "socket bind ok." << endl;
 	}
 }
-void TestHttpServer()
-{
-	SocketConfig config;
-	HttpServer httpserver;
-
-}
 void TestUrlMapper()
 {
 	UrlMapper urlMapper;
@@ -260,6 +256,17 @@ void TestUrlMapper()
 	if (DEVICE == urlMapper.GetType(url))
 	{
 		cout << "it is device url" << endl;
+	}
+}
+void TestHttpServer()
+{
+	ResponseHandlerInfo responseHandlerInfo;
+	responseHandlerInfo.Init();
+	SocketConfig config;
+	HttpServer httpServer(config);
+	if (httpServer.Init(2))
+	{
+		cout << "http server init ok." << endl;
 	}
 }
 int main()
@@ -276,6 +283,7 @@ int main()
 //	TestPointer();
 //	TestSquare();
 //	TestSocketUtility();
-	TestUrlMapper();
+//	TestUrlMapper();
+	TestHttpServer();
 	return 0;
 }

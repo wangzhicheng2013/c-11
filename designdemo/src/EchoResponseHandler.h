@@ -19,7 +19,7 @@ public:
 	/*
 	 * @purpose:handler http request
 	 * */
-	virtual void Handler(HttpConfig &config) override;
+	virtual void Handler(HttpConfig &) override;
 	virtual ~EchoResponseHandler();
 };
 

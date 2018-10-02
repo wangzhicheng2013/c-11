@@ -76,6 +76,7 @@ am_MessageDispatch_OBJECTS =  \
 	MessageDispatch-HttpUtility.$(OBJEXT) \
 	MessageDispatch-HttpThread.$(OBJEXT) \
 	MessageDispatch-HttpServer.$(OBJEXT) \
+	MessageDispatch-ResponseHandlerInfo.$(OBJEXT) \
 	MessageDispatch-main.$(OBJEXT)
 MessageDispatch_OBJECTS = $(am_MessageDispatch_OBJECTS)
 MessageDispatch_DEPENDENCIES =
@@ -229,6 +230,7 @@ MessageDispatch_SOURCES = MessageHandler.h \
 				HttpUtility.h HttpUtility.cpp \
 				HttpThread.h HttpThread.cpp \
 				HttpServer.h HttpServer.cpp \
+				ResponseHandlerInfo.h ResponseHandlerInfo.cpp \
 				main.cpp
 
 MessageDispatch_CPPFLAGS = -std=c++11 \
@@ -356,6 +358,7 @@ include ./$(DEPDIR)/MessageDispatch-PrintTask.Po
 include ./$(DEPDIR)/MessageDispatch-RedisClient.Po
 include ./$(DEPDIR)/MessageDispatch-RedisClientPool.Po
 include ./$(DEPDIR)/MessageDispatch-ResponseHandler.Po
+include ./$(DEPDIR)/MessageDispatch-ResponseHandlerInfo.Po
 include ./$(DEPDIR)/MessageDispatch-Shape.Po
 include ./$(DEPDIR)/MessageDispatch-SockectUtility.Po
 include ./$(DEPDIR)/MessageDispatch-Square.Po
@@ -727,6 +730,20 @@ MessageDispatch-HttpServer.obj: HttpServer.cpp
 #	source='HttpServer.cpp' object='MessageDispatch-HttpServer.obj' libtool=no \
 #	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
 #	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(MessageDispatch_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o MessageDispatch-HttpServer.obj `if test -f 'HttpServer.cpp'; then $(CYGPATH_W) 'HttpServer.cpp'; else $(CYGPATH_W) '$(srcdir)/HttpServer.cpp'; fi`
+
+MessageDispatch-ResponseHandlerInfo.o: ResponseHandlerInfo.cpp
+	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(MessageDispatch_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT MessageDispatch-ResponseHandlerInfo.o -MD -MP -MF $(DEPDIR)/MessageDispatch-ResponseHandlerInfo.Tpo -c -o MessageDispatch-ResponseHandlerInfo.o `test -f 'ResponseHandlerInfo.cpp' || echo '$(srcdir)/'`ResponseHandlerInfo.cpp
+	$(am__mv) $(DEPDIR)/MessageDispatch-ResponseHandlerInfo.Tpo $(DEPDIR)/MessageDispatch-ResponseHandlerInfo.Po
+#	source='ResponseHandlerInfo.cpp' object='MessageDispatch-ResponseHandlerInfo.o' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
+#	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(MessageDispatch_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o MessageDispatch-ResponseHandlerInfo.o `test -f 'ResponseHandlerInfo.cpp' || echo '$(srcdir)/'`ResponseHandlerInfo.cpp
+
+MessageDispatch-ResponseHandlerInfo.obj: ResponseHandlerInfo.cpp
+	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(MessageDispatch_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT MessageDispatch-ResponseHandlerInfo.obj -MD -MP -MF $(DEPDIR)/MessageDispatch-ResponseHandlerInfo.Tpo -c -o MessageDispatch-ResponseHandlerInfo.obj `if test -f 'ResponseHandlerInfo.cpp'; then $(CYGPATH_W) 'ResponseHandlerInfo.cpp'; else $(CYGPATH_W) '$(srcdir)/ResponseHandlerInfo.cpp'; fi`
+	$(am__mv) $(DEPDIR)/MessageDispatch-ResponseHandlerInfo.Tpo $(DEPDIR)/MessageDispatch-ResponseHandlerInfo.Po
+#	source='ResponseHandlerInfo.cpp' object='MessageDispatch-ResponseHandlerInfo.obj' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
+#	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(MessageDispatch_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o MessageDispatch-ResponseHandlerInfo.obj `if test -f 'ResponseHandlerInfo.cpp'; then $(CYGPATH_W) 'ResponseHandlerInfo.cpp'; else $(CYGPATH_W) '$(srcdir)/ResponseHandlerInfo.cpp'; fi`
 
 MessageDispatch-main.o: main.cpp
 	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(MessageDispatch_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT MessageDispatch-main.o -MD -MP -MF $(DEPDIR)/MessageDispatch-main.Tpo -c -o MessageDispatch-main.o `test -f 'main.cpp' || echo '$(srcdir)/'`main.cpp

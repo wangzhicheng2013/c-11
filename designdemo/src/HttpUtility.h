@@ -1,10 +1,11 @@
 /*************************************************
 Copyright:wangzhicheng
 Author: wangzhicheng
-Date:2018-10-01
+Date:2018-10-02
 Description:http utility class
 ChangeLog:
-			1. create this file
+			1.create this file
+			2.update ~HttpUtility() to add default value
 **************************************************/
 
 #ifndef HTTPUTILITY_H_
@@ -26,7 +27,7 @@ public:
 	/*
 	 * @purpose:register handler
 	 * */
-	void RegisterHandler(const HttpKey &key, ResponseHandler *handler);
+	static void RegisterHandler(const HttpKey &key, ResponseHandler *handler);
 	/*
 	 * @purpose:handle http request and send response to client
 	 * */
@@ -59,7 +60,7 @@ private:
 private:
 	struct evhttp_request *http_req;
 	HttpConfig config;
-	map<HttpKey, ResponseHandler *, HttpKeyCmp>mapper;
+	static map<HttpKey, ResponseHandler *, HttpKeyCmp>mapper;
 	UrlMapper urlMapper;
 
 };
