@@ -32,4 +32,4 @@ MessageDispatch_SOURCES = MessageHandler.h \
 MessageDispatch_CPPFLAGS = -std=c++11 \
 			 -I ./
 MessageDispatch_LDFLAGS = -pthread 
-MessageDispatch_LDADD = -lrdkafka++ -lrdkafka -lhiredis -levent
+MessageDispatch_LDADD = -lrdkafka++ -lrdkafka -lhiredis -levent_pthreads -levent_openssl -levent

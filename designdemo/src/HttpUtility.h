@@ -1,11 +1,12 @@
 /*************************************************
 Copyright:wangzhicheng
 Author: wangzhicheng
-Date:2018-10-02
+Date:2018-10-07
 Description:http utility class
 ChangeLog:
 			1.create this file
 			2.update ~HttpUtility() to add default value
+			3.update GetUrl to decode url
 **************************************************/
 
 #ifndef HTTPUTILITY_H_
