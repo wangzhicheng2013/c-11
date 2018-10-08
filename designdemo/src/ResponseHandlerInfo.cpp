@@ -26,7 +26,7 @@ void ResponseHandlerInfo::Init()
  * */
 void ResponseHandlerInfo::InitEchoResponseHandler()
 {
-	HttpKey key(POST, DEVICE);
+	HttpKey key(GET, DEVICE);
 	HttpUtility::RegisterHandler(key, &echoResponseHandler);
 }
 ResponseHandlerInfo::~ResponseHandlerInfo()

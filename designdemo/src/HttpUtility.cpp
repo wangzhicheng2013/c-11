@@ -1,12 +1,13 @@
 /*************************************************
 Copyright:wangzhicheng
 Author: wangzhicheng
-Date:2018-10-07
+Date:2018-10-08
 Description:http utility class
 ChangeLog:
 			1.create this file
 			2.update ~HttpUtility() to add default value
 			3.update GetUrl to decode url
+			4.add https
 **************************************************/
 
 #include "HttpUtility.h"
@@ -73,7 +74,7 @@ void HttpUtility::GetUrl()
 		cerr << "parse url = " << p << " failed...!" << endl;
 		return;
 	}
-	const char *ip = evhttp_uri_get_host(decoded);
+/*	const char *ip = evhttp_uri_get_host(decoded);
 	if (nullptr == ip)
 	{
 		evhttp_uri_free (decoded);
@@ -87,7 +88,7 @@ void HttpUtility::GetUrl()
 		evhttp_uri_free (decoded);
 		cerr << "parse url = " << p << " port failed...!" << endl;
 		return;
-	}
+	}*/
 	const char *path = evhttp_uri_get_path(decoded);
 	if (nullptr == path || 0 == path[0])
 	{
@@ -98,6 +99,7 @@ void HttpUtility::GetUrl()
 		config.url_path = path;
 	}
 	evhttp_uri_free (decoded);
+	config.Show();
 }
 /*
  * @purpose:get url type from http request

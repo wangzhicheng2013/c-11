@@ -1,12 +1,13 @@
 /*************************************************
 Copyright:wangzhicheng
 Author: wangzhicheng
-Date:2018-10-07
+Date:2018-10-08
 Description:http utility class
 ChangeLog:
 			1.create this file
 			2.update ~HttpUtility() to add default value
 			3.update GetUrl to decode url
+			4.add https
 **************************************************/
 
 #ifndef HTTPUTILITY_H_
@@ -14,6 +15,10 @@ ChangeLog:
 #include <event.h>
 #include <evhttp.h>
 #include <event2/listener.h>
+#include <event2/bufferevent_ssl.h>
+#include <openssl/ssl.h>
+#include <openssl/err.h>
+
 #include "ResponseHandler.h"
 #include "HttpConfig.h"
 #include <iostream>
