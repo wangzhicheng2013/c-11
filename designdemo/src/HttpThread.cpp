@@ -1,12 +1,13 @@
 /*************************************************
 Copyright:wangzhicheng
 Author: wangzhicheng
-Date:2018-10-08
+Date:2018-10-09
 Description:http thread class
 ChangeLog:
 			1.create this file
 			2.update Init method to add error output
 			3.add https
+			4.add InitOpenSSL method
 **************************************************/
 
 #include "HttpThread.h"
@@ -62,11 +63,20 @@ bool HttpThread::Init(int fd)
 		return false;
 	}
 	evhttp_set_gencb(pEventHttp, &HttpThread::HttpCallBackFun, NULL);
-	/*if (!InitHttps())
+	if (!InitHttps())
 	{
 		return false;
-	}*/
+	}
 	return true;
+}
+/*
+ * @purpose:init openssl
+ * */
+void HttpThread::InitOpenSSL()
+{
+	SSL_library_init();
+	OpenSSL_add_all_algorithms();
+	SSL_load_error_strings();
 }
 /*
  * @purpose:init https
@@ -74,10 +84,8 @@ bool HttpThread::Init(int fd)
  * */
 bool HttpThread::InitHttps()
 {
-	SSL_library_init();
-	OpenSSL_add_all_algorithms();
-	SSL_load_error_strings();
-	pSSLCtx = SSL_CTX_new(SSLv23_server_method());
+	InitOpenSSL();
+	pSSLCtx = SSL_CTX_new(SSLv3_server_method());
 	if (nullptr == pSSLCtx)
 	{
 		cerr << "SSL_CTX_new(SSLv32_server_method() failed...!" << endl;

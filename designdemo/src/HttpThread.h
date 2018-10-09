@@ -1,12 +1,13 @@
 /*************************************************
 Copyright:wangzhicheng
 Author: wangzhicheng
-Date:2018-10-08
+Date:2018-10-09
 Description:http thread class
 ChangeLog:
 			1.create this file
 			2.update Init method to add error output
 			3.add https
+			4.add InitOpenSSL method
 **************************************************/
 
 #ifndef HTTPTHREAD_H_
@@ -40,6 +41,10 @@ private:
 	 * 		and wrapping it in an OpenSSL bufferevent
 	 * */
 	static struct bufferevent *HttpsCallBackFun(struct event_base *, void *);
+	/*
+	 * @purpose:init openssl
+	 * */
+	static void InitOpenSSL();
 	/*
 	 * @purpose:set up certificate
 	 * */
