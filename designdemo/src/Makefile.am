@@ -28,6 +28,8 @@ MessageDispatch_SOURCES = MessageHandler.h \
 				HttpThread.h HttpThread.cpp \
 				HttpServer.h HttpServer.cpp \
 				ResponseHandlerInfo.h ResponseHandlerInfo.cpp \
+				StringOp.h StringOp.cpp \
+				StringDecompress.h StringDecompress.cpp \
 				main.cpp
 MessageDispatch_CPPFLAGS = -std=c++11 \
 			 -I ./

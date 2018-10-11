@@ -219,7 +219,9 @@ MessageDispatch-main.o: main.cpp MessageDispatch.h \
  UrlMapper.h /usr/include/c++/4.8/map \
  /usr/include/c++/4.8/bits/stl_tree.h /usr/include/c++/4.8/bits/stl_map.h \
  /usr/include/c++/4.8/bits/stl_multimap.h ResponseHandlerInfo.h \
- EchoResponseHandler.h
+ EchoResponseHandler.h StringOp.h StringDecompress.h \
+ /usr/include/c++/4.8/set /usr/include/c++/4.8/bits/stl_set.h \
+ /usr/include/c++/4.8/bits/stl_multiset.h
 
 MessageDispatch.h:
 
@@ -866,3 +868,13 @@ UrlMapper.h:
 ResponseHandlerInfo.h:
 
 EchoResponseHandler.h:
+
+StringOp.h:
+
+StringDecompress.h:
+
+/usr/include/c++/4.8/set:
+
+/usr/include/c++/4.8/bits/stl_set.h:
+
+/usr/include/c++/4.8/bits/stl_multiset.h:

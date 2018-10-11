@@ -1,7 +1,7 @@
 /*************************************************
 Copyright:wangzhicheng
 Author: wangzhicheng
-Date:2018-10-02
+Date:2018-10-11
 Description:program main entry
 ChangeLog:
 			1. create this file
@@ -12,6 +12,7 @@ ChangeLog:
 			5.add Pointer test
 			6.add Socket Utility test
 			7.add ResponseHandlerInfo test
+			8.add StringContaine test
 **************************************************/
 
 #include "MessageDispatch.h"
@@ -28,6 +29,9 @@ ChangeLog:
 #include "Square.h"
 #include "HttpServer.h"
 #include "ResponseHandlerInfo.h"
+#include "StringOp.h"
+#include "StringDecompress.h"
+using namespace stringop;
 int TestThreadPool()
 {
 	InputMsgHandler inputMsgHandler;
@@ -269,6 +273,12 @@ void TestHttpServer()
 		cout << "http server init ok." << endl;
 	}
 }
+void TestStringContain()
+{
+	string str0 = "AAAACDDSSDLLKKMMMMmmklAMMKNBFFRRaadsfvdsfdsghj";
+	string str1 = "LLKKMMMMmmklMm";
+	cout << StringOp::StringContain(str0, str1) << endl;
+}
 int main()
 {
 //	TestStringBeads();
@@ -284,6 +294,7 @@ int main()
 //	TestSquare();
 //	TestSocketUtility();
 //	TestUrlMapper();
-	TestHttpServer();
+//	TestHttpServer();
+	TestStringContain();
 	return 0;
 }

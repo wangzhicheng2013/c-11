@@ -77,6 +77,8 @@ am_MessageDispatch_OBJECTS =  \
 	MessageDispatch-HttpThread.$(OBJEXT) \
 	MessageDispatch-HttpServer.$(OBJEXT) \
 	MessageDispatch-ResponseHandlerInfo.$(OBJEXT) \
+	MessageDispatch-StringOp.$(OBJEXT) \
+	MessageDispatch-StringDecompress.$(OBJEXT) \
 	MessageDispatch-main.$(OBJEXT)
 MessageDispatch_OBJECTS = $(am_MessageDispatch_OBJECTS)
 MessageDispatch_DEPENDENCIES =
@@ -231,6 +233,8 @@ MessageDispatch_SOURCES = MessageHandler.h \
 				HttpThread.h HttpThread.cpp \
 				HttpServer.h HttpServer.cpp \
 				ResponseHandlerInfo.h ResponseHandlerInfo.cpp \
+				StringOp.h StringOp.cpp \
+				StringDecompress.h StringDecompress.cpp \
 				main.cpp
 
 MessageDispatch_CPPFLAGS = -std=c++11 \
@@ -363,6 +367,8 @@ include ./$(DEPDIR)/MessageDispatch-Shape.Po
 include ./$(DEPDIR)/MessageDispatch-SockectUtility.Po
 include ./$(DEPDIR)/MessageDispatch-Square.Po
 include ./$(DEPDIR)/MessageDispatch-StringBeads.Po
+include ./$(DEPDIR)/MessageDispatch-StringDecompress.Po
+include ./$(DEPDIR)/MessageDispatch-StringOp.Po
 include ./$(DEPDIR)/MessageDispatch-ThreadPool.Po
 include ./$(DEPDIR)/MessageDispatch-UrlMapper.Po
 include ./$(DEPDIR)/MessageDispatch-main.Po
@@ -744,6 +750,34 @@ MessageDispatch-ResponseHandlerInfo.obj: ResponseHandlerInfo.cpp
 #	source='ResponseHandlerInfo.cpp' object='MessageDispatch-ResponseHandlerInfo.obj' libtool=no \
 #	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
 #	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(MessageDispatch_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o MessageDispatch-ResponseHandlerInfo.obj `if test -f 'ResponseHandlerInfo.cpp'; then $(CYGPATH_W) 'ResponseHandlerInfo.cpp'; else $(CYGPATH_W) '$(srcdir)/ResponseHandlerInfo.cpp'; fi`
+
+MessageDispatch-StringOp.o: StringOp.cpp
+	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(MessageDispatch_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT MessageDispatch-StringOp.o -MD -MP -MF $(DEPDIR)/MessageDispatch-StringOp.Tpo -c -o MessageDispatch-StringOp.o `test -f 'StringOp.cpp' || echo '$(srcdir)/'`StringOp.cpp
+	$(am__mv) $(DEPDIR)/MessageDispatch-StringOp.Tpo $(DEPDIR)/MessageDispatch-StringOp.Po
+#	source='StringOp.cpp' object='MessageDispatch-StringOp.o' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
+#	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(MessageDispatch_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o MessageDispatch-StringOp.o `test -f 'StringOp.cpp' || echo '$(srcdir)/'`StringOp.cpp
+
+MessageDispatch-StringOp.obj: StringOp.cpp
+	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(MessageDispatch_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT MessageDispatch-StringOp.obj -MD -MP -MF $(DEPDIR)/MessageDispatch-StringOp.Tpo -c -o MessageDispatch-StringOp.obj `if test -f 'StringOp.cpp'; then $(CYGPATH_W) 'StringOp.cpp'; else $(CYGPATH_W) '$(srcdir)/StringOp.cpp'; fi`
+	$(am__mv) $(DEPDIR)/MessageDispatch-StringOp.Tpo $(DEPDIR)/MessageDispatch-StringOp.Po
+#	source='StringOp.cpp' object='MessageDispatch-StringOp.obj' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
+#	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(MessageDispatch_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o MessageDispatch-StringOp.obj `if test -f 'StringOp.cpp'; then $(CYGPATH_W) 'StringOp.cpp'; else $(CYGPATH_W) '$(srcdir)/StringOp.cpp'; fi`
+
+MessageDispatch-StringDecompress.o: StringDecompress.cpp
+	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(MessageDispatch_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT MessageDispatch-StringDecompress.o -MD -MP -MF $(DEPDIR)/MessageDispatch-StringDecompress.Tpo -c -o MessageDispatch-StringDecompress.o `test -f 'StringDecompress.cpp' || echo '$(srcdir)/'`StringDecompress.cpp
+	$(am__mv) $(DEPDIR)/MessageDispatch-StringDecompress.Tpo $(DEPDIR)/MessageDispatch-StringDecompress.Po
+#	source='StringDecompress.cpp' object='MessageDispatch-StringDecompress.o' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
+#	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(MessageDispatch_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o MessageDispatch-StringDecompress.o `test -f 'StringDecompress.cpp' || echo '$(srcdir)/'`StringDecompress.cpp
+
+MessageDispatch-StringDecompress.obj: StringDecompress.cpp
+	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(MessageDispatch_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT MessageDispatch-StringDecompress.obj -MD -MP -MF $(DEPDIR)/MessageDispatch-StringDecompress.Tpo -c -o MessageDispatch-StringDecompress.obj `if test -f 'StringDecompress.cpp'; then $(CYGPATH_W) 'StringDecompress.cpp'; else $(CYGPATH_W) '$(srcdir)/StringDecompress.cpp'; fi`
+	$(am__mv) $(DEPDIR)/MessageDispatch-StringDecompress.Tpo $(DEPDIR)/MessageDispatch-StringDecompress.Po
+#	source='StringDecompress.cpp' object='MessageDispatch-StringDecompress.obj' libtool=no \
+#	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
+#	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(MessageDispatch_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o MessageDispatch-StringDecompress.obj `if test -f 'StringDecompress.cpp'; then $(CYGPATH_W) 'StringDecompress.cpp'; else $(CYGPATH_W) '$(srcdir)/StringDecompress.cpp'; fi`
 
 MessageDispatch-main.o: main.cpp
 	$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(MessageDispatch_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT MessageDispatch-main.o -MD -MP -MF $(DEPDIR)/MessageDispatch-main.Tpo -c -o MessageDispatch-main.o `test -f 'main.cpp' || echo '$(srcdir)/'`main.cpp
