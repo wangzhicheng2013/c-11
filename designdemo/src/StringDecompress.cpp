@@ -1,16 +1,22 @@
 /*************************************************
 Copyright:wangzhicheng
 Author: wangzhicheng
-Date:2018-10-11
+Date:2018-10-12
 Description:string decompress
 ChangeLog:
-			1. create this file
+			1.create this file
+			2.update ReadCompressData method
  **************************************************/
 
 #include "StringDecompress.h"
 StringUnit::StringUnit()
 {
 	repeated = 0;
+}
+StringUnit::StringUnit(const string &digit_str, const string &alpha_str)
+{
+	repeated = atoi(digit_str.c_str());
+	str = alpha_str;
 }
 StringDecompress::StringDecompress(const string &compress_str)
 {
@@ -24,21 +30,25 @@ void StringDecompress::ReadCompressData(const string &compress_str)
 {
 	string::size_type len = compress_str.size();
 	string alpha;
-	string digit;
+	string digit_str;
+	bool digit_flag = false;
+	char ch;
 	for (string::size_type index = 0;index < len;++index)
 	{
-		if (isdigit(compress_str[index]))
+		ch = compress_str[index];
+		digit_flag = isdigit(ch);
+		if (digit_flag)
 		{
-			digit += compress_str[index];
+			digit_str += ch;
+			if (!isdigit(compress_str[index + 1]))
+			{
+				depressdata.insert(StringUnit(digit_str, alpha));
+				digit_str.clear();
+				alpha.clear();
+			}
+			continue;
 		}
-		else
-		{
-			alpha += compress_str[index];
-		}
-		if (isdigit(compress_str[index]) && index + 1 < len && !isdigit(compress_str[index + 1]))
-		{
-
-		}
+		alpha += ch;
 	}
 }
 StringDecompress::~StringDecompress()

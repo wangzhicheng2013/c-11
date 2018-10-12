@@ -1,10 +1,11 @@
 /*************************************************
 Copyright:wangzhicheng
 Author: wangzhicheng
-Date:2018-10-11
+Date:2018-10-12
 Description:string decompress
 ChangeLog:
-			1. create this file
+			1.create this file
+			2.update ReadCompressData method
  **************************************************/
 
 #ifndef STRINGDECOMPRESS_H_
@@ -18,6 +19,7 @@ class StringUnit
 {
 public:
 	StringUnit();
+	StringUnit(const string &, const string &);
 
 public:
 	unsigned char repeated;
@@ -45,7 +47,7 @@ public:
 	void ReadCompressData(const string &);
 	virtual ~StringDecompress();
 private:
-	multiset<StringUnit>depressdata(DepressDataCmp);
+	multiset<StringUnit, DepressDataCmp>depressdata;
 };
 
 #endif /* STRINGDECOMPRESS_H_ */

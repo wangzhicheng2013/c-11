@@ -1,12 +1,17 @@
 MessageDispatch-StringDecompress.o: StringDecompress.cpp \
- StringDecompress.h /usr/include/c++/4.8/iostream \
- /usr/include/i386-linux-gnu/c++/4.8/bits/c++config.h \
- /usr/include/i386-linux-gnu/c++/4.8/bits/os_defines.h \
- /usr/include/features.h /usr/include/i386-linux-gnu/bits/predefs.h \
+ StringDecompress.h /usr/include/ctype.h /usr/include/features.h \
+ /usr/include/i386-linux-gnu/bits/predefs.h \
  /usr/include/i386-linux-gnu/sys/cdefs.h \
  /usr/include/i386-linux-gnu/bits/wordsize.h \
  /usr/include/i386-linux-gnu/gnu/stubs.h \
  /usr/include/i386-linux-gnu/gnu/stubs-32.h \
+ /usr/include/i386-linux-gnu/bits/types.h \
+ /usr/include/i386-linux-gnu/bits/typesizes.h /usr/include/endian.h \
+ /usr/include/i386-linux-gnu/bits/endian.h \
+ /usr/include/i386-linux-gnu/bits/byteswap.h /usr/include/xlocale.h \
+ /usr/include/c++/4.8/iostream \
+ /usr/include/i386-linux-gnu/c++/4.8/bits/c++config.h \
+ /usr/include/i386-linux-gnu/c++/4.8/bits/os_defines.h \
  /usr/include/i386-linux-gnu/c++/4.8/bits/cpu_defines.h \
  /usr/include/c++/4.8/ostream /usr/include/c++/4.8/ios \
  /usr/include/c++/4.8/iosfwd /usr/include/c++/4.8/bits/stringfwd.h \
@@ -15,7 +20,7 @@ MessageDispatch-StringDecompress.o: StringDecompress.cpp \
  /usr/include/wchar.h /usr/include/stdio.h \
  /usr/lib/gcc/i686-linux-gnu/4.8/include/stdarg.h \
  /usr/include/i386-linux-gnu/bits/wchar.h \
- /usr/lib/gcc/i686-linux-gnu/4.8/include/stddef.h /usr/include/xlocale.h \
+ /usr/lib/gcc/i686-linux-gnu/4.8/include/stddef.h \
  /usr/include/c++/4.8/exception \
  /usr/include/c++/4.8/bits/atomic_lockfree_defines.h \
  /usr/include/c++/4.8/bits/exception_ptr.h \
@@ -39,10 +44,6 @@ MessageDispatch-StringDecompress.o: StringDecompress.cpp \
  /usr/include/i386-linux-gnu/c++/4.8/bits/c++locale.h \
  /usr/include/c++/4.8/clocale /usr/include/locale.h \
  /usr/include/i386-linux-gnu/bits/locale.h /usr/include/c++/4.8/cctype \
- /usr/include/ctype.h /usr/include/i386-linux-gnu/bits/types.h \
- /usr/include/i386-linux-gnu/bits/typesizes.h /usr/include/endian.h \
- /usr/include/i386-linux-gnu/bits/endian.h \
- /usr/include/i386-linux-gnu/bits/byteswap.h \
  /usr/include/c++/4.8/bits/ios_base.h \
  /usr/include/c++/4.8/ext/atomicity.h \
  /usr/include/i386-linux-gnu/c++/4.8/bits/gthr.h \
@@ -104,11 +105,7 @@ MessageDispatch-StringDecompress.o: StringDecompress.cpp \
 
 StringDecompress.h:
 
-/usr/include/c++/4.8/iostream:
-
-/usr/include/i386-linux-gnu/c++/4.8/bits/c++config.h:
-
-/usr/include/i386-linux-gnu/c++/4.8/bits/os_defines.h:
+/usr/include/ctype.h:
 
 /usr/include/features.h:
 
@@ -121,6 +118,24 @@ StringDecompress.h:
 /usr/include/i386-linux-gnu/gnu/stubs.h:
 
 /usr/include/i386-linux-gnu/gnu/stubs-32.h:
+
+/usr/include/i386-linux-gnu/bits/types.h:
+
+/usr/include/i386-linux-gnu/bits/typesizes.h:
+
+/usr/include/endian.h:
+
+/usr/include/i386-linux-gnu/bits/endian.h:
+
+/usr/include/i386-linux-gnu/bits/byteswap.h:
+
+/usr/include/xlocale.h:
+
+/usr/include/c++/4.8/iostream:
+
+/usr/include/i386-linux-gnu/c++/4.8/bits/c++config.h:
+
+/usr/include/i386-linux-gnu/c++/4.8/bits/os_defines.h:
 
 /usr/include/i386-linux-gnu/c++/4.8/bits/cpu_defines.h:
 
@@ -147,8 +162,6 @@ StringDecompress.h:
 /usr/include/i386-linux-gnu/bits/wchar.h:
 
 /usr/lib/gcc/i686-linux-gnu/4.8/include/stddef.h:
-
-/usr/include/xlocale.h:
 
 /usr/include/c++/4.8/exception:
 
@@ -205,18 +218,6 @@ StringDecompress.h:
 /usr/include/i386-linux-gnu/bits/locale.h:
 
 /usr/include/c++/4.8/cctype:
-
-/usr/include/ctype.h:
-
-/usr/include/i386-linux-gnu/bits/types.h:
-
-/usr/include/i386-linux-gnu/bits/typesizes.h:
-
-/usr/include/endian.h:
-
-/usr/include/i386-linux-gnu/bits/endian.h:
-
-/usr/include/i386-linux-gnu/bits/byteswap.h:
 
 /usr/include/c++/4.8/bits/ios_base.h:
 
