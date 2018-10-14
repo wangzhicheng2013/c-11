@@ -1,11 +1,12 @@
 /*************************************************
 Copyright:wangzhicheng
 Author: wangzhicheng
-Date:2018-10-12
+Date:2018-10-14
 Description:string decompress
 ChangeLog:
 			1.create this file
 			2.update ReadCompressData method
+			3.refactor ReadCompressData method
  **************************************************/
 
 #ifndef STRINGDECOMPRESS_H_
@@ -14,6 +15,7 @@ ChangeLog:
 #include <iostream>
 #include <string>
 #include <set>
+#include <stdexcept>
 using namespace std;
 class StringUnit
 {
@@ -40,7 +42,12 @@ public:
 class StringDecompress
 {
 public:
-	StringDecompress(const string &);
+	StringDecompress(string &);
+	/*
+	 * @purpose:check compress data
+	 * @return true if check ok
+	 * */
+	bool CheckCompressData(string &);
 	/*
 	 * @purpose:read compress data into depressdata
 	 * */
