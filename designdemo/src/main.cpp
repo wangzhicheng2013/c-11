@@ -1,7 +1,7 @@
 /*************************************************
 Copyright:wangzhicheng
 Author: wangzhicheng
-Date:2018-10-11
+Date:2018-10-15
 Description:program main entry
 ChangeLog:
 			1. create this file
@@ -13,6 +13,7 @@ ChangeLog:
 			6.add Socket Utility test
 			7.add ResponseHandlerInfo test
 			8.add StringContaine test
+			9.add StringDecompress test
 **************************************************/
 
 #include "MessageDispatch.h"
@@ -31,6 +32,7 @@ ChangeLog:
 #include "ResponseHandlerInfo.h"
 #include "StringOp.h"
 #include "StringDecompress.h"
+#include <exception>
 using namespace stringop;
 int TestThreadPool()
 {
@@ -279,6 +281,21 @@ void TestStringContain()
 	string str1 = "LLKKMMMMmmklMm";
 	cout << StringOp::StringContain(str0, str1) << endl;
 }
+void TestStringDecompress()
+{
+	string str = "AA10BB2CKL100";
+	string str1;
+	try
+	{
+		StringDecompress stringDecompress(str);
+		stringDecompress.GetDepressString(str1);
+	}
+	catch (exception &e)
+	{
+		cerr << e.what() << endl;
+	}
+	cout << "depress string = " << str1 << endl;
+}
 int main()
 {
 //	TestStringBeads();
@@ -295,6 +312,7 @@ int main()
 //	TestSocketUtility();
 //	TestUrlMapper();
 //	TestHttpServer();
-	TestStringContain();
+//	TestStringContain();
+	TestStringDecompress();
 	return 0;
 }

@@ -1,12 +1,13 @@
 /*************************************************
 Copyright:wangzhicheng
 Author: wangzhicheng
-Date:2018-10-14
+Date:2018-10-15
 Description:string decompress
 ChangeLog:
 			1.create this file
 			2.update ReadCompressData method
 			3.refactor ReadCompressData method
+			4.add CheckCompressData method
  **************************************************/
 
 #ifndef STRINGDECOMPRESS_H_
@@ -52,6 +53,17 @@ public:
 	 * @purpose:read compress data into depressdata
 	 * */
 	void ReadCompressData(const string &);
+	/*
+	 * @purpose:judge character validity
+	 * */
+	inline bool ChIsValid(char ch)
+	{
+		return isdigit(ch) || isupper(ch) || islower(ch);
+	}
+	/*
+	 * @purpose:get depress string
+	 * */
+	void GetDepressString(string &);
 	virtual ~StringDecompress();
 private:
 	multiset<StringUnit, DepressDataCmp>depressdata;
