@@ -1,7 +1,7 @@
 /*************************************************
 Copyright:wangzhicheng
 Author: wangzhicheng
-Date:2018-10-15
+Date:2018-10-18
 Description:program main entry
 ChangeLog:
 			1. create this file
@@ -155,6 +155,57 @@ void TestRedisClient()
 	{
 		cout << "get value from redis server ok." << endl;
 		cout << value << endl;
+	}
+	if (redisclient.Publish(key, value.c_str()))
+	{
+		cout << "publish to redis server ok." << endl;
+		cout << value << endl;
+	}
+	string value1;
+	if (redisclient.Subscribe(key, value1))
+	{
+		cout << "subscribe from redis server ok." << endl;
+		cout << value1 << endl;
+	}
+}
+void PubThread()
+{
+	RedisClient redisclient;
+	if (!redisclient.Connect("localhost", 6379))
+	{
+		cerr << "redis server connect failed...!" << endl;
+		return;
+	}
+	const char *key = "key00";
+	string value = "value00";
+	while (1)
+	{
+		if (redisclient.Publish(key, value.c_str()))
+		{
+			cout << "publish to redis server ok." << endl;
+			cout << value << endl;
+		}
+		sleep(2);
+	}
+}
+void SubThread()
+{
+	RedisClient redisclient;
+	if (!redisclient.Connect("localhost", 6379))
+	{
+		cerr << "redis server connect failed...!" << endl;
+		return;
+	}
+	const char *key = "key00";
+	string value;
+	while (1)
+	{
+		if (redisclient.Subscribe(key, value))
+		{
+			cout << "subscribe from redis server ok." << endl;
+			cout << value << endl;
+		}
+		sleep(2);
 	}
 }
 RedisClientPool redisclientpool;
@@ -313,6 +364,10 @@ int main()
 //	TestUrlMapper();
 //	TestHttpServer();
 //	TestStringContain();
-	TestStringDecompress();
+//	TestStringDecompress();
+	thread pubthread(PubThread);
+	thread subthread(SubThread);
+	pubthread.join();
+	subthread.join();
 	return 0;
 }
