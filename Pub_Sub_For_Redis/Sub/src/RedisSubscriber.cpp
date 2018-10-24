@@ -1,26 +1,24 @@
 /*************************************************
 Copyright:wangzhicheng
 Author: wangzhicheng
-Date:2018-10-23
-Description:publisher for redis pub modern
+Date:2018-10-24
+Description:subscriber for redis sub modern
 ChangeLog:
 			1. create this file
-			2. add constructor method
-			3. add thread to dispatch event
 **************************************************/
 
-#include "RedisPublisher.h"
+#include "RedisSubscriber.h"
 
-RedisPublisher::RedisPublisher() {
+RedisSubscriber::RedisSubscriber(SubCallBackFun &fun) {
 	// TODO Auto-generated constructor stub
 	pBase = nullptr;
 	pCtx = nullptr;
-
+	subCallBackFn = fun;
 }
 /*
  * @purpose:call back function for connection of redis
  * */
-void RedisPublisher::ConnectCallBack(const redisAsyncContext *context, int status)
+void RedisSubscriber::ConnectCallBack(const redisAsyncContext *context, int status)
 {
 	if (REDIS_OK != status)
 	{
@@ -34,7 +32,7 @@ void RedisPublisher::ConnectCallBack(const redisAsyncContext *context, int statu
 /*
  * @purpose:call back function for disconnection of redis
  * */
-void RedisPublisher::DisconnectCallBack(const redisAsyncContext *context, int status)
+void RedisSubscriber::DisconnectCallBack(const redisAsyncContext *context, int status)
 {
 	if (REDIS_OK != status)
 	{
@@ -46,25 +44,41 @@ void RedisPublisher::DisconnectCallBack(const redisAsyncContext *context, int st
 	}
 }
 /*
- * @purpose:call back function for publish to redis
+ * @purpose:call back function for subscribe to redis
  * */
-void RedisPublisher::PubCallBack(redisAsyncContext *context, void *r, void *p)
+void RedisSubscriber::SubCallBack(redisAsyncContext *, void *reply, void *private_data)
 {
-	cout << "pub ok" << endl;
+	if (nullptr == reply || nullptr == private_data)
+	{
+		cerr << "reply or private data is null...!" << endl;
+		return;
+	}
+	RedisSubscriber *self_ptr = reinterpret_cast<RedisSubscriber *>(private_data);
+	redisReply *reply_ptr = reinterpret_cast<redisReply *>(reply);
+	if (REDIS_REPLY_ARRAY == reply_ptr->type && 3 == reply_ptr->elements)
+	{
+		if (0 == strcmp(reply_ptr->element[0]->str, "subscribe"))
+		{
+			return;
+		}
+		self_ptr->subCallBackFn(reply_ptr->element[1]->str,	// channel
+				reply_ptr->element[2]->str,					// message
+				reply_ptr->element[2]->len);				// message length
+	}
 }
 /*
- * @purpose:publish message to redis server
+ * @purpose:subscribe message from redis server
  * @return true if publish ok
  * */
-bool RedisPublisher::Pub(const string &channel, const string &message)
+bool RedisSubscriber::Sub(const string &channel)
 {
 	int ret = redisAsyncCommand(pCtx,
-			RedisPublisher::PubCallBack,
+			RedisSubscriber::SubCallBack,
 			this,
-			"publish %s %s", channel.c_str(), message.c_str());
+			"subscribe %s %s", channel.c_str());
 	if (REDIS_ERR == ret)
 	{
-		cerr << "publish command execute failed...!" << endl;
+		cerr << "subscribe command execute failed...!" << endl;
 		return false;
 	}
 	return true;
@@ -73,7 +87,7 @@ bool RedisPublisher::Pub(const string &channel, const string &message)
  * @purpose:init event base and connect to redis server
  * @return true if init ok
  * */
-bool RedisPublisher::Init(const char *ip, int port)
+bool RedisSubscriber::Init(const char *ip, int port)
 {
 	pBase = event_base_new();
 	if (nullptr == pBase)
@@ -92,11 +106,13 @@ bool RedisPublisher::Init(const char *ip, int port)
 		return false;
 	}
 	redisLibeventAttach(pCtx, pBase);
-	redisAsyncSetConnectCallback(pCtx, RedisPublisher::ConnectCallBack);
-	redisAsyncSetDisconnectCallback(pCtx, RedisPublisher::DisconnectCallBack);
+	redisAsyncSetConnectCallback(pCtx, RedisSubscriber::ConnectCallBack);
+	redisAsyncSetDisconnectCallback(pCtx, RedisSubscriber::DisconnectCallBack);
 	try
 	{
-		dispatch_thread = thread(bind(&RedisPublisher::StartEvent, this));
+		dispatch_thread = thread([this](){
+			event_base_dispatch(pBase);
+		});
 	}
 	catch (...)
 	{
@@ -104,11 +120,7 @@ bool RedisPublisher::Init(const char *ip, int port)
 	}
 	return true;
 }
-void RedisPublisher::StartEvent()
-{
-	event_base_dispatch(pBase);
-}
-RedisPublisher::~RedisPublisher() {
+RedisSubscriber::~RedisSubscriber() {
 	// TODO Auto-generated destructor stub
 	if (dispatch_thread.joinable())
 	{
