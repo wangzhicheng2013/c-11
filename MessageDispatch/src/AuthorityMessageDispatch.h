@@ -1,7 +1,7 @@
 /*
  * AuthorityMessageDispatch.h
  *
- *  Created on: 2018-10-30
+ *  Created on: 2018-10-31
  *      Author: root
  */
 
@@ -11,7 +11,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <string.h>
-#define S_FIELD_CAPACITY 256
+#define S_FIELD_CAPACITY 10
 typedef enum ResourceOperationType
 {
 	CREATE,
@@ -45,9 +45,32 @@ typedef struct AuthorityMsgInfo
 	AuthorityMsgProcessPtr MsgProcessPtr;
 }AuthorityMsgInfo;
 static AuthorityMsgMapper authorityMsgMapper = {0};
-static AuthorityMsgNode *CreateAuthorityMsgNode()
-{
-	return (AuthorityMsgNode *)malloc(sizeof(AuthorityMsgNode));
-}
-static void InsertAuthorityMsgNode(const AuthorityMsgInfo *);
+/*
+ * @purpose:authorize AE resouce create
+ * */
+void AuthorizeAECreate();
+/*
+ * @purpose:authorize Cin resouce create
+ * */
+void AuthorizeCinCreate();
+/*
+ * @purpose:authorize AE resouce delete
+ * */
+void AuthorizeAEDelete();
+/*
+ * @purpose:create a new noode
+ * */
+AuthorityMsgNode *CreateAuthorityMsgNode();
+/*
+ * @purpose:insert a new node into mapper
+ * */
+void InsertAuthorityMsgNode(const AuthorityMsgInfo *);
+/*
+ * @purpose:init mapper
+ * */
+void InitAuthorityMsgMapper();
+/*
+ * @purpose:dispatch authorized message
+ * */
+void AuthorityMsgDispatch(const AuthorityMsgInfo *);
 #endif /* MESSAGEDISPATCH_H_ */
