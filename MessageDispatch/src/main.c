@@ -8,11 +8,12 @@
 int main()
 {
 	InitAuthorityMsgMapper();
-	AuthorityMsgInfo authorityMsgInfo0 = {CREATE, AE, AuthorizeAECreate};
-	AuthorityMsgInfo authorityMsgInfo1 = {CREATE, CIN, AuthorizeCinCreate};
-	AuthorityMsgInfo authorityMsgInfo2 = {DELETE, AE, AuthorizeAEDelete};
+	AuthorityMsgInfo authorityMsgInfo0 = {CREATE, AE, NULL};
+	AuthorityMsgInfo authorityMsgInfo1 = {CREATE, CIN, NULL};
+	AuthorityMsgInfo authorityMsgInfo2 = {DELETE, AE, NULL};
 	AuthorityMsgDispatch(&authorityMsgInfo0);
 	AuthorityMsgDispatch(&authorityMsgInfo1);
 	AuthorityMsgDispatch(&authorityMsgInfo2);
+	DestroyAuthorityMsgMapper();
 	return 0;
 }

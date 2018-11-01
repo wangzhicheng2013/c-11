@@ -1,7 +1,7 @@
 /*
  * AuthorityMessageDispatch.c
  *
- *  Created on: 2018-10-31
+ *  Created on: 2018-11-01
  *      Author: root
  */
 #include "AuthorityMessageDispatch.h"
@@ -117,4 +117,34 @@ void AuthorityMsgDispatch(const AuthorityMsgInfo *pAuthorityMsgInfo)
 	{
 		ptr->AuthorityMsgProcessFun();
 	}
+}
+/*
+ * @purpose:delete node from mapper
+ * */
+void DeleteAuthorityMsgNode(AuthorityMsgNode **pAuthorityMsgNode)
+{
+	int index = 0;
+	if (NULL == pAuthorityMsgNode || NULL == *pAuthorityMsgNode)
+	{
+		return;
+	}
+	for (;index < S_FIELD_CAPACITY;index++)
+	{
+		if (NULL != (*pAuthorityMsgNode)->fields[index])
+		{
+			DeleteAuthorityMsgNode(&((*pAuthorityMsgNode)->fields[index]));
+		}
+	}
+	if (NULL != *pAuthorityMsgNode)
+	{
+		free(*pAuthorityMsgNode);
+		*pAuthorityMsgNode = NULL;
+	}
+}
+/*
+ * @purpose:destroy mapper
+ * */
+void DestroyAuthorityMsgMapper()
+{
+	DeleteAuthorityMsgNode(&authorityMsgMapper.root);
 }

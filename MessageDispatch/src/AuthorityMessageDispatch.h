@@ -1,7 +1,7 @@
 /*
  * AuthorityMessageDispatch.h
  *
- *  Created on: 2018-10-31
+ *  Created on: 2018-11-01
  *      Author: root
  */
 
@@ -73,4 +73,12 @@ void InitAuthorityMsgMapper();
  * @purpose:dispatch authorized message
  * */
 void AuthorityMsgDispatch(const AuthorityMsgInfo *);
+/*
+ * @purpose:delete node from mapper
+ * */
+void DeleteAuthorityMsgNode(AuthorityMsgNode **);
+/*
+ * @purpose:destroy mapper
+ * */
+void DestroyAuthorityMsgMapper();
 #endif /* MESSAGEDISPATCH_H_ */
