@@ -1,7 +1,7 @@
 /*
  * BaseAspect.h
  *
- *  Created on: 2018-11-13
+ *  Created on: 2018-11-14
  *      Author: root
  */
 
@@ -22,11 +22,29 @@ public:
 	void After(WrappedType *ptr)
 	{
 	}
+	shared_ptr<WrappedType> operator ->()
+	{
+		GetDerived()->Before(wrappedPtr);
+	}
 protected:
 	DerivedAspect *GetDerived()
 	{
 		return reinterpret_cast<DerivedAspect *>(this);
 	}
+	class AfterWrapper
+	{
+	public:
+		AfterWrapper(DerivedAspect *ptr) : pDerivedAspect(ptr)
+		{
+		}
+		void operator ()(WrappedType *ptr)
+		{
+			pDerivedAspect->After(ptr);
+		}
+	public:
+		DerivedAspect *pDerivedAspect;
+
+	};
 protected:
 	WrappedType *wrappedPtr;
 };
