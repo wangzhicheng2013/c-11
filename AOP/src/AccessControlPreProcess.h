@@ -1,25 +1,21 @@
 /*
  * AccessControlPreProcess.h
  *
- *  Created on: 2018-11-14
+ *  Created on: 2018-11-15
  *      Author: root
  */
 
 #ifndef ACCESSCONTROLPREPROCESS_H_
 #define ACCESSCONTROLPREPROCESS_H_
-
-#include "AccessControlPolicy.h"
-
-class AccessControlPreProcess: public AccessControlPolicy
+#include <iostream>
+using namespace std;
+class AccessControlPreProcess
 {
 public:
-	AccessControlPreProcess(AccessControlPolicy *);
+	AccessControlPreProcess();
 	virtual ~AccessControlPreProcess();
 public:
-	virtual bool ExecutePolicy() override;
 	virtual bool ExecutePreProcess() = 0;
-private:
-	AccessControlPolicy *pAccessControlPolicy;
 };
 
 #endif /* ACCESSCONTROLPREPROCESS_H_ */

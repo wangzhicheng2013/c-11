@@ -1,7 +1,7 @@
 /*
  * RoleBasedAccessControlPolicy.h
  *
- *  Created on: 2018-11-14
+ *  Created on: 2018-11-15
  *      Author: root
  */
 
@@ -12,7 +12,7 @@
 class RoleBasedAccessControlPolicy: public AccessControlPolicy
 {
 public:
-	RoleBasedAccessControlPolicy();
+	RoleBasedAccessControlPolicy(AccessControlPreProcess *);
 	virtual ~RoleBasedAccessControlPolicy();
 public:
 	virtual bool ExecutePolicy() override;

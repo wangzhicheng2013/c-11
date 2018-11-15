@@ -1,16 +1,16 @@
 /*
  * AccessControlPolicy.cpp
  *
- *  Created on: 2018-11-14
+ *  Created on: 2018-11-15
  *      Author: root
  */
 
 #include "AccessControlPolicy.h"
 
-AccessControlPolicy::AccessControlPolicy()
+AccessControlPolicy::AccessControlPolicy(AccessControlPreProcess *ptr)
 {
 	// TODO Auto-generated constructor stub
-
+	pAccessControlPreProcess = ptr;
 }
 
 AccessControlPolicy::~AccessControlPolicy()

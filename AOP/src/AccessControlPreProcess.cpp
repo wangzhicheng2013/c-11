@@ -1,21 +1,17 @@
 /*
  * AccessControlPreProcess.cpp
  *
- *  Created on: 2018-11-14
+ *  Created on: 2018-11-15
  *      Author: root
  */
 
 #include "AccessControlPreProcess.h"
 
-AccessControlPreProcess::AccessControlPreProcess(AccessControlPolicy *ptr)
+AccessControlPreProcess::AccessControlPreProcess()
 {
 	// TODO Auto-generated constructor stub
-	pAccessControlPolicy = ptr;
 }
-bool AccessControlPreProcess::ExecutePolicy()
+AccessControlPreProcess::~AccessControlPreProcess()
 {
-	return pAccessControlPolicy->ExecutePolicy();
-}
-AccessControlPreProcess::~AccessControlPreProcess() {
 	// TODO Auto-generated destructor stub
 }

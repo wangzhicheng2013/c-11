@@ -1,7 +1,7 @@
 /*
  * CheckDataValidity.h
  *
- *  Created on: 2018-11-14
+ *  Created on: 2018-11-15
  *      Author: root
  */
 
@@ -13,7 +13,7 @@
 class CheckDataValidity: public AccessControlPreProcess
 {
 public:
-	CheckDataValidity(AccessControlPolicy *);
+	CheckDataValidity();
 	virtual ~CheckDataValidity();
 public:
 	virtual bool ExecutePreProcess() override;

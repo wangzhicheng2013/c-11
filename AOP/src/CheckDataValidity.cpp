@@ -1,16 +1,15 @@
 /*
  * CheckDataValidity.cpp
  *
- *  Created on: 2018-11-14
+ *  Created on: 2018-11-15
  *      Author: root
  */
 
 #include "CheckDataValidity.h"
 
-CheckDataValidity::CheckDataValidity(AccessControlPolicy *ptr) : AccessControlPreProcess(ptr)
+CheckDataValidity::CheckDataValidity()
 {
 	// TODO Auto-generated constructor stub
-
 }
 bool CheckDataValidity::ExecutePreProcess()
 {

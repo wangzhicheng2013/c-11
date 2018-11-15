@@ -1,0 +1,1 @@
+g++ -std=c++11 -g -o test main.cpp AccessControlPreProcess.h AccessControlPreProcess.cpp CheckDataValidity.h CheckDataValidity.cpp AccessControlPolicy.h AccessControlPolicy.cpp RoleBasedAccessControlPolicy.h RoleBasedAccessControlPolicy.cpp SmackAccessControlPolicy.h SmackAccessControlPolicy.cpp
