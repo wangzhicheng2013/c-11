@@ -1,13 +1,13 @@
 /*
  * Visitor.h
  *
- *  Created on: 2018-11-19
+ *  Created on: 2018-11-20
  *      Author: root
  */
 
 #ifndef VISITOR_H_
 #define VISITOR_H_
-template <typename T, typename... OtherT>
+template <typename T>
 class Visitor {
 public:
 	Visitor()
@@ -17,8 +17,7 @@ public:
 	{
 	}
 public:
-	using Visitor<OtherT...>::Visit;
-	virtual void Visit(const T&) = 0;
+	virtual void Visit(T&) = 0;
 };
 
 #endif /* VISITOR_H_ */

@@ -1,28 +1,45 @@
 /*
  * Base.h
  *
- *  Created on: 2018-11-19
+ *  Created on: 2018-11-20
  *      Author: root
  */
 
 #ifndef BASE_H_
 #define BASE_H_
 #include "Visitor.h"
-class A;
-class B;
+template<typename T>
 class Base
 {
 public:
-	using MyVisitor = Visitor<A, B>;
-	Base();
-	virtual ~Base();
-};
-class A : public Base
-{
+	Base()
+	{
+	}
+	virtual ~Base()
+	{
+	}
+public:
+	virtual void Accept(Visitor<T>&) = 0;
 
 };
-class B : public Base
+class A : public Base<A>
 {
-
+public:
+	void Accept(Visitor<A>&v)
+	{
+		v.Visit(*this);
+	}
+public:
+	int val;
+};
+class B : public Base<B>
+{
+public:
+	void Accept(Visitor<B>&v)
+	{
+		v.Visit(*this);
+	}
+public:
+	int val;
 };
 #endif /* BASE_H_ */
