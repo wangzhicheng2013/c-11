@@ -1,1 +1,1 @@
-gcc -std=gnu11 -g -o test example0.c 
+gcc -std=gnu11 -g -o test example0.c -lpthread
