@@ -1,0 +1,38 @@
+/*
+ * FileWatchNotify.cpp
+ *
+ *  Created on: 2018-11-28
+ *      Author: root
+ */
+
+#include "FileWatchNotify.h"
+
+FileWatchNotify::FileWatchNotify()
+{
+	// TODO Auto-generated constructor stub
+	inotify_fd = -1;
+	watch_fd = -1;
+	ev_base = nullptr;
+}
+bool FileWatchNotify::Init()
+{
+	return true;
+}
+bool FileWatchNotify::InitLibEvent()
+{
+	 ev_base = event_base_new();
+	 if (nullptr == ev_base)
+	 {
+		 cerr << "event_base_new() failed...!" << endl;
+		 return false;
+	 }
+	 struct event *event = event_new(ev_base, inotify_fd, EV_READ | EV_PERSIST, watch_notify_events, NULL)
+}
+void FileWatchNotify::NotifyCallBackFn(int fd, short events, void *arg)
+{
+
+}
+FileWatchNotify::~FileWatchNotify()
+{
+	// TODO Auto-generated destructor stub
+}

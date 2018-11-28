@@ -1,0 +1,17 @@
+/*
+ * FilwWatchNotify.h
+ *
+ *  Created on: 2018-11-28
+ *      Author: root
+ */
+
+#ifndef FILWWATCHNOTIFY_H_
+#define FILWWATCHNOTIFY_H_
+
+class FilwWatchNotify {
+public:
+	FilwWatchNotify();
+	virtual ~FilwWatchNotify();
+};
+
+#endif /* FILWWATCHNOTIFY_H_ */

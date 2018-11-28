@@ -1,0 +1,11 @@
+/*
+ * main.cpp
+ *
+ *  Created on: 2018-11-28
+ *      Author: root
+ */
+#include "FilwWatchNotify.h"
+int main()
+{
+	return 0;
+}

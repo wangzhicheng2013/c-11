@@ -1,0 +1,24 @@
+/*
+ * FileWatchNotify.cpp
+ *
+ *  Created on: 2018-11-28
+ *      Author: root
+ */
+
+#include "FileWatchNotify.h"
+
+FileWatchNotify::FileWatchNotify()
+{
+	// TODO Auto-generated constructor stub
+	inotify_fd = -1;
+	watch_fd = -1;
+	ev_base = nullptr;
+}
+bool FileWatchNotify::Init()
+{
+	return true;
+}
+FileWatchNotify::~FileWatchNotify()
+{
+	// TODO Auto-generated destructor stub
+}

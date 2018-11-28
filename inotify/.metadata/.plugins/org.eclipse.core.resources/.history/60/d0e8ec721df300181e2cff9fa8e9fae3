@@ -1,0 +1,24 @@
+/*
+ * EsFileWatchNotify.h
+ *
+ *  Created on: 2018-11-28
+ *      Author: root
+ */
+
+#ifndef ESFILEWATCHNOTIFY_H_
+#define ESFILEWATCHNOTIFY_H_
+
+#include "FileWatchNotify.h"
+
+class EsFileWatchNotify: public FileWatchNotify {
+public:
+	EsFileWatchNotify();
+	virtual ~EsFileWatchNotify();
+public:
+	bool Init();
+	virtual void DoNotify() override;
+private:
+	const FileWatchNotifyConfig &config;
+};
+
+#endif /* ESFILEWATCHNOTIFY_H_ */

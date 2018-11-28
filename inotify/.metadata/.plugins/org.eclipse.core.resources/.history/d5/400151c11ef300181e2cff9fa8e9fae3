@@ -1,0 +1,15 @@
+/*
+ * main.cpp
+ *
+ *  Created on: 2018-11-28
+ *      Author: root
+ */
+#include "EsFileWatchNotify.h"
+int main()
+{
+	FileWatchNotifyConfig config;
+	config.watch_dir = "./";
+	config.watch_file = "11.txt";
+	config.watch_event = MODIFIED;
+	return 0;
+}

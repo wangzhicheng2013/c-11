@@ -1,0 +1,19 @@
+/*
+ * FilwWatchNotify.cpp
+ *
+ *  Created on: 2018-11-28
+ *      Author: root
+ */
+
+#include "FilwWatchNotify.h"
+
+FilwWatchNotify::FilwWatchNotify()
+{
+	// TODO Auto-generated constructor stub
+	ev_base
+}
+
+FilwWatchNotify::~FilwWatchNotify()
+{
+	// TODO Auto-generated destructor stub
+}

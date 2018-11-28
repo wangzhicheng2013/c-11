@@ -1,0 +1,23 @@
+/*
+ * FileWatchNotify.h
+ *
+ *  Created on: 2018-11-28
+ *      Author: root
+ */
+
+#ifndef FILEWATCHNOTIFY_H_
+#define FILEWATCHNOTIFY_H_
+#include "FilwWatchNotify.h"
+#include <event.h>
+#include <event2/event.h>
+#include <iostream>
+class FileWatchNotify {
+public:
+	FileWatchNotify();
+	virtual ~FileWatchNotify();
+private:
+	int inotify_fd;
+	int watch_fd;
+};
+
+#endif /* FILEWATCHNOTIFY_H_ */

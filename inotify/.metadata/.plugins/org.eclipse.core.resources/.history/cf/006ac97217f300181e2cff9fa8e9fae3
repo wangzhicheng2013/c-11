@@ -1,0 +1,28 @@
+/*
+ * FilwWatchNotify.h
+ *
+ *  Created on: 2018-11-28
+ *      Author: root
+ */
+
+#ifndef FILWWATCHNOTIFY_H_
+#define FILWWATCHNOTIFY_H_
+#include <sys/inotify.h>
+#include <string>
+using namespace std;
+typedef enum WatchType
+{
+	CREATE = IN_CREATE,
+	DELETE = IN_DELETE,
+	MODIFIED = IN_MODIFY,
+
+}WatchType;
+class FilwWatchNotify {
+public:
+	FilwWatchNotify();
+	virtual ~FilwWatchNotify();
+public:
+
+};
+
+#endif /* FILWWATCHNOTIFY_H_ */
