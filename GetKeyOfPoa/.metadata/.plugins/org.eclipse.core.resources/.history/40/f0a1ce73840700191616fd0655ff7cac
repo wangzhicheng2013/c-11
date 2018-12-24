@@ -1,0 +1,11 @@
+/*
+ * main.cpp
+ *
+ *  Created on: 2018-12-24
+ *      Author: root
+ */
+#include "GetKeyOfMqttPoa.h"
+int main()
+{
+	return 0;
+}

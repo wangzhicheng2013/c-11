@@ -1,0 +1,23 @@
+/*
+ * DispatchGetKeyOfPoa.h
+ *
+ *  Created on: 2018-12-24
+ *      Author: root
+ */
+
+#ifndef DISPATCHGETKEYOFPOA_H_
+#define DISPATCHGETKEYOFPOA_H_
+#include "GetKeyOfMqttPoa.h"
+#include <unordered_map>
+#include <memory>
+class DispatchGetKeyOfPoa
+{
+public:
+	DispatchGetKeyOfPoa();
+	virtual ~DispatchGetKeyOfPoa();
+private:
+	unordered_map<string, unique_ptr<GetKeyOfPoa> >mapper;
+
+};
+
+#endif /* DISPATCHGETKEYOFPOA_H_ */

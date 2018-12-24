@@ -1,0 +1,19 @@
+/*
+ * GetKeyOfMqttPoa.cpp
+ *
+ *  Created on: 2018-12-24
+ *      Author: root
+ */
+
+#include "GetKeyOfMqttPoa.h"
+
+GetKeyOfMqttPoa::GetKeyOfMqttPoa()
+{
+	// TODO Auto-generated constructor stub
+
+}
+
+GetKeyOfMqttPoa::~GetKeyOfMqttPoa()
+{
+	// TODO Auto-generated destructor stub
+}

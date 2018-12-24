@@ -1,0 +1,27 @@
+/*
+ * GetKeyOfMqttPoa.h
+ *
+ *  Created on: 2018-12-24
+ *      Author: root
+ */
+
+#ifndef GETKEYOFMQTTPOA_H_
+#define GETKEYOFMQTTPOA_H_
+
+#include "GetKeyOfPoa.h"
+
+class GetKeyOfMqttPoa: public GetKeyOfPoa
+{
+public:
+	GetKeyOfMqttPoa();
+	virtual ~GetKeyOfMqttPoa();
+public:
+	/*
+	 * @purpose:get partition from poa
+	 * @return the partition
+	 *         -1 if get failed
+	 * */
+	virtual int GetPartitionFromPoa(const char *poa) override;
+};
+
+#endif /* GETKEYOFMQTTPOA_H_ */

@@ -1,0 +1,27 @@
+/*
+ * GetKeyOfPoa.h
+ *
+ *  Created on: 2018-12-24
+ *      Author: root
+ */
+
+#ifndef GETKEYOFPOA_H_
+#define GETKEYOFPOA_H_
+#include <string.h>
+#include <string>
+using namespace std;
+class GetKeyOfPoa
+{
+public:
+	GetKeyOfPoa();
+	virtual ~GetKeyOfPoa();
+public:
+	/*
+	 * @purpose:get partition from poa
+	 * @return the partition
+	 *         -1 if get failed
+	 * */
+	virtual int GetPartitionFromPoa(const char *poa) = 0;
+};
+
+#endif /* GETKEYOFPOA_H_ */

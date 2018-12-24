@@ -1,0 +1,40 @@
+/*
+ * GetKeyOfMqttPoa.cpp
+ *
+ *  Created on: 2018-12-24
+ *      Author: root
+ */
+
+#include "GetKeyOfMqttPoa.h"
+
+GetKeyOfMqttPoa::GetKeyOfMqttPoa()
+{
+	// TODO Auto-generated constructor stub
+
+}
+/*
+ * @purpose:get partition from poa
+ * @return true if get ok
+ * */
+bool GetKeyOfMqttPoa::GetPartitionFromPoa(const char *poa, int partition)
+{
+	const char *p = strstr(poa, "mqtt-");
+	if (nullptr == p)
+	{
+		return false;
+	}
+	p += 5;
+	if (0 == *p || 0 == *(p + 1))
+	{
+		return false;
+	}
+	char buf[8] = "";
+	strncpy(buf, p, 2);
+
+
+	return true;
+}
+GetKeyOfMqttPoa::~GetKeyOfMqttPoa()
+{
+	// TODO Auto-generated destructor stub
+}

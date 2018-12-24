@@ -1,0 +1,20 @@
+/*
+ * GetKeyOfPoa.h
+ *
+ *  Created on: 2018-12-24
+ *      Author: root
+ */
+
+#ifndef GETKEYOFPOA_H_
+#define GETKEYOFPOA_H_
+
+class GetKeyOfPoa
+{
+public:
+	GetKeyOfPoa();
+	virtual ~GetKeyOfPoa();
+public:
+	virtual void Get(const char *poa, int partition) = 0;
+};
+
+#endif /* GETKEYOFPOA_H_ */

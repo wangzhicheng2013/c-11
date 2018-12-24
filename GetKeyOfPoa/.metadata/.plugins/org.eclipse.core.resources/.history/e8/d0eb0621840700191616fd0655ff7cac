@@ -1,0 +1,20 @@
+/*
+ * DispatchGetKeyOfPoa.cpp
+ *
+ *  Created on: 2018-12-24
+ *      Author: root
+ */
+
+#include "DispatchGetKeyOfPoa.h"
+
+DispatchGetKeyOfPoa::DispatchGetKeyOfPoa()
+{
+	// TODO Auto-generated constructor stub
+	mapper["mqtt"] = unique_ptr<GetKeyOfPoa>(new GetKeyOfMqttPoa);
+
+}
+
+DispatchGetKeyOfPoa::~DispatchGetKeyOfPoa()
+{
+	// TODO Auto-generated destructor stub
+}
