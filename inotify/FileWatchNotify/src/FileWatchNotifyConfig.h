@@ -15,7 +15,9 @@ typedef enum WatchEvent
 	CREATE = IN_CREATE,
 	DELETE = IN_DELETE,
 	MODIFIED = IN_MODIFY,
-	ACCESS = IN_ACCESS
+	ACCESS = IN_ACCESS,
+    MOVED_FROM = IN_MOVED_FROM,
+    MOVED_TO = IN_MOVED_TO
 }WatchEvent;
 class FileWatchNotifyConfig {
 public:
@@ -24,7 +26,7 @@ public:
 public:
 	string watch_dir;
 	string watch_file;
-	WatchEvent watch_event;
+	int watch_event;
 
 };
 

@@ -63,6 +63,23 @@ bool FileWatchNotify::InitLibEvent()
 	 event_add(event, NULL);
 	 event_base_dispatch(ev_base);
 }
+void FileWatchNotify::NotifyCallBackFn_LogicJudge(FileWatchNotify *self, struct inotify_event *event)
+{
+    if (event->mask & self->config.watch_event)
+    {
+        if (!(event->mask & IN_ISDIR))
+        {
+            if (self->config.watch_file == event->name)
+            {
+                self->DoNotify();
+            }
+        }
+        if (self->config.watch_file.empty())
+        {
+            self->DoNotify();
+        }
+    }
+}
 void FileWatchNotify::NotifyCallBackFn(int fd, short events, void *arg)
 {
 	char buffer[BUF_LEN] = "";
@@ -87,16 +104,7 @@ void FileWatchNotify::NotifyCallBackFn(int fd, short events, void *arg)
 			cerr << "event->len <= 0" << endl;
 			return;
 		}
-		if (event->mask & self->config.watch_event)
-		{
-			if (!(event->mask & IN_ISDIR))
-			{
-				if (self->config.watch_file == event->name)
-				{
-					self->DoNotify();
-				}
-			}
-		}
+        NotifyCallBackFn_LogicJudge(self, event);
 		i += EVENT_SIZE + event->len;
 	}
 }

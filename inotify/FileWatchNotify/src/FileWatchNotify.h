@@ -27,6 +27,7 @@ private:
 	void DestoryLibEvent();
 private:
 	static void NotifyCallBackFn(int, short, void *);
+    static void NotifyCallBackFn_LogicJudge(FileWatchNotify *self, struct inotify_event *event);
 private:
 	int inotify_fd;
 	int watch_fd;

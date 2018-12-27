@@ -10,7 +10,7 @@
 FileWatchNotifyConfig::FileWatchNotifyConfig()
 {
 	// TODO Auto-generated constructor stub
-	watch_event = MODIFIED;
+	watch_event = MODIFIED | CREATE | DELETE | ACCESS | MOVED_FROM | MOVED_TO;
 }
 
 FileWatchNotifyConfig::~FileWatchNotifyConfig()
