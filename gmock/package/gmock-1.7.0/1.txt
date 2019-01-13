@@ -1,0 +1,78 @@
+Making all in gtest
+make[1]: 正在进入目录 `/opt/c++11/c-11/gmock/package/gmock-1.7.0/gtest'
+depbase=`echo src/gtest-all.lo | sed 's|[^/]*$|.deps/&|;s|\.lo$||'`;\
+	/bin/bash ./libtool --tag=CXX   --mode=compile g++ -DHAVE_CONFIG_H -I. -I./build-aux  -I. -I./include  -pthread -DGTEST_HAS_PTHREAD=1 -g -O2 -MT src/gtest-all.lo -MD -MP -MF $depbase.Tpo -c -o src/gtest-all.lo src/gtest-all.cc &&\
+	mv -f $depbase.Tpo $depbase.Plo
+libtool: compile:  g++ -DHAVE_CONFIG_H -I. -I./build-aux -I. -I./include -pthread -DGTEST_HAS_PTHREAD=1 -g -O2 -MT src/gtest-all.lo -MD -MP -MF src/.deps/gtest-all.Tpo -c src/gtest-all.cc  -fPIC -DPIC -o src/.libs/gtest-all.o
+libtool: compile:  g++ -DHAVE_CONFIG_H -I. -I./build-aux -I. -I./include -pthread -DGTEST_HAS_PTHREAD=1 -g -O2 -MT src/gtest-all.lo -MD -MP -MF src/.deps/gtest-all.Tpo -c src/gtest-all.cc -o src/gtest-all.o >/dev/null 2>&1
+/bin/bash ./libtool --tag=CXX   --mode=link g++ -pthread -DGTEST_HAS_PTHREAD=1 -g -O2   -o lib/libgtest.la -rpath /usr/local/lib src/gtest-all.lo  
+libtool: link: g++  -fPIC -DPIC -shared -nostdlib /usr/lib/gcc/i686-linux-gnu/4.9/../../../i386-linux-gnu/crti.o /usr/lib/gcc/i686-linux-gnu/4.9/crtbeginS.o  src/.libs/gtest-all.o   -L/usr/lib/gcc/i686-linux-gnu/4.9 -L/usr/lib/gcc/i686-linux-gnu/4.9/../../../i386-linux-gnu -L/usr/lib/gcc/i686-linux-gnu/4.9/../../../../lib -L/lib/i386-linux-gnu -L/lib/../lib -L/usr/lib/i386-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/i686-linux-gnu/4.9/../../.. -lstdc++ -lm -lc -lgcc_s /usr/lib/gcc/i686-linux-gnu/4.9/crtendS.o /usr/lib/gcc/i686-linux-gnu/4.9/../../../i386-linux-gnu/crtn.o  -pthread -O2   -pthread -Wl,-soname -Wl,libgtest.so.0 -o lib/.libs/libgtest.so.0.0.0
+libtool: link: (cd "lib/.libs" && rm -f "libgtest.so.0" && ln -s "libgtest.so.0.0.0" "libgtest.so.0")
+libtool: link: (cd "lib/.libs" && rm -f "libgtest.so" && ln -s "libgtest.so.0.0.0" "libgtest.so")
+libtool: link: ar cru lib/.libs/libgtest.a  src/gtest-all.o
+libtool: link: ranlib lib/.libs/libgtest.a
+libtool: link: ( cd "lib/.libs" && rm -f "libgtest.la" && ln -s "../libgtest.la" "libgtest.la" )
+depbase=`echo src/gtest_main.lo | sed 's|[^/]*$|.deps/&|;s|\.lo$||'`;\
+	/bin/bash ./libtool --tag=CXX   --mode=compile g++ -DHAVE_CONFIG_H -I. -I./build-aux  -I. -I./include  -pthread -DGTEST_HAS_PTHREAD=1 -g -O2 -MT src/gtest_main.lo -MD -MP -MF $depbase.Tpo -c -o src/gtest_main.lo src/gtest_main.cc &&\
+	mv -f $depbase.Tpo $depbase.Plo
+libtool: compile:  g++ -DHAVE_CONFIG_H -I. -I./build-aux -I. -I./include -pthread -DGTEST_HAS_PTHREAD=1 -g -O2 -MT src/gtest_main.lo -MD -MP -MF src/.deps/gtest_main.Tpo -c src/gtest_main.cc  -fPIC -DPIC -o src/.libs/gtest_main.o
+libtool: compile:  g++ -DHAVE_CONFIG_H -I. -I./build-aux -I. -I./include -pthread -DGTEST_HAS_PTHREAD=1 -g -O2 -MT src/gtest_main.lo -MD -MP -MF src/.deps/gtest_main.Tpo -c src/gtest_main.cc -o src/gtest_main.o >/dev/null 2>&1
+/bin/bash ./libtool --tag=CXX   --mode=link g++ -pthread -DGTEST_HAS_PTHREAD=1 -g -O2   -o lib/libgtest_main.la -rpath /usr/local/lib src/gtest_main.lo lib/libgtest.la 
+libtool: link: g++  -fPIC -DPIC -shared -nostdlib /usr/lib/gcc/i686-linux-gnu/4.9/../../../i386-linux-gnu/crti.o /usr/lib/gcc/i686-linux-gnu/4.9/crtbeginS.o  src/.libs/gtest_main.o   -Wl,-rpath -Wl,/opt/c++11/c-11/gmock/package/gmock-1.7.0/gtest/lib/.libs lib/.libs/libgtest.so -L/usr/lib/gcc/i686-linux-gnu/4.9 -L/usr/lib/gcc/i686-linux-gnu/4.9/../../../i386-linux-gnu -L/usr/lib/gcc/i686-linux-gnu/4.9/../../../../lib -L/lib/i386-linux-gnu -L/lib/../lib -L/usr/lib/i386-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/i686-linux-gnu/4.9/../../.. -lstdc++ -lm -lc -lgcc_s /usr/lib/gcc/i686-linux-gnu/4.9/crtendS.o /usr/lib/gcc/i686-linux-gnu/4.9/../../../i386-linux-gnu/crtn.o  -pthread -O2   -pthread -Wl,-soname -Wl,libgtest_main.so.0 -o lib/.libs/libgtest_main.so.0.0.0
+libtool: link: (cd "lib/.libs" && rm -f "libgtest_main.so.0" && ln -s "libgtest_main.so.0.0.0" "libgtest_main.so.0")
+libtool: link: (cd "lib/.libs" && rm -f "libgtest_main.so" && ln -s "libgtest_main.so.0.0.0" "libgtest_main.so")
+libtool: link: ar cru lib/.libs/libgtest_main.a  src/gtest_main.o
+libtool: link: ranlib lib/.libs/libgtest_main.a
+libtool: link: ( cd "lib/.libs" && rm -f "libgtest_main.la" && ln -s "../libgtest_main.la" "libgtest_main.la" )
+mkdir -p "./fused-src"
+chmod -R u+w "./fused-src"
+rm -f "./fused-src/gtest/gtest-all.cc"
+rm -f "./fused-src/gtest/gtest.h"
+"./scripts/fuse_gtest_files.py" "./fused-src"
+cp -f "./src/gtest_main.cc" "./fused-src/gtest/"
+depbase=`echo samples/sample1.lo | sed 's|[^/]*$|.deps/&|;s|\.lo$||'`;\
+	/bin/bash ./libtool --tag=CXX   --mode=compile g++ -DHAVE_CONFIG_H -I. -I./build-aux  -I. -I./include  -pthread -DGTEST_HAS_PTHREAD=1 -g -O2 -MT samples/sample1.lo -MD -MP -MF $depbase.Tpo -c -o samples/sample1.lo samples/sample1.cc &&\
+	mv -f $depbase.Tpo $depbase.Plo
+libtool: compile:  g++ -DHAVE_CONFIG_H -I. -I./build-aux -I. -I./include -pthread -DGTEST_HAS_PTHREAD=1 -g -O2 -MT samples/sample1.lo -MD -MP -MF samples/.deps/sample1.Tpo -c samples/sample1.cc  -fPIC -DPIC -o samples/.libs/sample1.o
+libtool: compile:  g++ -DHAVE_CONFIG_H -I. -I./build-aux -I. -I./include -pthread -DGTEST_HAS_PTHREAD=1 -g -O2 -MT samples/sample1.lo -MD -MP -MF samples/.deps/sample1.Tpo -c samples/sample1.cc -o samples/sample1.o >/dev/null 2>&1
+depbase=`echo samples/sample2.lo | sed 's|[^/]*$|.deps/&|;s|\.lo$||'`;\
+	/bin/bash ./libtool --tag=CXX   --mode=compile g++ -DHAVE_CONFIG_H -I. -I./build-aux  -I. -I./include  -pthread -DGTEST_HAS_PTHREAD=1 -g -O2 -MT samples/sample2.lo -MD -MP -MF $depbase.Tpo -c -o samples/sample2.lo samples/sample2.cc &&\
+	mv -f $depbase.Tpo $depbase.Plo
+libtool: compile:  g++ -DHAVE_CONFIG_H -I. -I./build-aux -I. -I./include -pthread -DGTEST_HAS_PTHREAD=1 -g -O2 -MT samples/sample2.lo -MD -MP -MF samples/.deps/sample2.Tpo -c samples/sample2.cc  -fPIC -DPIC -o samples/.libs/sample2.o
+libtool: compile:  g++ -DHAVE_CONFIG_H -I. -I./build-aux -I. -I./include -pthread -DGTEST_HAS_PTHREAD=1 -g -O2 -MT samples/sample2.lo -MD -MP -MF samples/.deps/sample2.Tpo -c samples/sample2.cc -o samples/sample2.o >/dev/null 2>&1
+depbase=`echo samples/sample4.lo | sed 's|[^/]*$|.deps/&|;s|\.lo$||'`;\
+	/bin/bash ./libtool --tag=CXX   --mode=compile g++ -DHAVE_CONFIG_H -I. -I./build-aux  -I. -I./include  -pthread -DGTEST_HAS_PTHREAD=1 -g -O2 -MT samples/sample4.lo -MD -MP -MF $depbase.Tpo -c -o samples/sample4.lo samples/sample4.cc &&\
+	mv -f $depbase.Tpo $depbase.Plo
+libtool: compile:  g++ -DHAVE_CONFIG_H -I. -I./build-aux -I. -I./include -pthread -DGTEST_HAS_PTHREAD=1 -g -O2 -MT samples/sample4.lo -MD -MP -MF samples/.deps/sample4.Tpo -c samples/sample4.cc  -fPIC -DPIC -o samples/.libs/sample4.o
+libtool: compile:  g++ -DHAVE_CONFIG_H -I. -I./build-aux -I. -I./include -pthread -DGTEST_HAS_PTHREAD=1 -g -O2 -MT samples/sample4.lo -MD -MP -MF samples/.deps/sample4.Tpo -c samples/sample4.cc -o samples/sample4.o >/dev/null 2>&1
+/bin/bash ./libtool --tag=CXX   --mode=link g++ -pthread -DGTEST_HAS_PTHREAD=1 -g -O2   -o samples/libsamples.la  samples/sample1.lo samples/sample2.lo samples/sample4.lo  
+libtool: link: ar cru samples/.libs/libsamples.a samples/.libs/sample1.o samples/.libs/sample2.o samples/.libs/sample4.o 
+libtool: link: ranlib samples/.libs/libsamples.a
+libtool: link: ( cd "samples/.libs" && rm -f "libsamples.la" && ln -s "../libsamples.la" "libsamples.la" )
+make[1]:正在离开目录 `/opt/c++11/c-11/gmock/package/gmock-1.7.0/gtest'
+make[1]: 正在进入目录 `/opt/c++11/c-11/gmock/package/gmock-1.7.0'
+depbase=`echo src/gmock-all.lo | sed 's|[^/]*$|.deps/&|;s|\.lo$||'`;\
+	/bin/bash ./libtool --tag=CXX   --mode=compile g++ -DHAVE_CONFIG_H -I. -I./build-aux  -I./gtest/include -I./include  -pthread -DGTEST_HAS_PTHREAD=1 -g -O2 -MT src/gmock-all.lo -MD -MP -MF $depbase.Tpo -c -o src/gmock-all.lo src/gmock-all.cc &&\
+	mv -f $depbase.Tpo $depbase.Plo
+libtool: compile:  g++ -DHAVE_CONFIG_H -I. -I./build-aux -I./gtest/include -I./include -pthread -DGTEST_HAS_PTHREAD=1 -g -O2 -MT src/gmock-all.lo -MD -MP -MF src/.deps/gmock-all.Tpo -c src/gmock-all.cc  -fPIC -DPIC -o src/.libs/gmock-all.o
+libtool: compile:  g++ -DHAVE_CONFIG_H -I. -I./build-aux -I./gtest/include -I./include -pthread -DGTEST_HAS_PTHREAD=1 -g -O2 -MT src/gmock-all.lo -MD -MP -MF src/.deps/gmock-all.Tpo -c src/gmock-all.cc -o src/gmock-all.o >/dev/null 2>&1
+/bin/bash ./libtool --tag=CXX   --mode=link g++ -pthread -DGTEST_HAS_PTHREAD=1 -g -O2   -o lib/libgmock.la -rpath /usr/local/lib src/gmock-all.lo  
+libtool: link: g++  -fPIC -DPIC -shared -nostdlib /usr/lib/gcc/i686-linux-gnu/4.9/../../../i386-linux-gnu/crti.o /usr/lib/gcc/i686-linux-gnu/4.9/crtbeginS.o  src/.libs/gmock-all.o   -L/usr/lib/gcc/i686-linux-gnu/4.9 -L/usr/lib/gcc/i686-linux-gnu/4.9/../../../i386-linux-gnu -L/usr/lib/gcc/i686-linux-gnu/4.9/../../../../lib -L/lib/i386-linux-gnu -L/lib/../lib -L/usr/lib/i386-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/i686-linux-gnu/4.9/../../.. -lstdc++ -lm -lc -lgcc_s /usr/lib/gcc/i686-linux-gnu/4.9/crtendS.o /usr/lib/gcc/i686-linux-gnu/4.9/../../../i386-linux-gnu/crtn.o  -pthread -O2   -pthread -Wl,-soname -Wl,libgmock.so.0 -o lib/.libs/libgmock.so.0.0.0
+libtool: link: (cd "lib/.libs" && rm -f "libgmock.so.0" && ln -s "libgmock.so.0.0.0" "libgmock.so.0")
+libtool: link: (cd "lib/.libs" && rm -f "libgmock.so" && ln -s "libgmock.so.0.0.0" "libgmock.so")
+libtool: link: ar cru lib/.libs/libgmock.a  src/gmock-all.o
+libtool: link: ranlib lib/.libs/libgmock.a
+libtool: link: ( cd "lib/.libs" && rm -f "libgmock.la" && ln -s "../libgmock.la" "libgmock.la" )
+depbase=`echo src/gmock_main.lo | sed 's|[^/]*$|.deps/&|;s|\.lo$||'`;\
+	/bin/bash ./libtool --tag=CXX   --mode=compile g++ -DHAVE_CONFIG_H -I. -I./build-aux  -I./gtest/include -I./include  -pthread -DGTEST_HAS_PTHREAD=1 -g -O2 -MT src/gmock_main.lo -MD -MP -MF $depbase.Tpo -c -o src/gmock_main.lo src/gmock_main.cc &&\
+	mv -f $depbase.Tpo $depbase.Plo
+libtool: compile:  g++ -DHAVE_CONFIG_H -I. -I./build-aux -I./gtest/include -I./include -pthread -DGTEST_HAS_PTHREAD=1 -g -O2 -MT src/gmock_main.lo -MD -MP -MF src/.deps/gmock_main.Tpo -c src/gmock_main.cc  -fPIC -DPIC -o src/.libs/gmock_main.o
+libtool: compile:  g++ -DHAVE_CONFIG_H -I. -I./build-aux -I./gtest/include -I./include -pthread -DGTEST_HAS_PTHREAD=1 -g -O2 -MT src/gmock_main.lo -MD -MP -MF src/.deps/gmock_main.Tpo -c src/gmock_main.cc -o src/gmock_main.o >/dev/null 2>&1
+/bin/bash ./libtool --tag=CXX   --mode=link g++ -pthread -DGTEST_HAS_PTHREAD=1 -g -O2   -o lib/libgmock_main.la -rpath /usr/local/lib src/gmock_main.lo lib/libgmock.la 
+libtool: link: g++  -fPIC -DPIC -shared -nostdlib /usr/lib/gcc/i686-linux-gnu/4.9/../../../i386-linux-gnu/crti.o /usr/lib/gcc/i686-linux-gnu/4.9/crtbeginS.o  src/.libs/gmock_main.o   -Wl,-rpath -Wl,/opt/c++11/c-11/gmock/package/gmock-1.7.0/lib/.libs lib/.libs/libgmock.so -L/usr/lib/gcc/i686-linux-gnu/4.9 -L/usr/lib/gcc/i686-linux-gnu/4.9/../../../i386-linux-gnu -L/usr/lib/gcc/i686-linux-gnu/4.9/../../../../lib -L/lib/i386-linux-gnu -L/lib/../lib -L/usr/lib/i386-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/i686-linux-gnu/4.9/../../.. -lstdc++ -lm -lc -lgcc_s /usr/lib/gcc/i686-linux-gnu/4.9/crtendS.o /usr/lib/gcc/i686-linux-gnu/4.9/../../../i386-linux-gnu/crtn.o  -pthread -O2   -pthread -Wl,-soname -Wl,libgmock_main.so.0 -o lib/.libs/libgmock_main.so.0.0.0
+libtool: link: (cd "lib/.libs" && rm -f "libgmock_main.so.0" && ln -s "libgmock_main.so.0.0.0" "libgmock_main.so.0")
+libtool: link: (cd "lib/.libs" && rm -f "libgmock_main.so" && ln -s "libgmock_main.so.0.0.0" "libgmock_main.so")
+libtool: link: ar cru lib/.libs/libgmock_main.a  src/gmock_main.o
+libtool: link: ranlib lib/.libs/libgmock_main.a
+libtool: link: ( cd "lib/.libs" && rm -f "libgmock_main.la" && ln -s "../libgmock_main.la" "libgmock_main.la" )
+make[1]:正在离开目录 `/opt/c++11/c-11/gmock/package/gmock-1.7.0'
