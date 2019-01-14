@@ -3,6 +3,7 @@
 #include <iostream>
 #include <string>
 using namespace std;
+using ::testing::Return;
 class Message
 {
 public:
@@ -13,18 +14,15 @@ class MockMessage : public Message
 public:
     MOCK_METHOD0(Get, string());
 };
-void fun(Message *p)
+string fun(Message *p)
 {
     string str = p->Get();
+    return str;
 }
 TEST(TestMessage, TestOK)
 {
     MockMessage msg;
     string str = "hello world";
-    EXPECT_CALL(msg, Get()).WillRepeatedly(Return(ByRef(str)));
+    EXPECT_CALL(msg, Get()).WillRepeatedly(Return(str));
     EXPECT_EQ(str, fun(&msg));
-}
-int main()
-{
-    return 0;
 }

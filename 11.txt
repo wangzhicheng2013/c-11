@@ -1,0 +1,11 @@
+subid
+absolutetime
+cin
+store => LRU
+
+messagecnt = 1
+query redis => subrelation
+
+messagecnt = N
+query ES => subrelation
+
