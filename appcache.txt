@@ -1,0 +1,25 @@
+insert message
+llen > MAX:
+    lpop => value => del
+list rpush
+subid000
+(000000, 000001, 000002)
+
+subid000_00000000
+(11, 22, 33, 44, 55, 66)
+
+subid000_00000001
+(11, 22, 33, 44, 55, 66)
+
+subid000_00000002
+(11, 22, 33, 44, 55, 66)
+
+
+delete message
+lrem subid000 0 0000000
+del subid000_0000000000
+
+send cache message
+subid000 N
+llen
+lrange -n len
