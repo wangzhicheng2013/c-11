@@ -1,1 +1,1 @@
-g++ -std=c++11 -g -o test test.cpp -lgtest -lgtest_main -lgmock -lgmock_main -lpthread
+g++ -g -o test test.cpp gmock_main.a -I ./include -L ./ -lgmock -lgtest -lpthread
