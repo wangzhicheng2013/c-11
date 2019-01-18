@@ -23,6 +23,8 @@ string fun(Message *p)
 }
 class Request
 {
+public:
+    int a;
 };
 class Response
 {
@@ -33,9 +35,9 @@ public:
 class Client
 {
 public:
-    bool Query(const Request &req, Response &resp)
+    virtual bool Query(const Request &req, Response &resp)
     {
-        return true;
+        return false;
     }
 };
 class MockClient : public Client
@@ -43,10 +45,17 @@ class MockClient : public Client
 public:
     MOCK_METHOD2(Query, bool(const Request &, Response &));
 };
-bool ConnectServer(Client &client, Response &resp)
+bool ConnectServer(Client *client, int &res)
 {
     Request req;
-    return client.Query(req, resp);
+    Response resp;
+    if (client->Query(req, resp))
+    {
+        cout << resp.x << endl;
+        res = resp.x + resp.y;
+        return true;
+    }
+    return false;
 }
 TEST(TestMessage, TestOK)
 {
@@ -62,8 +71,8 @@ TEST(TestClient, TestOK)
     Response resp;
     resp.x = 10;
     resp.y = 20;
-    EXPECT_CALL(mockClient, Query(testing::_,testing::_)).WillOnce(DoAll(testing::SetArgReferee<1>(resp), testing::Return(true)));
-    EXPECT_TRUE(ConnectServer(mockClient, resp));
-    //EXPECT_EQ(10, resp.x);
-    //EXPECT_EQ(20, resp.y);
+    EXPECT_CALL(mockClient, Query(testing::_,testing::_)).WillRepeatedly(DoAll(testing::SetArgReferee<1>(resp), testing::Return(true)));
+    int res = 0;
+    EXPECT_TRUE(ConnectServer(&mockClient, res));
+    EXPECT_EQ(30, res);
 }
