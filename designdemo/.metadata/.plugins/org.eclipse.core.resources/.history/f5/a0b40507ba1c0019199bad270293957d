@@ -1,0 +1,22 @@
+/*************************************************
+Copyright:wangzhicheng
+Author: wangzhicheng
+Date:2019-01-20
+Description:distributed lock with redis
+ChangeLog:
+			1. create this file
+ **************************************************/
+
+#ifndef DISTRIBUTEDLOCKWITHREDIS_H_
+#define DISTRIBUTEDLOCKWITHREDIS_H_
+#include "RedisClient.h"
+class DistributedLockWithRedis
+{
+public:
+	DistributedLockWithRedis();
+	virtual ~DistributedLockWithRedis();
+private:
+	RedisClient *client;
+};
+
+#endif /* DISTRIBUTEDLOCKWITHREDIS_H_ */

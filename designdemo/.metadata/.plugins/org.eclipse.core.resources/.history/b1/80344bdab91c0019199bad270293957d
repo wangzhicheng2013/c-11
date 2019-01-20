@@ -1,0 +1,20 @@
+/*************************************************
+Copyright:wangzhicheng
+Author: wangzhicheng
+Date:2019-01-20
+Description:distributed lock with redis
+ChangeLog:
+			1. create this file
+			2. add Publish method
+			3. add SetNx method
+ **************************************************/
+#include "DistributedLockWithRedis.h"
+
+DistributedLockWithRedis::DistributedLockWithRedis() {
+	// TODO Auto-generated constructor stub
+
+}
+
+DistributedLockWithRedis::~DistributedLockWithRedis() {
+	// TODO Auto-generated destructor stub
+}

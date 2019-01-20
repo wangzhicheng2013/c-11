@@ -1,0 +1,11 @@
+/*
+ * main.cpp
+ *
+ *  Created on: 2019-1-20
+ *      Author: root
+ */
+#include " DistributedLockWithRedis.h"
+int main()
+{
+	return 0;
+}

@@ -1,0 +1,17 @@
+/*
+ * DistributedLockWithRedis.cpp
+ *
+ *  Created on: 2019-1-20
+ *      Author: root
+ */
+
+#include "DistributedLockWithRedis.h"
+
+DistributedLockWithRedis::DistributedLockWithRedis() {
+	// TODO Auto-generated constructor stub
+
+}
+
+DistributedLockWithRedis::~DistributedLockWithRedis() {
+	// TODO Auto-generated destructor stub
+}

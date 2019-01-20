@@ -1,0 +1,17 @@
+/*
+ * DistributedLockWithRedis.h
+ *
+ *  Created on: 2019-1-20
+ *      Author: root
+ */
+
+#ifndef DISTRIBUTEDLOCKWITHREDIS_H_
+#define DISTRIBUTEDLOCKWITHREDIS_H_
+
+class DistributedLockWithRedis {
+public:
+	DistributedLockWithRedis();
+	virtual ~DistributedLockWithRedis();
+};
+
+#endif /* DISTRIBUTEDLOCKWITHREDIS_H_ */

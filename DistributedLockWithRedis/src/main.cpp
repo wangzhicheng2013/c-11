@@ -1,0 +1,86 @@
+/*************************************************
+Copyright:wangzhicheng
+Author: wangzhicheng
+Date:2019-01-20
+Description:main entry
+ChangeLog:
+			1. create this file
+ **************************************************/
+#include "DistributedLockWithRedis.h"
+#include <string.h>
+#include <chrono>
+#include <thread>
+using namespace chrono;
+const char *pid = "pid001abcsefkkk899abcq112ss";
+const int N = 100000;
+char value[1024] = "";
+void InsertPidThread0WithNoLock(RedisClient *client)
+{
+	char key[8] = "";
+	for (int i = 0;i < N / 2;i++)
+	{
+		snprintf(key, sizeof(key), "%d", i);
+		client->SetNxValue(key, value);
+	}
+}
+void InsertPidThread1WithNoLock(RedisClient *client)
+{
+	char key[8] = "";
+	for (int i = N / 2;i < N;i++)
+	{
+		snprintf(key, sizeof(key), "%d", i);
+		client->SetNxValue(key, value);
+	}
+}
+void InsertPidThread0WithLock(RedisClient *client)
+{
+	char key[8] = "";
+	for (int i = 0;i < N / 2;i++)
+	{
+		DistributedLockWithRedis lock(client, pid);
+		snprintf(key, sizeof(key), "%d", i);
+		client->SetNxValue(key, value);
+	}
+}
+void InsertPidThread1WithLock(RedisClient *client)
+{
+	char key[8] = "";
+	for (int i = N / 2;i < N;i++)
+	{
+		DistributedLockWithRedis lock(client, pid);
+		snprintf(key, sizeof(key), "%d", i);
+		client->SetNxValue(key, value);
+	}
+}
+int main()
+{
+	memset(value, 'A', sizeof(value) - 1);
+	RedisClient redisclient0;
+	RedisClient redisclient1;
+	if (!redisclient0.Connect() || !redisclient1.Connect())
+	{
+		return -1;
+	}
+	// test with no lock
+	auto start = system_clock::now();
+	thread th0(InsertPidThread0WithNoLock, &redisclient0);
+	thread th1(InsertPidThread1WithNoLock, &redisclient1);
+	th0.join();
+	th1.join();
+	auto end = system_clock::now();
+	auto duration = duration_cast<microseconds>(end - start);
+	// 2.7235s
+	cout << "eclipse time = " << double(duration.count()) * microseconds::period::num / microseconds::period::den << "s" << endl;
+
+	// test with lock
+	start = system_clock::now();
+	thread th2(InsertPidThread0WithLock, &redisclient0);
+	thread th3(InsertPidThread1WithLock, &redisclient1);
+	th2.join();
+	th3.join();
+	end = system_clock::now();
+	duration = duration_cast<microseconds>(end - start);
+	// 2.8135s
+	cout << "eclipse time = " << double(duration.count()) * microseconds::period::num / microseconds::period::den << "s" << endl;
+	return 0;
+}

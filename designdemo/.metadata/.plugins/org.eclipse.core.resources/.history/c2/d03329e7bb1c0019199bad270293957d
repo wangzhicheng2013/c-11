@@ -1,0 +1,13 @@
+/*
+ * main.cpp
+ *
+ *  Created on: 2019-1-20
+ *      Author: root
+ */
+#include "DistributedLockWithRedis.h"
+int main()
+{
+	RedisClient redisclient;
+	redisclient.Connect()
+	return 0;
+}
