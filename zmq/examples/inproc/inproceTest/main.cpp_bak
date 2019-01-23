@@ -7,8 +7,7 @@
 #include <thread>
 using namespace std;
 static const int SIZE = 1024;
-//static const int LOOP = 1000000;
-static const int LOOP = 1;
+static const int LOOP = 1000000;
 const char *address = "inproc://#0";
 char buf[SIZE] = "";
 bool MainThread()
@@ -21,12 +20,11 @@ bool MainThread()
         return false;
     }
     zmq_bind(server, address);
-    sleep(2);
     while (true)
     {
         zmq_msg_t message;
         zmq_msg_init(&message);
-        cout << zmq_msg_recv(&message, server, ZMQ_DONTWAIT) << endl;
+        zmq_msg_recv(&message, server, 0);
         zmq_msg_close(&message);
     }
     zmq_close(server);
@@ -42,7 +40,7 @@ bool ChildThread()
         cerr << "client socket init failed...!" << endl;
         return false;
     }
-    sleep(1);
+    sleep(2);
     zmq_connect(client, address);
     int sendcnt = 0;
     struct timeval startTime, endTime;

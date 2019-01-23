@@ -23,3 +23,12 @@ send cache message
 subid000 N
 llen
 lrange -n len
+
+
+KafkaMsgProcess                               KafkaTiaProcess
+                                              app offline/busy => online/not busy
+SendAppCache        receive notification      <= notify nonblockingqueue<int>
+                    N/Not Send Y Send
+SendNormalMessage
+
+
