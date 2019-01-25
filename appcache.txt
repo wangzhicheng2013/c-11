@@ -31,4 +31,16 @@ SendAppCache        receive notification      <= notify nonblockingqueue<int>
                     N/Not Send Y Send
 SendNormalMessage
 
+bool ProcessAppCache(messagecnt, pSubRelation)
+if cache messagecnt <= 0:
+    return false
+ if false == lpop oldest message => json:
+    return false
+ rpush newest message
+ json => subrelation => send
+ return true
 
+if (false == ProcessAppCache)
+{
+    if (SendMessage) InsertMessage
+}
