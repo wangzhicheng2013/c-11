@@ -44,3 +44,23 @@ if (false == ProcessAppCache)
 {
     if (SendMessage) InsertMessage
 }
+101
+
+102
+103
+
+
+
+CacheStatusTable
+key -- pid value -- status unsigned char
+                    1 offline => online 
+                    2 online => offline always be offline
+                    0 always be online
+SubRelation
+            status OFFLINE
+SendAppCacheMessage
+    .....
+    subrelation.status = 2
+SendNormalMessage
+    if 2 == subrelation.status ==> ProcessAppCache
+    else ...
