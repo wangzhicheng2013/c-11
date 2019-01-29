@@ -64,3 +64,9 @@ SendAppCacheMessage
 SendNormalMessage
     if 2 == subrelation.status ==> ProcessAppCache
     else ...
+
+if (0 == subrelation.appcachemessagentcnt):
+    InsertRetryMessage
+        lpop
+        rpush
+
