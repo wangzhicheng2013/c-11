@@ -1,0 +1,23 @@
+GetAES Query product information:
+    false => send kafka message (id, pid)
+             store MutexHashMap(key-- id, SubRelation *)
+    transaction failed return
+
+
+RegenerateProductThread
+    consumer kafka message for certain topic 
+    parse json
+    if status is failed => nothing to do
+    else send (id, ProductRegenerateEvent) => queue     
+
+KafkaMsgProcessThread
+    while (true):
+        obj = dequeue(queue)
+        if obj != null:
+            ProductRegenerateHandle(obj.id)
+        consumer from kafka
+
+
+ProductRegenerateHandle(const string &id):
+    query from MutexHashMap with id => SubRelation
+    call SendRegerateProductMessage
