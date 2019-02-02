@@ -18,8 +18,13 @@ void RecieveMessage(const char *channel_name,
 	string str(message, len);
 	cout << "Recieve message = " << str << " from channel = " << channel_name << endl;
 }
+void fun()      
+{
+}
+using FUN = function<void()>;
 int main()
 {
+    FUN func = fun;
 	SubCallBackFun subCallBackFun = SubCallBackFun([](const char *channel_name,
 			const char *message,
 			int len){

@@ -21,3 +21,25 @@ KafkaMsgProcessThread
 ProductRegenerateHandle(const string &id):
     query from MutexHashMap with id => SubRelation
     call SendRegerateProductMessage
+
+
+
+RegenerateHandle
+    ProductRegenerate(const char *pid, KafkaRedisHandle):
+        generate transid
+        construct json(pid, transid)
+        send json to kafka
+    
+
+RegenerateMsg 
+ProductRegernateMsg : public RegenerateMsg
+   msg_type PRODUCT_REGERNERATE     Handler(KafkaRedisHandler &, ProductRegenerateMsg)
+   msg_type PRODUCT_REGERNERATE     Handler(KafkaRedisHandler &, ProductRegenerateMsg)
+AddRegerateMsg(msg, kafkaredishandler)
+DoRegerateMsg(type, kafkaredishandler)
+        dequeue
+        failed return
+        parse json
+        query with id => ProductRegenerateMsg
+
+
