@@ -11,7 +11,9 @@
 #include <string>
 #include <fstream>
 #include <thread>
+#include "blockingconcurrentqueue.h"
 using namespace std;
+using namespace moodycamel;
 class SimLog {
 public:
 	static SimLog & GetInstance()
@@ -24,6 +26,13 @@ public:
 private:
 	SimLog();
 	virtual ~SimLog();
+private:
+	void WriteFile();
+private:
+	thread WriteFileThread;
+	BlockingConcurrentQueue<string>queueForLine;
+private:
+	const int BATCHLINES = 100;
 private:
 	string logpath;
 	ofstream ofs;
