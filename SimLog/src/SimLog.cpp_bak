@@ -17,7 +17,7 @@ bool SimLog::Init(const string &path)
 	{
 		logpath = path;
 	}
-	ofs.open(logpath.c_str(), ios::app | ios::out | ios::binary);
+	ofs.open(logpath.c_str(), ios::app | ios::out);
 	if (!ofs.is_open())
 	{
 		cerr << logpath << " open failed...!" << endl;
@@ -47,26 +47,27 @@ void SimLog::WriteFile()
 		queueForLine.wait_dequeue(line);
 		tmp += line;
 		tmp += "\n";
+		cout << tmp;
 		if (++count >= BATCHLINES)
 		{
 			count = 0;
 			ofs << tmp;
 			tmp.clear();
 		}
-		if (ofs.tellp() >= SINGLE_FILESIZE)
+		if (0 == queueForLine.size_approx())
 		{
-			ofs.close();
-			ofs.open("./22.txt", ios::app | ios::out | ios::binary);
-			if (!ofs.is_open())
+			if (!tmp.empty())
 			{
-				cerr << "open failed...!" << endl;
-				break;
+				ofs << tmp;
 			}
+			ofs.close();
+			break;
 		}
 	}
 }
 SimLog::~SimLog() {
 	// TODO Auto-generated destructor stub
+	ofs.close();
 	if (WriteFileThread.joinable())
 	{
 		WriteFileThread.join();

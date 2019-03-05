@@ -7,6 +7,8 @@
 
 #ifndef SIMLOG_H_
 #define SIMLOG_H_
+#include <stdlib.h>
+#include <unistd.h>
 #include <iostream>
 #include <string>
 #include <fstream>
@@ -33,6 +35,7 @@ private:
 	BlockingConcurrentQueue<string>queueForLine;
 private:
 	const int BATCHLINES = 100;
+	const int SINGLE_FILESIZE = 1024; // 1k
 private:
 	string logpath;
 	ofstream ofs;

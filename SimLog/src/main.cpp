@@ -7,11 +7,11 @@
 #include "SimLog.h"
 int main()
 {
-	if (false == SimLog::GetInstance().Init(""))
+	if (false == SimLog::GetInstance().Init("./11.txt"))
 	{
 		return -1;
 	}
-	string str(1024, 'A');
+	string str(10, 'A');
 	for (int i = 0;i < 1000;i++)
 	{
 		SimLog::GetInstance().Log(str);
