@@ -10,6 +10,8 @@ SimLog SimLog::simlog;
 SimLog::SimLog() {
 	// TODO Auto-generated constructor stub
 	logpath = "./tmp.log";
+	log_files_count = 0;
+	memset(log_file_path, 0, sizeof(log_file_path));
 }
 bool SimLog::Init(const string &path)
 {
@@ -17,7 +19,7 @@ bool SimLog::Init(const string &path)
 	{
 		logpath = path;
 	}
-	ofs.open(logpath.c_str(), ios::app | ios::out | ios::binary);
+	ofs.open(logpath.c_str(), ios::out | ios::app);
 	if (!ofs.is_open())
 	{
 		cerr << logpath << " open failed...!" << endl;
@@ -37,6 +39,21 @@ void SimLog::Log(const string &str)
 {
 	queueForLine.enqueue(str);
 }
+bool SimLog::AddNewLogFile()
+{
+	ofs.close();
+	GetNewLogPath();
+	remove(log_file_path);
+	ofs.open(log_file_path, ios::out | ios::app);
+	if (!ofs.is_open())
+	{
+		ofs.close();
+		cerr << log_file_path << " open failed...!" << endl;
+		return false;
+	}
+	//ofs.seekp(ios::beg);
+	return true;
+}
 void SimLog::WriteFile()
 {
 	string line;
@@ -53,15 +70,14 @@ void SimLog::WriteFile()
 			ofs << tmp;
 			tmp.clear();
 		}
-		if (ofs.tellp() >= SINGLE_FILESIZE)
+		if (ofs.tellp() >= SINGLE_FILESIZE && !tmp.empty())
 		{
-			ofs.close();
-			ofs.open("./22.txt", ios::app | ios::out | ios::binary);
-			if (!ofs.is_open())
+			if (false == AddNewLogFile())
 			{
-				cerr << "open failed...!" << endl;
 				break;
 			}
+			ofs << tmp;
+			tmp.clear();
 		}
 	}
 }

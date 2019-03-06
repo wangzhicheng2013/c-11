@@ -7,12 +7,12 @@
 #include "SimLog.h"
 int main()
 {
-	if (false == SimLog::GetInstance().Init("./11.txt"))
+	if (false == SimLog::GetInstance().Init("./22.log"))
 	{
 		return -1;
 	}
 	string str(10, 'A');
-	for (int i = 0;i < 1000;i++)
+	for (int i = 0;i < 200003;i++)
 	{
 		SimLog::GetInstance().Log(str);
 	}
