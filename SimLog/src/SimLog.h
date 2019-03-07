@@ -32,25 +32,14 @@ private:
 private:
 	void WriteFile();
 	bool AddNewLogFile();
-	inline void GetNewLogPath()
-	{
-		log_files_count = (log_files_count + 1) % MAX_LOG_FILES_COUNT;
-		if (0 != log_files_count)
-		{
-			snprintf(log_file_path, sizeof(log_file_path), "%s.%d", logpath.c_str(), log_files_count);
-		}
-		else
-		{
-			snprintf(log_file_path, sizeof(log_file_path), "%s", logpath.c_str());
-		}
-	}
+	void GetNewLogPath();
 private:
 	thread WriteFileThread;
 	BlockingConcurrentQueue<string>queueForLine;
 private:
 	const int BATCHLINES = 100;
 	const int SINGLE_FILESIZE = 1024; // 1k
-	const int MAX_LOG_FILES_COUNT = 3;
+	const int MAX_LOG_FILES_COUNT = 5;
 private:
 	int log_files_count;
 	char log_file_path[128];
