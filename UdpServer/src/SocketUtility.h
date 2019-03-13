@@ -21,7 +21,7 @@ class SocketUtility
 public:
 	static SocketUtility &GetInstance()
 	{
-		return SocketUtility;
+		return socketUtility;
 	}
 	/*
 	 * @purpose:bind socket
@@ -39,7 +39,7 @@ private:
 	 * */
 	int InitSocket(unsigned char type = UDP);
 private:
-	static SocketUtility SocketUtility;
+	static SocketUtility socketUtility;
 };
 
 #endif /* SOCKECTOP_H_ */

@@ -6,7 +6,7 @@
  */
 
 #include "SocketUtility.h"
-SocketUtility SocketUtility::SocketUtility;
+SocketUtility SocketUtility::socketUtility;
 SocketUtility::SocketUtility()
 {
 }

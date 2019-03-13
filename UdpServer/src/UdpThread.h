@@ -15,13 +15,16 @@ public:
 	UdpThread();
 	virtual ~UdpThread();
 public:
-	bool Init(const SocketConfig &config);
+	bool Init(int fd);
+	void UdpDispatchEvent();
+	virtual bool DealUdpMessage(int fd) = 0;
 	static void ReadUdpCallBackFun(int fd, short event, void *arg);
 protected:
+	int sock_fd;
 	event_base *pBase;
 	event *pEvent;
 protected:
-	int sock_fd;
+	const int buffer_size = 1024;
 };
 
 #endif /* UDPTHREAD_H_ */
