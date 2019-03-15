@@ -10,6 +10,7 @@
 SocketConfig::SocketConfig()
 {
 	// TODO Auto-generated constructor stub
+	ip = "127.0.0.1";
 	port = 8080;
 	backlog = 1024;
 	type = UDP;

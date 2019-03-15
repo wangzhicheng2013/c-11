@@ -28,6 +28,11 @@ bool UdpServer::Init(int network_size)
 	for (int i = 0;i < network_size;i++)
 	{
 		vecUdpthreads.emplace_back(unique_ptr<UdpThread>(new UdpTheadForRadius));
+		if (false == vecUdpthreads[i]->Init(sock_fd))
+		{
+			cerr << "udp thread init failed...!" << endl;
+			continue;
+		}
 		try
 		{
 			vecThreads[i] = thread(bind(&UdpServer::StartUdpThread, this, i));

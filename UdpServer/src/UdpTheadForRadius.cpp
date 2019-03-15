@@ -26,6 +26,8 @@ bool UdpTheadForRadius::DealUdpMessage(int fd)
 	{
 		cerr << "connection closed...!" << endl;
 	}
+	cout << "connection port = " << client_addr.sin_port << endl;
+	cout << "connection ip = " << inet_ntoa(client_addr.sin_addr) << endl;
 	cout << "server recv message len = " << len << endl;
 	cout << "sever send back message now...!" << endl;
 	sendto(fd, buf, sizeof(buf), 0, (struct sockaddr *)&client_addr, size);
