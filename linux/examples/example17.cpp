@@ -1,3 +1,4 @@
+//https://www.linuxidc.com/Linux/2019-01/156341.htm
 #include <stdint.h>
 #include <iostream>
 #include <cmath>
