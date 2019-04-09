@@ -18,6 +18,8 @@ PingRes::PingRes()
 }
 void PingRes::ShowRes()
 {
+	cout << "ping path = " << ping_path << endl;
+	cout << "packet number = " << pack_num << endl;
 	cout << "send number = " << send_num << endl;
 	cout << "receive number = " << recv_num << endl;
 	cout << "packet loss rate = " << loss_rate << endl;
